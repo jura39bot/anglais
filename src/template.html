@@ -223,6 +223,13 @@ border:1px solid var(--stroke2);border-radius:18px;padding:13px;margin-top:9px}
 .qline b{font-size:15px}
 .qline .fr{color:var(--dim);font-size:13px;margin-top:2px}
 hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:16px 0}
+
+.fb{margin-top:13px;padding:14px 15px;border-radius:16px;font-weight:700;font-size:14.5px;line-height:1.5;
+-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.fb.ok{background:rgba(90,209,0,.15);border:1px solid rgba(120,230,60,.42);color:#c9ffa8}
+.fb.no{background:rgba(255,70,70,.13);border:1px solid rgba(255,90,90,.42);color:#ffc9c9}
+.fb.no b{color:#ff6b6b}
+.fb.ok b{color:#9dff6b}
 </style>
 </head>
 <body>
@@ -702,53 +709,108 @@ function browse(a){
   });
 }
 
+
 function conjScreen(a){
   S._tab=S._tab||"lecon";
   const tabs=`<div class="tabs">
     <button class="tab ${S._tab==="lecon"?"on":""}" data-t="lecon">📖 Leçons</button>
     <button class="tab ${S._tab==="questions"?"on":""}" data-t="questions">❓ Questions</button></div>`;
   if(S._tab==="lecon"){
-    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:38px"></span></div>
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:40px"></span></div>
     ${tabs}<div class="stack" id="cs"></div>`;
     const box=$("#cs");
     CONJ.forEach(v=>{
-      let html=`<div class="card"><div class="between"><b style="font-size:17px">${esc(v.v)}</b><span class="phon">${esc(v.p||"")}</span></div><div class="small muted">${esc(v.fr)}</div>`;
+      let h=`<div class="card"><div class="between"><b style="font-size:17px">${esc(v.v)}</b><span class="phon">${esc(v.p||"")}</span></div><div class="small muted">${esc(v.fr)}</div>`;
       ["present","past","future","imperative"].forEach(t=>{
         if(!v.t[t])return;
-        html+=`<div class="tense ${TCLS[t]}">${TNAMES[t]}</div><div class="forms">${v.t[t].map(x=>esc(x)).join(" · ")}</div>`;
+        h+=`<div class="tense ${TCLS[t]}">${TNAMES[t]}</div><div class="forms">${v.t[t].map(x=>esc(x)).join(" · ")}</div>`;
       });
       if(v.ex&&v.ex.length){
-        html+=`<div class="spacer"></div>`;
-        v.ex.forEach(e=>{html+=`<div class="ex">${hl(e.s,e.t)}<br><span style="color:#6f82a0">${esc(e.f)}</span></div>`});
+        h+=`<div class="spacer"></div>`;
+        v.ex.forEach(e=>{h+=`<div class="ex">${hl(e.s,e.t)}<br><span style="color:#7d8ba6">${esc(e.f)}</span></div>`});
       }
-      html+=`</div>`;
-      box.appendChild(el(html));
+      box.appendChild(el(h+`</div>`));
+    });
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+
+  if(!S._cs)S._cs={i:0,total:12,ok:0,ko:0,q:null,answered:false,pick:-1,done:false};
+  const st=S._cs;
+
+  if(st.done){
+    const acc=Math.round(100*st.ok/(st.total||1));
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:40px"></span></div>
+    ${tabs}
+    <div style="text-align:center;margin-top:5vh"><div style="font-size:60px">${acc>=80?"🎉":acc>=50?"💪":"🌱"}</div>
+      <h1 style="margin-top:8px">${acc>=80?"Excellent !":acc>=50?"Bien joué":"On continue"}</h1>
+      <p class="muted" style="margin-top:6px">Série terminée</p></div>
+    <div class="spacer"></div>
+    <div class="grid3"><div class="stat"><b>${st.ok}</b><i>justes</i></div>
+      <div class="stat"><b>${st.ko}</b><i>erreurs</i></div>
+      <div class="stat"><b>${acc}%</b><i>réussite</i></div></div>
+    <div class="spacer"></div>
+    <button class="btn" id="again">Nouvelle série de 12</button>`;
+    $("#again").onclick=()=>{S._cs=null;render()};
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+
+  if(!st.q)newConjQ();
+  const q=st.q, v=CONJ[q.vi];
+  const pct=Math.round(100*st.i/st.total);
+
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:40px"></span></div>
+  ${tabs}
+  <div class="between" style="margin-bottom:8px">
+    <span class="pill">Question ${st.i+1} / ${st.total}</span>
+    <span class="tiny muted">${st.ok} ✓ · ${st.ko} ✗</span>
+  </div>
+  <div class="bar" style="margin-bottom:14px"><i style="width:${pct}%"></i></div>
+
+  <div class="cardq">
+    <div class="tiny ${TCLS[q.t]}" style="letter-spacing:.1em;text-transform:uppercase;font-weight:800">${TNAMES[q.t]}</div>
+    <div style="font-size:24px;font-weight:800;margin-top:8px">${PERS[q.p]} <span style="color:rgba(255,255,255,.35)">___</span> <span class="muted" style="font-size:15px">(${esc(v.v)})</span></div>
+    <div class="small muted" style="margin-top:4px">${esc(v.fr)}</div>
+  </div>
+
+  <div id="o">${q.opts.map((x,i)=>{
+    let cls="choice";
+    if(st.answered){
+      if(x===q.good)cls+=" ok";
+      else if(i===st.pick)cls+=" no";
+    }
+    return `<button class="${cls}" data-i="${i}"><span class="k">${"ABCD"[i]}</span><span class="${TCLS[q.t]}">${esc(x)}</span></button>`;
+  }).join("")}</div>
+
+  ${st.answered?`<div class="fb ${st.pick===q.opts.indexOf(q.good)?"ok":"no"}">
+     ${st.pick===q.opts.indexOf(q.good)
+       ? `✓ Juste — <b>${esc(q.good)}</b>`
+       : `✗ Faux. La bonne réponse est <b>${esc(q.good)}</b>`}
+   </div>`:""}
+
+  <div class="feed"><div><button class="btn" id="nx">${st.answered?(st.i+1>=st.total?"Voir le bilan":"Question suivante"):"Choisis une réponse"}</button></div></div>`;
+
+  if(!st.answered){
+    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
+      st.pick=+b.dataset.i;
+      st.answered=true;
+      const ok=q.opts[st.pick]===q.good;
+      if(ok){st.ok++;S.good++;S.xp+=10}else{st.ko++;S.bad++;S.xp+=2}
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();render();
     });
   } else {
-    if(!S._cq||S._cq.done)newConjQ();
-    const q=S._cq;const v=CONJ[q.vi];
-    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:38px"></span></div>
-    ${tabs}
-    <div class="cardq">
-      <div class="tiny muted">${TNAMES[q.t]}</div>
-      <div style="font-size:24px;font-weight:800;margin-top:6px">${PERS[q.p]} ___ <span class="muted" style="font-size:15px">(${esc(v.v)})</span></div>
-      <div class="small muted" style="margin-top:4px">${esc(v.fr)}</div>
-    </div>
-    <div id="o">${q.opts.map((x,i)=>`<button class="choice" data-i="${i}"><span class="k">${"ABCD"[i]}</span><span class="${TCLS[q.t]}">${esc(x)}</span></button>`).join("")}</div>
-    <div class="feed"><div><button class="btn" id="nx" disabled>Suivant</button></div></div>`;
-    let done=false;
-    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
-      if(done)return;done=true;
-      const ok=q.opts[+b.dataset.i]===q.good;
-      b.classList.add(ok?"ok":"no");
-      if(!ok)a.querySelectorAll("#o .choice").forEach(x=>{if(q.opts[+x.dataset.i]===q.good)x.classList.add("ok")});
-      S.good+=ok?1:0;S.bad+=ok?0:1;S.xp+=ok?10:2;
-      S.history[today()]=S.history[today()]||{xp:0,m:0};S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
-      save();$("#nx").disabled=false;
-    });
-    $("#nx").onclick=()=>{S._cq=null;render()};
+    $("#nx").disabled=false;
+    $("#nx").onclick=()=>{
+      st.i++;st.answered=false;st.pick=-1;st.q=null;
+      if(st.i>=st.total){st.done=true}
+      render();
+    };
   }
-  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;if(S._tab==="questions")S._cq=null;render()});
+
+  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
 }
 
 function newConjQ(){
@@ -756,14 +818,20 @@ function newConjQ(){
   const v=CONJ[vi];
   const tenses=Object.keys(v.t).filter(t=>v.t[t][0]&&v.t[t][0]!=="—");
   const t=tenses[Math.floor(Math.random()*tenses.length)];
-  const max=v.t[t].length;const p=Math.floor(Math.random()*Math.min(6,max));
+  const len=Math.min(6,v.t[t].length);
+  const p=Math.floor(Math.random()*len);
   const good=v.t[t][p];
   const pool=[];
-  CONJ.forEach(o=>Object.keys(o.t).forEach(tt=>o.t[tt].forEach(f=>{if(f&&f!=="—"&&f!==good)pool.push(f)})));
+  CONJ.forEach(o=>Object.keys(o.t).forEach(tt=>o.t[tt].forEach(f=>{
+    if(f&&f!=="—"&&f!==good)pool.push(f);
+  })));
   const opts=[good];
-  while(opts.length<4&&pool.length){const x=pool.splice(Math.floor(Math.random()*pool.length),1)[0];if(opts.indexOf(x)<0)opts.push(x)}
+  while(opts.length<4&&pool.length){
+    const x=pool.splice(Math.floor(Math.random()*pool.length),1)[0];
+    if(opts.indexOf(x)<0)opts.push(x);
+  }
   opts.sort(()=>Math.random()-.5);
-  S._cq={vi,t,p,good,opts};
+  S._cs.q={vi,t,p,good,opts};
 }
 
 function questScreen(a){
@@ -771,8 +839,9 @@ function questScreen(a){
   const tabs=`<div class="tabs">
     <button class="tab ${S._tab==="lecon"?"on":""}" data-t="lecon">📖 Leçons</button>
     <button class="tab ${S._tab==="questions"?"on":""}" data-t="questions">❓ Questions</button></div>`;
+
   if(S._tab==="lecon"){
-    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:38px"></span></div>
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:40px"></span></div>
     ${tabs}<div class="stack" id="qs"></div>`;
     const box=$("#qs");
     QUEST.forEach((x,i)=>{
@@ -783,37 +852,98 @@ function questScreen(a){
       c.querySelector("[data-s]").onclick=()=>speak(x.q);
       box.appendChild(c);
     });
-  } else {
-    if(!S._qq||S._qq.done)newQuestQ();
-    const q=S._qq;
-    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:38px"></span></div>
-    ${tabs}
-    <div class="cardq"><div class="tiny muted">Comment dit-on</div>
-      <div style="font-size:20px;font-weight:800;margin-top:6px">${esc(q.fr)}</div></div>
-    <div id="o">${q.opts.map((x,i)=>`<button class="choice" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(x)}</button>`).join("")}</div>
-    <div class="feed"><div><button class="btn" id="nx" disabled>Suivant</button></div></div>`;
-    let done=false;
-    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
-      if(done)return;done=true;
-      const ok=q.opts[+b.dataset.i]===q.good;
-      b.classList.add(ok?"ok":"no");
-      if(!ok)a.querySelectorAll("#o .choice").forEach(x=>{if(q.opts[+x.dataset.i]===q.good)x.classList.add("ok")});
-      S.good+=ok?1:0;S.bad+=ok?0:1;S.xp+=ok?10:2;
-      S.history[today()]=S.history[today()]||{xp:0,m:0};S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
-      save();$("#nx").disabled=false;if(ok)speak(q.good);
-    });
-    $("#nx").onclick=()=>{S._qq=null;render()};
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
   }
-  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;if(S._tab==="questions")S._qq=null;render()});
+
+  if(!S._qs)S._qs={i:0,total:12,ok:0,ko:0,q:null,answered:false,pick:-1,done:false};
+  const st=S._qs;
+
+  if(st.done){
+    const acc=Math.round(100*st.ok/(st.total||1));
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:40px"></span></div>
+    ${tabs}
+    <div style="text-align:center;margin-top:5vh"><div style="font-size:60px">${acc>=80?"🎉":acc>=50?"💪":"🌱"}</div>
+      <h1 style="margin-top:8px">${acc>=80?"Excellent !":acc>=50?"Bien joué":"On continue"}</h1>
+      <p class="muted" style="margin-top:6px">Série terminée</p></div>
+    <div class="spacer"></div>
+    <div class="grid3"><div class="stat"><b>${st.ok}</b><i>justes</i></div>
+      <div class="stat"><b>${st.ko}</b><i>erreurs</i></div>
+      <div class="stat"><b>${acc}%</b><i>réussite</i></div></div>
+    <div class="spacer"></div>
+    <button class="btn" id="again">Nouvelle série de 12</button>`;
+    $("#again").onclick=()=>{S._qs=null;render()};
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+
+  if(!st.q)newQuestQ();
+  const q=st.q;
+  const pct=Math.round(100*st.i/st.total);
+
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:40px"></span></div>
+  ${tabs}
+  <div class="between" style="margin-bottom:8px">
+    <span class="pill">Question ${st.i+1} / ${st.total}</span>
+    <span class="tiny muted">${st.ok} ✓ · ${st.ko} ✗</span>
+  </div>
+  <div class="bar" style="margin-bottom:14px"><i style="width:${pct}%"></i></div>
+
+  <div class="cardq">
+    <div class="tiny muted">Comment dit-on</div>
+    <div style="font-size:21px;font-weight:800;margin-top:6px">${esc(q.fr)}</div>
+  </div>
+
+  <div id="o">${q.opts.map((x,i)=>{
+    let cls="choice";
+    if(st.answered){
+      if(x===q.good)cls+=" ok";
+      else if(i===st.pick)cls+=" no";
+    }
+    return `<button class="${cls}" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(x)}</button>`;
+  }).join("")}</div>
+
+  ${st.answered?`<div class="fb ${st.pick===q.opts.indexOf(q.good)?"ok":"no"}">
+     ${st.pick===q.opts.indexOf(q.good)
+       ? `✓ Juste — <b>${esc(q.good)}</b>`
+       : `✗ Faux. La bonne réponse est <b>${esc(q.good)}</b>`}
+   </div>`:""}
+
+  <div class="feed"><div><button class="btn" id="nx">${st.answered?(st.i+1>=st.total?"Voir le bilan":"Question suivante"):"Choisis une réponse"}</button></div></div>`;
+
+  if(!st.answered){
+    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
+      st.pick=+b.dataset.i;
+      st.answered=true;
+      const ok=q.opts[st.pick]===q.good;
+      if(ok){st.ok++;S.good++;S.xp+=10}else{st.ko++;S.bad++;S.xp+=2}
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();render();
+      if(ok)speak(q.good);
+    });
+  } else {
+    $("#nx").disabled=false;
+    $("#nx").onclick=()=>{
+      st.i++;st.answered=false;st.pick=-1;st.q=null;
+      if(st.i>=st.total){st.done=true}
+      render();
+    };
+  }
+
+  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
 }
 
 function newQuestQ(){
   const i=Math.floor(Math.random()*QUEST.length);
   const good=QUEST[i].q;
   const opts=[good];
-  while(opts.length<4){const x=QUEST[Math.floor(Math.random()*QUEST.length)].q;if(opts.indexOf(x)<0)opts.push(x)}
+  while(opts.length<4){
+    const x=QUEST[Math.floor(Math.random()*QUEST.length)].q;
+    if(opts.indexOf(x)<0)opts.push(x);
+  }
   opts.sort(()=>Math.random()-.5);
-  S._qq={fr:QUEST[i].fr,good,opts};
+  S._qs.q={fr:QUEST[i].fr,good,opts};
 }
 
 /* ---------- stats ---------- */
