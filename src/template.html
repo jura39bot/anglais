@@ -240,6 +240,8 @@ const DATA = __DATA__;
 const CONJ = __CONJ__;
 const QUEST = __QUEST__;
 const LEX = __LEX__;
+const CONV = __CONV__;
+const GRAM = __GRAM__;
 const VERSION = "__BUILD__";
 const LEVELS = {
   A1:{name:"Débutant",sub:"A1 · survie",emoji:"🌱",color:"#58cc02"},
@@ -386,6 +388,10 @@ function render(){
     case "search":return searchScreen(a);
     case "lex":return lexScreen(a);
     case "lexcat":return lexCatScreen(a);
+    case "conv":return convScreen(a);
+    case "dialog":return dialogScreen(a);
+    case "gram":return gramScreen(a);
+    case "gramq":return gramQuiz(a);
   }
   home(a);
 }
@@ -483,6 +489,11 @@ function home(a){
     <button class="btn alt" id="se">🔎 Chercher</button>
     <button class="btn alt" id="lx">📚 Lexique</button>
   </div>
+  <div style="height:10px"></div>
+  <div class="grid2">
+    <button class="btn alt" id="cv">💬 Conversations</button>
+    <button class="btn alt" id="gr">📘 Grammaire</button>
+  </div>
   `;
   $("#cont").onclick=()=>startLesson(lvl,false);
   $("#lis").onclick=()=>startLesson(lvl,false,true);
@@ -494,6 +505,8 @@ function home(a){
   $("#qu").onclick=()=>{S._tab="lecon";go("quest")};
   $("#se").onclick=()=>go("search");
   $("#lx").onclick=()=>go("lex");
+  $("#cv").onclick=()=>go("conv");
+  $("#gr").onclick=()=>{S._tab="lecon";go("gram")};
 }
 
 function levels(a){
@@ -1026,6 +1039,164 @@ function lexCatScreen(a){
     card.querySelector("button").onclick=()=>speak(w.e);
     $("#xs").appendChild(card);
   });
+}
+
+
+/* ---------- conversations ---------- */
+let playTimer=null, playStop=true;
+function stopPlay(){playStop=true;if(playTimer){clearTimeout(playTimer);playTimer=null}try{speechSynthesis.cancel()}catch(e){}}
+function playAll(lines,btn){
+  stopPlay();playStop=false;let i=0;
+  const step=()=>{
+    if(playStop||i>=lines.length){stopPlay();if(btn)btn.textContent="🔊 Écouter tout";return}
+    if(btn)btn.textContent="⏸ Stop ("+(i+1)+"/"+lines.length+")";
+    const u=new SpeechSynthesisUtterance(lines[i].s);
+    u.lang="en-US";u.rate=.92;
+    u.onend=()=>{i++;playTimer=setTimeout(step,320)};
+    u.onerror=()=>{i++;playTimer=setTimeout(step,320)};
+    speechSynthesis.speak(u);
+  };
+  step();
+}
+function convScreen(a){
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conversations</h2><span style="width:40px"></span></div>
+    <p class="small muted" style="margin-bottom:12px">10 situations réelles. Écoute, lis, répète.</p>
+    <div class="stack" id="cv"></div>`;
+  CONV.forEach((c,i)=>{
+    const b=el(`<button class="lvl">
+      <div class="ico" style="background:rgba(255,255,255,.10)">${c.e}</div>
+      <div class="meta"><b>${esc(c.t)}</b><div class="tiny muted">${esc(c.n)} · ${c.lines.length} répliques</div></div>
+      <div class="muted">›</div></button>`);
+    b.onclick=()=>{S._cv=i;go("dialog")};
+    $("#cv").appendChild(b);
+  });
+}
+function dialogScreen(a){
+  const c=CONV[S._cv||0];
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('conv')">‹</button><h2>${c.e} ${esc(c.t)}</h2><span style="width:40px"></span></div>
+    <p class="small muted" style="margin-bottom:12px">${esc(c.n)}</p>
+    <button class="btn blue" id="all">🔊 Écouter tout</button>
+    <div class="spacer"></div>
+    <div class="stack" id="dl"></div>`;
+  const box=$("#dl");
+  c.lines.forEach((l,i)=>{
+    const left=i%2===0;
+    const card=el(`<div class="card" style="${left?"":"margin-left:26px"}">
+      <div class="between"><b style="font-size:15.5px">${esc(l.s)}</b><button class="pill">🔊</button></div>
+      <div class="small muted" style="margin-top:5px">${esc(l.f)}</div></div>`);
+    card.querySelector("button").onclick=()=>{stopPlay();speak(l.s)};
+    box.appendChild(card);
+  });
+  $("#all").onclick=()=>{
+    const b=$("#all");
+    if(!playStop){stopPlay();b.textContent="🔊 Écouter tout";return}
+    playAll(c.lines,b);
+  };
+}
+
+
+/* ---------- grammaire ---------- */
+function gramScreen(a){
+  S._tab=S._tab||"lecon";
+  const tabs=`<div class="tabs">
+    <button class="tab ${S._tab==="lecon"?"on":""}" data-t="lecon">📖 Leçons</button>
+    <button class="tab ${S._tab==="questions"?"on":""}" data-t="questions">❓ Questions</button></div>`;
+  if(S._tab==="lecon"){
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Grammaire</h2><span style="width:40px"></span></div>
+      ${tabs}<div class="stack" id="gs"></div>`;
+    const box=$("#gs");
+    GRAM.forEach(r=>{
+      let h=`<div class="card">
+        <div class="between"><b style="font-size:17px">${esc(r.t)}</b><span class="pill">${esc(r.lvl)}</span></div>
+        <p style="margin-top:8px;font-size:14.5px;line-height:1.55">${esc(r.rule)}</p>
+        <div class="formula">${esc(r.form)}</div>`;
+      r.ex.forEach(e=>{h+=`<div class="ex">${esc(e.s)}<br><span style="color:#7d8ba6">${esc(e.f)}</span></div>`});
+      if(r.wrong&&r.wrong.length){
+        h+=`<div class="tense" style="color:#ff8a8a">Erreurs fréquentes</div>`;
+        r.wrong.forEach(w=>{h+=`<div class="small" style="margin-top:6px;color:#ffc2c2">✗ ${esc(w.s)}<div class="tiny muted">${esc(w.why)}</div></div>`});
+      }
+      box.appendChild(el(h+`</div>`));
+    });
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+  go("gramq");
+}
+
+function gramQuiz(a){
+  const tabs=`<div class="tabs">
+    <button class="tab" data-t="lecon">📖 Leçons</button>
+    <button class="tab on" data-t="questions">❓ Questions</button></div>`;
+  if(!S._gq)S._gq={i:0,total:12,ok:0,ko:0,q:null,answered:false,pick:-1,done:false};
+  const st=S._gq;
+
+  if(st.done){
+    const acc=Math.round(100*st.ok/(st.total||1));
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Grammaire</h2><span style="width:40px"></span></div>${tabs}
+      <div style="text-align:center;margin-top:5vh"><div style="font-size:60px">${acc>=80?"🎉":acc>=50?"💪":"🌱"}</div>
+      <h1 style="margin-top:8px">${acc>=80?"Excellent !":acc>=50?"Bien joué":"On continue"}</h1>
+      <p class="muted" style="margin-top:6px">Série terminée</p></div>
+      <div class="spacer"></div>
+      <div class="grid3"><div class="stat"><b>${st.ok}</b><i>justes</i></div>
+        <div class="stat"><b>${st.ko}</b><i>erreurs</i></div>
+        <div class="stat"><b>${acc}%</b><i>réussite</i></div></div>
+      <div class="spacer"></div><button class="btn" id="again">Nouvelle série de 12</button>`;
+    $("#again").onclick=()=>{S._gq=null;render()};
+    a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+    return;
+  }
+
+  if(!st.q)newGramQ();
+  const q=st.q;
+  const pct=Math.round(100*st.i/st.total);
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Grammaire</h2><span style="width:40px"></span></div>
+    ${tabs}
+    <div class="between" style="margin-bottom:8px">
+      <span class="pill">Question ${st.i+1} / ${st.total}</span>
+      <span class="tiny muted">${st.ok} ✓ · ${st.ko} ✗</span>
+    </div>
+    <div class="bar" style="margin-bottom:14px"><i style="width:${pct}%"></i></div>
+    <div class="cardq"><div class="tiny" style="color:#8fd4ff;letter-spacing:.08em;text-transform:uppercase;font-weight:800">${esc(q.rule)}</div>
+      <div style="font-size:19px;font-weight:800;margin-top:7px">Quelle phrase est correcte ?</div></div>
+    <div id="o">${q.opts.map((x,i)=>{
+      let cls="choice";
+      if(st.answered){ if(i===q.correct)cls+=" ok"; else if(i===st.pick)cls+=" no"; }
+      return `<button class="${cls}" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(x)}</button>`;
+    }).join("")}</div>
+    ${st.answered?`<div class="fb ${st.pick===q.correct?"ok":"no"}">
+      ${st.pick===q.correct?`✓ Juste — <b>${esc(q.opts[q.correct])}</b>`
+        :`✗ Faux. La bonne phrase : <b>${esc(q.opts[q.correct])}</b>${q.why?`<div class="tiny" style="margin-top:6px;color:#ffb3b3">${esc(q.why)}</div>`:""}`}
+    </div>`:""}
+    <div class="feed"><div><button class="btn" id="nx">${st.answered?(st.i+1>=st.total?"Voir le bilan":"Question suivante"):"Choisis une phrase"}</button></div></div>`;
+  if(!st.answered){
+    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
+      st.pick=+b.dataset.i;st.answered=true;
+      const ok=st.pick===q.correct;
+      if(ok){st.ok++;S.good++;S.xp+=10}else{st.ko++;S.bad++;S.xp+=2}
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();render();
+    });
+  } else {
+    $("#nx").onclick=()=>{st.i++;st.answered=false;st.pick=-1;st.q=null;if(st.i>=st.total)st.done=true;render()};
+  }
+  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;render()});
+}
+
+function newGramQ(){
+  const r=GRAM[Math.floor(Math.random()*GRAM.length)];
+  const good=r.ex[0].s;
+  const pool=[];
+  GRAM.forEach(o=>o.wrong.forEach(w=>{if(w.s!==good)pool.push(w)}));
+  const picks=[];
+  while(picks.length<3&&pool.length){
+    const x=pool.splice(Math.floor(Math.random()*pool.length),1)[0];
+    if(picks.find(p=>p.s===x.s))continue;
+    picks.push(x);
+  }
+  const opts=[{s:good,why:""},...picks].sort(()=>Math.random()-.5);
+  const correct=opts.findIndex(o=>o.s===good);
+  S._gq.q={rule:r.t,opts:opts.map(o=>o.s),correct,why:picks.length?picks[0].why:""};
 }
 
 /* ---------- stats ---------- */

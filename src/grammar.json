@@ -1,0 +1,61 @@
+[
+{"t":"Les articles a / an / the","lvl":"A1","rule":"« a » devant une consonne, « an » devant une voyelle. « the » quand on parle d'un objet précis, déjà connu.","form":"a book · an apple · the book on the table","ex":[
+ {"s":"She has a dog and an umbrella.","f":"Elle a un chien et un parapluie."},
+ {"s":"The film we saw was excellent.","f":"Le film que nous avons vu était excellent."}],
+ "wrong":[{"s":"She has an dog.","why":"« dog » commence par une consonne → a"},{"s":"I need a apple.","why":"« apple » commence par une voyelle → an"},{"s":"A sun is hot today.","why":"Objet unique et connu → the"}]},
+
+{"t":"Le pluriel des noms","lvl":"A1","rule":"En général on ajoute -s. Après -s, -x, -ch, -sh on ajoute -es. Certains sont irréguliers.","form":"cat → cats · box → boxes · child → children · man → men","ex":[
+ {"s":"There are three boxes on the shelf.","f":"Il y a trois boîtes sur l'étagère."},
+ {"s":"The children are playing outside.","f":"Les enfants jouent dehors."}],
+ "wrong":[{"s":"There are three boxs.","why":"box → boxes"},{"s":"The childs are playing.","why":"child → children"},{"s":"Two mans are waiting.","why":"man → men"}]},
+
+{"t":"Présent simple ou présent continu","lvl":"A2","rule":"Présent simple = habitude, vérité générale. Présent continu (be + -ing) = action en cours maintenant.","form":"I work every day. / I am working right now.","ex":[
+ {"s":"I usually drink tea, but today I am drinking coffee.","f":"Je bois du thé d'habitude, mais aujourd'hui je bois du café."},
+ {"s":"She works in a bank.","f":"Elle travaille dans une banque."}],
+ "wrong":[{"s":"I am work every day.","why":"habitude → présent simple : I work"},{"s":"She work in a bank.","why":"3e personne → she works"},{"s":"Look! It rains.","why":"action en cours → it is raining"}]},
+
+{"t":"Le passé simple","lvl":"A2","rule":"Verbes réguliers : -ed. Irréguliers à apprendre. La négation et les questions utilisent did + base verbale.","form":"I worked · I went · I didn't go · Did you go?","ex":[
+ {"s":"We visited Rome last year.","f":"Nous avons visité Rome l'année dernière."},
+ {"s":"I didn't see him yesterday.","f":"Je ne l'ai pas vu hier."}],
+ "wrong":[{"s":"I didn't went there.","why":"après did → base verbale : didn't go"},{"s":"Did you saw him?","why":"après did → base verbale : did you see"},{"s":"She goed to school.","why":"go → went"}]},
+
+{"t":"Le present perfect","lvl":"B1","rule":"have/has + participe passé. Lien entre le passé et le présent : bilan, expérience, action non datée.","form":"I have seen · she has finished","ex":[
+ {"s":"I have never been to London.","f":"Je ne suis jamais allé à Londres."},
+ {"s":"She has just finished her work.","f":"Elle vient de finir son travail."}],
+ "wrong":[{"s":"I have saw that film.","why":"see → seen"},{"s":"She have finished.","why":"3e personne → has finished"},{"s":"I have seen him yesterday.","why":"date précise → passé simple : I saw him yesterday"}]},
+
+{"t":"Comparatifs et superlatifs","lvl":"A2","rule":"Court : -er / -est. Long : more / most. Irréguliers : good → better → best.","form":"taller than · the tallest · more expensive than · the most expensive","ex":[
+ {"s":"This car is more expensive than mine.","f":"Cette voiture est plus chère que la mienne."},
+ {"s":"He is the best player in the team.","f":"C'est le meilleur joueur de l'équipe."}],
+ "wrong":[{"s":"She is more tall than me.","why":"adjectif court → taller"},{"s":"This is the most good film.","why":"good → the best"},{"s":"He is taller that me.","why":"comparaison → than"}]},
+
+{"t":"Les modaux can / must / should","lvl":"B1","rule":"Suivis de la base verbale, sans « to », et invariables à toutes les personnes.","form":"can swim · must go · should call","ex":[
+ {"s":"You should see a doctor.","f":"Tu devrais voir un médecin."},
+ {"s":"I can speak English.","f":"Je sais parler anglais."}],
+ "wrong":[{"s":"She cans swim.","why":"can est invariable"},{"s":"You must to go.","why":"pas de « to » après must"},{"s":"He should goes.","why":"base verbale : should go"}]},
+
+{"t":"Prépositions de temps in / on / at","lvl":"A1","rule":"in + mois, année, saison. on + jour, date. at + heure, moment précis.","form":"in July · on Monday · at 7 o'clock","ex":[
+ {"s":"The meeting is on Monday at nine.","f":"La réunion est lundi à neuf heures."},
+ {"s":"I was born in 1986.","f":"Je suis né en 1986."}],
+ "wrong":[{"s":"I was born on 1986.","why":"année → in"},{"s":"The meeting is in Monday.","why":"jour → on"},{"s":"See you on seven.","why":"heure → at"}]},
+
+{"t":"Poser une question","lvl":"A1","rule":"Auxiliaire devant le sujet : do/does au présent, did au passé, be et modaux se placent directement devant.","form":"Do you like it? · Does she work? · Did they come? · Are you ready?","ex":[
+ {"s":"Where do you live?","f":"Où habites-tu ?"},
+ {"s":"Does she speak Italian?","f":"Parle-t-elle italien ?"}],
+ "wrong":[{"s":"Where you live?","why":"il manque do : where do you live"},{"s":"Does she speaks Italian?","why":"après does → base verbale"},{"s":"What did you ate?","why":"après did → base verbale"}]},
+
+{"t":"La négation","lvl":"A1","rule":"Avec be ou un modal : not directement après. Sinon : don't / doesn't / didn't + base verbale.","form":"I am not · she isn't · I don't like · he didn't come","ex":[
+ {"s":"I don't understand this sentence.","f":"Je ne comprends pas cette phrase."},
+ {"s":"She isn't at home.","f":"Elle n'est pas à la maison."}],
+ "wrong":[{"s":"I not understand.","why":"il manque do : I don't understand"},{"s":"She doesn't likes it.","why":"base verbale après doesn't"},{"s":"He is not work today.","why":"is not working"}]},
+
+{"t":"Dénombrables et indénombrables","lvl":"B1","rule":"much + indénombrable, many + dénombrable. some en affirmatif, any en négatif et interrogatif.","form":"much water · many books · some money · any questions?","ex":[
+ {"s":"How many people were there?","f":"Combien de personnes y avait-il ?"},
+ {"s":"I don't have any time.","f":"Je n'ai pas de temps."}],
+ "wrong":[{"s":"How much books?","why":"books est dénombrable → many"},{"s":"I have many money.","why":"money est indénombrable → much"},{"s":"I don't have some time.","why":"négatif → any"}]},
+
+{"t":"Futur : will ou going to","lvl":"A2","rule":"« will » pour une décision spontanée ou une prédiction. « going to » pour une intention déjà décidée ou une évidence.","form":"I will call you. / I am going to buy a car.","ex":[
+ {"s":"I'm going to sell my car next month.","f":"Je vais vendre ma voiture le mois prochain."},
+ {"s":"Don't worry, I'll help you.","f":"Ne t'inquiète pas, je vais t'aider."}],
+ "wrong":[{"s":"I will to call you.","why":"pas de « to » après will"},{"s":"She wills come.","why":"will est invariable"},{"s":"Look at those clouds, it will rain.","why":"évidence → it's going to rain"}]}
+]

@@ -1,0 +1,108 @@
+[
+{"t":"Se présenter","e":"👋","n":"Première rencontre","lines":[
+ {"s":"Hello, my name is Mathieu. And you?","f":"Bonjour, je m'appelle Mathieu. Et vous ?"},
+ {"s":"Nice to meet you. I'm Sarah.","f":"Enchantée. Je suis Sarah."},
+ {"s":"Where are you from?","f":"D'où venez-vous ?"},
+ {"s":"I'm from France, from a small town in the Jura.","f":"Je viens de France, d'une petite ville du Jura."},
+ {"s":"What do you do for a living?","f":"Que faites-vous comme métier ?"},
+ {"s":"I work in IT. And you?","f":"Je travaille dans l'informatique. Et vous ?"},
+ {"s":"I'm a teacher. How long have you been here?","f":"Je suis professeur. Depuis combien de temps êtes-vous ici ?"},
+ {"s":"Only two days. I'm on holiday.","f":"Seulement deux jours. Je suis en vacances."}
+]},
+{"t":"Au restaurant","e":"🍽️","n":"Commander et payer","lines":[
+ {"s":"Good evening. Do you have a table for two?","f":"Bonsoir. Avez-vous une table pour deux ?"},
+ {"s":"Of course. Follow me, please.","f":"Bien sûr. Suivez-moi, s'il vous plaît."},
+ {"s":"Could I see the menu, please?","f":"Puis-je voir la carte, s'il vous plaît ?"},
+ {"s":"Here you are. What would you like to drink?","f":"La voici. Que souhaitez-vous boire ?"},
+ {"s":"A bottle of water and a glass of red wine, please.","f":"Une bouteille d'eau et un verre de rouge, s'il vous plaît."},
+ {"s":"What do you recommend?","f":"Que recommandez-vous ?"},
+ {"s":"The fish is excellent today.","f":"Le poisson est excellent aujourd'hui."},
+ {"s":"I'll take the fish, then. And the bill, please.","f":"Je prends le poisson, alors. Et l'addition, s'il vous plaît."},
+ {"s":"Certainly. Cash or card?","f":"Certainement. Espèces ou carte ?"},
+ {"s":"By card. Is service included?","f":"Par carte. Le service est compris ?"}
+]},
+{"t":"À l'hôtel","e":"🏨","n":"Arrivée et départ","lines":[
+ {"s":"Good afternoon, I have a reservation.","f":"Bonjour, j'ai une réservation."},
+ {"s":"Under which name?","f":"À quel nom ?"},
+ {"s":"Under Mathieu Chevalier, for two nights.","f":"Au nom de Mathieu Chevalier, pour deux nuits."},
+ {"s":"Yes, I see it. Could I have your passport, please?","f":"Oui, je vois. Puis-je avoir votre passeport, s'il vous plaît ?"},
+ {"s":"Here it is. What time is breakfast?","f":"Le voici. À quelle heure est le petit-déjeuner ?"},
+ {"s":"From seven to ten, on the ground floor.","f":"De sept à dix heures, au rez-de-chaussée."},
+ {"s":"Is there wifi in the room?","f":"Y a-t-il du wifi dans la chambre ?"},
+ {"s":"Yes, the password is on the card.","f":"Oui, le mot de passe est sur la carte."},
+ {"s":"I'd like to check out tomorrow at ten.","f":"Je voudrais libérer la chambre demain à dix heures."}
+]},
+{"t":"Faire des achats","e":"🛍️","n":"Magasin et tailles","lines":[
+ {"s":"Excuse me, how much is this jacket?","f":"Excusez-moi, combien coûte cette veste ?"},
+ {"s":"It's eighty euros, and it's on sale.","f":"Elle coûte quatre-vingts euros, et elle est en promotion."},
+ {"s":"Can I try it on?","f":"Puis-je l'essayer ?"},
+ {"s":"Of course, the fitting room is at the back.","f":"Bien sûr, la cabine est au fond."},
+ {"s":"Do you have it in a larger size?","f":"L'avez-vous dans une taille plus grande ?"},
+ {"s":"Let me check. What size are you?","f":"Laissez-moi vérifier. Quelle taille faites-vous ?"},
+ {"s":"Medium, usually.","f":"Du M, en général."},
+ {"s":"Here you are. Would you like anything else?","f":"Voici. Désirez-vous autre chose ?"},
+ {"s":"No, thank you. Can I pay by card?","f":"Non, merci. Je peux payer par carte ?"}
+]},
+{"t":"Demander son chemin","e":"🧭","n":"Dans la rue","lines":[
+ {"s":"Excuse me, where is the station?","f":"Excusez-moi, où est la gare ?"},
+ {"s":"Go straight on, then turn left at the traffic lights.","f":"Allez tout droit, puis tournez à gauche aux feux."},
+ {"s":"Is it far from here?","f":"C'est loin d'ici ?"},
+ {"s":"No, about ten minutes on foot.","f":"Non, environ dix minutes à pied."},
+ {"s":"Thanks. Is there a bus I could take?","f":"Merci. Y a-t-il un bus que je pourrais prendre ?"},
+ {"s":"Yes, the number twelve stops over there.","f":"Oui, le douze s'arrête là-bas."},
+ {"s":"How much is a ticket?","f":"Combien coûte un billet ?"},
+ {"s":"Two euros, and you can buy it on the bus.","f":"Deux euros, et vous pouvez l'acheter dans le bus."}
+]},
+{"t":"Chez le médecin","e":"🩺","n":"Symptômes et pharmacie","lines":[
+ {"s":"Good morning, I'd like to see a doctor.","f":"Bonjour, je voudrais voir un médecin."},
+ {"s":"Do you have an appointment?","f":"Avez-vous un rendez-vous ?"},
+ {"s":"No, but I don't feel well at all.","f":"Non, mais je ne me sens pas bien du tout."},
+ {"s":"What's wrong?","f":"Qu'est-ce qui ne va pas ?"},
+ {"s":"I have a headache and a sore throat.","f":"J'ai mal à la tête et mal à la gorge."},
+ {"s":"Do you have a fever?","f":"Avez-vous de la fièvre ?"},
+ {"s":"Yes, since yesterday evening.","f":"Oui, depuis hier soir."},
+ {"s":"I'll prescribe you something. Are you allergic to anything?","f":"Je vais vous prescrire quelque chose. Êtes-vous allergique à quelque chose ?"},
+ {"s":"No, nothing. Where is the nearest pharmacy?","f":"Non, à rien. Où est la pharmacie la plus proche ?"}
+]},
+{"t":"Au téléphone","e":"📞","n":"Appel et message","lines":[
+ {"s":"Hello, this is Mathieu speaking.","f":"Bonjour, c'est Mathieu à l'appareil."},
+ {"s":"Hello, how can I help you?","f":"Bonjour, comment puis-je vous aider ?"},
+ {"s":"I'd like to speak to Mrs Martin, please.","f":"Je voudrais parler à Mme Martin, s'il vous plaît."},
+ {"s":"Who's calling, please?","f":"C'est de la part de qui ?"},
+ {"s":"Mathieu Chevalier. She has my file.","f":"Mathieu Chevalier. Elle a mon dossier."},
+ {"s":"Hold on a moment, please.","f":"Un instant, s'il vous plaît."},
+ {"s":"Sorry, she's not available. Can I take a message?","f":"Désolée, elle n'est pas disponible. Puis-je prendre un message ?"},
+ {"s":"Yes, please ask her to call me back.","f":"Oui, demandez-lui de me rappeler."},
+ {"s":"Could you repeat your number, please?","f":"Pouvez-vous répéter votre numéro, s'il vous plaît ?"}
+]},
+{"t":"Au bureau","e":"💼","n":"Réunion et délais","lines":[
+ {"s":"Sorry I'm late. The traffic was terrible.","f":"Désolé du retard. La circulation était horrible."},
+ {"s":"No problem. We were just starting.","f":"Pas de problème. Nous commencions juste."},
+ {"s":"Could you go over the main points again?","f":"Pourriez-vous revoir les points principaux ?"},
+ {"s":"Of course. The deadline is Friday.","f":"Bien sûr. La date limite est vendredi."},
+ {"s":"Is that realistic? We still need the figures.","f":"Est-ce réaliste ? Il nous faut encore les chiffres."},
+ {"s":"I'll send them to you this afternoon.","f":"Je vous les envoie cet après-midi."},
+ {"s":"Perfect. Can we meet again on Thursday?","f":"Parfait. On peut se revoir jeudi ?"},
+ {"s":"Thursday works for me. Same time, same room.","f":"Jeudi me va. Même heure, même salle."}
+]},
+{"t":"Parler du temps","e":"🌦️","n":"Small talk","lines":[
+ {"s":"Lovely day, isn't it?","f":"Belle journée, n'est-ce pas ?"},
+ {"s":"It really is. Much warmer than yesterday.","f":"Vraiment. Bien plus chaud qu'hier."},
+ {"s":"They say it's going to rain tomorrow.","f":"On dit qu'il va pleuvoir demain."},
+ {"s":"Really? I hope not, I'm driving to the mountains.","f":"Vraiment ? J'espère que non, je vais en montagne."},
+ {"s":"Are the roads open at this time of year?","f":"Les routes sont ouvertes à cette période ?"},
+ {"s":"Yes, but you need winter tyres above a thousand metres.","f":"Oui, mais il faut des pneus hiver au-dessus de mille mètres."},
+ {"s":"Thanks for the advice. Have a good day!","f":"Merci du conseil. Bonne journée !"},
+ {"s":"You too. Drive carefully.","f":"Vous aussi. Conduisez prudemment."}
+]},
+{"t":"À la banque","e":"🏦","n":"Argent et change","lines":[
+ {"s":"Good morning, I'd like to change some money.","f":"Bonjour, je voudrais changer de l'argent."},
+ {"s":"How much would you like to change?","f":"Combien souhaitez-vous changer ?"},
+ {"s":"Two hundred euros into Swiss francs, please.","f":"Deux cents euros en francs suisses, s'il vous plaît."},
+ {"s":"May I see your ID?","f":"Puis-je voir une pièce d'identité ?"},
+ {"s":"Here you are. What's the exchange rate today?","f":"La voici. Quel est le taux de change aujourd'hui ?"},
+ {"s":"It's on the screen behind you. Any commission?","f":"Il est sur l'écran derrière vous. Une commission ?"},
+ {"s":"No commission under five hundred euros.","f":"Pas de commission en dessous de cinq cents euros."},
+ {"s":"Great. Could I have small notes, please?","f":"Parfait. Puis-je avoir des petites coupures, s'il vous plaît ?"}
+]}
+]
