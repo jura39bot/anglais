@@ -165,12 +165,12 @@ const $=s=>document.querySelector(s);
 function el(html){const d=document.createElement("div");d.innerHTML=html.trim();return d.firstElementChild}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),1900)}
-function speak(txt){
+function speak(txt,rate){
   try{
     if(!window.speechSynthesis)return;
     speechSynthesis.cancel();
     const u=new SpeechSynthesisUtterance(txt);
-    u.lang="en-US";u.rate=.9;
+    u.lang="en-US";u.rate=rate||.9;
     const v=speechSynthesis.getVoices().find(v=>/en(-|_)(US|GB)/i.test(v.lang));
     if(v)u.voice=v;
     speechSynthesis.speak(u);
@@ -185,6 +185,59 @@ function startMinuteClock(){
     S.minutes+=1/6;
     save();
   },10000);
+}
+
+const TOKKEY="anglais_gh_token";
+function tok(){try{return localStorage.getItem(TOKKEY)||""}catch(e){return ""}}
+function mergeState(a,b){
+  const out=JSON.parse(JSON.stringify(a||{}));
+  b=b||{};
+  out.xp=Math.max(a.xp||0,b.xp||0);
+  out.streak=Math.max(a.streak||0,b.streak||0);
+  out.best=Math.max(a.best||0,b.best||0);
+  out.minutes=Math.max(a.minutes||0,b.minutes||0);
+  out.good=Math.max(a.good||0,b.good||0);
+  out.bad=Math.max(a.bad||0,b.bad||0);
+  out.last=[a.last||"",b.last||""].sort().pop();
+  out.items=Object.assign({},b.items||{});
+  Object.keys(a.items||{}).forEach(k=>{
+    const v=a.items[k],o=out.items[k];
+    if(!o)out.items[k]=v;
+    else out.items[k]={b:Math.max(o.b||0,v.b||0),d:Math.max(o.d||0,v.d||0),r:Math.max(o.r||0,v.r||0),w:Math.max(o.w||0,v.w||0),n:Math.max(o.n||0,v.n||0)};
+  });
+  out.history=Object.assign({},b.history||{});
+  Object.keys(a.history||{}).forEach(k=>{
+    const v=a.history[k]||{},o=out.history[k]||{};
+    out.history[k]={xp:Math.max(v.xp||0,o.xp||0),m:Math.max(v.m||0,o.m||0)};
+  });
+  out.profile=a.profile||b.profile||null;
+  out.created=Math.min(a.created||Date.now(),b.created||Date.now());
+  out.gistId=a.gistId||b.gistId;
+  return out;
+}
+async function ghSync(){
+  const t=tok();
+  if(!t){toast("Ajoute d'abord un token GitHub");return}
+  const base="https://api.github.com";
+  const h={Authorization:"Bearer "+t,Accept:"application/vnd.github+json","Content-Type":"application/json"};
+  try{
+    if(S.gistId){
+      const r=await fetch(base+"/gists/"+S.gistId,{headers:h});
+      if(r.ok){
+        const g=await r.json();
+        const f=g.files&&g.files["anglais-progress.json"];
+        if(f&&f.content){try{S=mergeState(S,JSON.parse(f.content))}catch(e){}}
+      }
+    }
+    const payload=JSON.stringify({description:"Anglais — progression (privé)",public:false,files:{"anglais-progress.json":{content:JSON.stringify(S)}}});
+    const r2=S.gistId
+      ? await fetch(base+"/gists/"+S.gistId,{method:"PATCH",headers:h,body:payload})
+      : await fetch(base+"/gists",{method:"POST",headers:h,body:payload});
+    if(!r2.ok)throw new Error("HTTP "+r2.status);
+    const g2=await r2.json();
+    S.gistId=g2.id;S.synced=Date.now();save();
+    toast("Synchronisé ✓");render();
+  }catch(e){toast("Échec : "+e.message)}
 }
 
 /* ---------- screens ---------- */
@@ -263,6 +316,8 @@ function home(a){
   </div>
   <div class="spacer"></div>
   <button class="btn" id="cont">${xp>=GOAL_XP?"Continuer quand même":"Continuer la leçon"}</button>
+  <div style="height:10px"></div>
+  <button class="btn alt" id="lis">🎧 Mode écoute</button>
   ${due?`<div style="height:10px"></div><button class="btn blue" id="rev">Réviser ${due} mot${due>1?"s":""} dû${due>1?"s":""}</button>`:""}
   <div class="spacer"></div>
   <div class="grid3">
@@ -284,6 +339,7 @@ function home(a){
   </div>
   `;
   $("#cont").onclick=()=>startLesson(lvl,false);
+  $("#lis").onclick=()=>startLesson(lvl,false,true);
   if(due)$("#rev").onclick=()=>startLesson(null,true);
   $("#lvlbtn").onclick=()=>go("levels");
   $("#st").onclick=()=>go("stats");
@@ -335,7 +391,7 @@ function distract(lvl,w){
 
 /* ---------- lesson engine ---------- */
 let LSN=null;
-function startLesson(lvl,rev){
+function startLesson(lvl,rev,listen){
   const src=lvl||S.profile.level;
   let picks;
   if(rev){
@@ -350,7 +406,7 @@ function startLesson(lvl,rev){
     picks=pick(src,false).map(x=>({...x,lvl:src}));
   }
   if(!picks.length){toast("Rien à réviser ici 🎉");return}
-  LSN={src,rev,picks,idx:0,phase:"card",good:0,bad:0,start:Date.now(),typing:[]};
+  LSN={src,rev,listen:!!listen,picks,idx:0,phase:"card",good:0,bad:0,start:Date.now(),typing:[]};
   LSN.typing=picks.slice(0,2).map(p=>p.w);
   go("lesson");
 }
@@ -383,21 +439,28 @@ function lesson(a){
     if(!p.opts)p.opts=[w,...distract(p.lvl,w)].sort(()=>Math.random()-.5);
     a.innerHTML=`${bar}
       <div class="cardq">
-        <div class="tiny muted" style="margin-bottom:6px">${L.idx+1}/${L.picks.length} · que veut dire</div>
-        <div style="font-size:26px;font-weight:800">${esc(w.e)}</div>
-        <button class="pill" id="sp" style="margin-top:8px">🔊</button>
+        <div class="tiny muted" style="margin-bottom:6px">${L.idx+1}/${L.picks.length} · ${L.listen?"écoute et choisis":"que veut dire"}</div>
+        ${L.listen
+          ? `<div style="font-size:30px;font-weight:800;letter-spacing:6px">• • •</div>
+             <div class="row" style="margin-top:10px;gap:8px"><button class="pill" id="sp">🔊 Réécouter</button><button class="pill" id="sps">🐢 Lent</button></div>`
+          : `<div style="font-size:26px;font-weight:800">${esc(w.e)}</div>
+             <button class="pill" id="sp" style="margin-top:8px">🔊</button>`}
       </div>
       <div id="opts">${p.opts.map((o,i)=>`<button class="choice" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(o.f)}</button>`).join("")}</div>
       <div class="feed"><div><button class="btn" id="next" disabled>Continuer</button></div></div>`;
     $("#sp").onclick=()=>speak(w.e);
+    if(L.listen){
+      setTimeout(()=>speak(w.e),250);
+      const sb=$("#sps"); if(sb)sb.onclick=()=>speak(w.e,.55);
+    }
     let answered=false;
     a.querySelectorAll("#opts .choice").forEach(b=>b.onclick=()=>{
       if(answered)return;answered=true;
       const pickIdx=+b.dataset.i; const ok=p.opts[pickIdx].f===w.f;
       const it=itm(p.lvl,p.i);
       it.n=(it.n||0)+1;
-      if(ok){it.r++;it.b=Math.min(7,it.b+1);S.good++;S.xp+=10}
-      else{it.w++;it.b=Math.max(0,it.b-1);S.bad++;S.xp+=2}
+      if(ok){it.r++;it.b=Math.min(7,it.b+1);S.good++;L.good++;S.xp+=10}
+      else{it.w++;it.b=Math.max(0,it.b-1);S.bad++;L.bad++;S.xp+=2}
       it.d=dayNum(today())+BOX_DAYS[Math.min(it.b,BOX_DAYS.length-1)];
       S.history[today()]=S.history[today()]||{xp:0,m:0};
       S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
@@ -427,8 +490,8 @@ function lesson(a){
     inp.onkeydown=e=>{if(e.key==="Enter"&&!$("#next").disabled)$("#next").click()};
     $("#next").onclick=()=>{
       const ok=norm(inp.value)===norm(w.e);
-      if(ok){S.good++;S.xp+=15;toast("✓ Exact")}
-      else{S.bad++;S.xp+=3;toast("✗ "+w.e)}
+      if(ok){S.good++;L.good++;S.xp+=15;toast("✓ Exact")}
+      else{S.bad++;L.bad++;S.xp+=3;toast("✗ "+w.e)}
       S.history[today()]=S.history[today()]||{xp:0,m:0};
       S.history[today()].xp=(S.history[today()].xp||0)+(ok?15:3);
       save();speak(w.e);
@@ -525,6 +588,19 @@ function profile(a){
   </div>
   <div class="spacer"></div>
   <div class="card">
+    <h3>Synchronisation</h3>
+    <p class="tiny muted" style="margin-top:4px">Même progression sur ton iPhone et ton PC, via un Gist GitHub privé.</p>
+    <div class="spacer"></div>
+    <input id="tk" type="password" placeholder="Token GitHub (droits : gist)" value="${tok()?"••••••••••":""}">
+    <div style="height:10px"></div>
+    <button class="btn blue" id="sy">🔄 Synchroniser</button>
+    <div style="height:10px"></div>
+    <button class="btn alt" id="imp">⬆️ Importer un fichier</button>
+    <input id="fi" type="file" accept="application/json" style="display:none">
+    <p class="tiny muted" style="margin-top:10px">${S.synced?"Dernière synchro : "+new Date(S.synced).toLocaleString("fr-FR"):"Jamais synchronisé"}</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="card">
     <h3>Réglages</h3><div class="spacer"></div>
     <button class="btn alt" id="exp">⬇️ Exporter mes données</button>
     <div style="height:10px"></div>
@@ -532,6 +608,9 @@ function profile(a){
   </div>
   <p class="tiny muted" style="text-align:center;margin-top:16px">v${VERSION} · données stockées sur ton téléphone</p>`;
   a.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{p.level=b.dataset.l;save();toast("Niveau : "+LEVELS[b.dataset.l].name);render()});
+  $("#sy").onclick=()=>{const v=$("#tk").value.trim();if(v&&v.indexOf("•")!==0)localStorage.setItem(TOKKEY,v);ghSync()};
+  $("#imp").onclick=()=>$("#fi").click();
+  $("#fi").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const o=JSON.parse(rd.result);S=mergeState(S,o);save();toast("Importé ✓");render()}catch(err){toast("Fichier invalide")}};rd.readAsText(f)};
   $("#exp").onclick=()=>{
     const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});
     const u=URL.createObjectURL(blob);const i=document.createElement("a");

@@ -1,5 +1,5 @@
 // Cache-first service worker. Bump CACHE on every index.html change.
-const CACHE = "anglais-v1";
+const CACHE = "anglais-v2";
 const ASSETS = [
   "./",
   "./index.html",

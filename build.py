@@ -5,6 +5,16 @@ import json, pathlib, hashlib, datetime
 root = pathlib.Path(__file__).parent
 tpl = (root / "src/template.html").read_text(encoding="utf-8")
 data = json.loads((root / "src/data.json").read_text(encoding="utf-8"))
+extra_path = root / "src/extra.json"
+if extra_path.exists():
+    extra = json.loads(extra_path.read_text(encoding="utf-8"))
+    for lvl, items in extra.items():
+        seen = {i["e"] for i in data.get(lvl, [])}
+        data.setdefault(lvl, [])
+        data[lvl].extend([i for i in items if i["e"] not in seen])
+
+# merged corpus, shared with daily.py
+(root / "src/all.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
 compact = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 build = datetime.datetime.now().strftime("%Y%m%d.%H%M")
