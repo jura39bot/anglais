@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Anglais — Béthanie</title>
+<meta name="theme-color" content="#0b1220">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Anglais">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+--bg:#0b1220;--card:#151f31;--card2:#1c2942;--line:#24334d;
+--txt:#eef3fb;--dim:#93a4bf;--acc:#58cc02;--acc2:#1cb0f6;--warn:#ff9600;--bad:#ff4b4b;--pink:#ff4b8b;
+--r:18px
+}
+html,body{margin:0;height:100%}
+body{
+background:radial-gradient(1200px 600px at 50% -10%,#1a2b45 0%,var(--bg) 55%) fixed;
+color:var(--txt);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+overscroll-behavior-y:contain
+}
+#app{max-width:520px;margin:0 auto;padding:16px 16px 96px;min-height:100vh}
+h1,h2,h3{margin:0;line-height:1.2}
+h1{font-size:24px;letter-spacing:-.5px}
+h2{font-size:19px}
+h3{font-size:15px;color:var(--dim);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+p{margin:0}
+.muted{color:var(--dim)}
+.small{font-size:13px}
+.tiny{font-size:11px}
+.row{display:flex;align-items:center;gap:10px}
+.between{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.stack>*+*{margin-top:12px}
+.spacer{height:12px}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.btn{
+display:block;width:100%;padding:16px;border-radius:16px;background:var(--acc);color:#06210a;
+font-weight:800;font-size:16px;letter-spacing:.2px;text-align:center;
+box-shadow:0 4px 0 #3d8f01;transition:transform .06s,box-shadow .06s
+}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #3d8f01}
+.btn.alt{background:var(--card2);color:var(--txt);box-shadow:0 4px 0 #0d1524;border:1px solid var(--line)}
+.btn.blue{background:var(--acc2);color:#04212f;box-shadow:0 4px 0 #0d739f}
+.btn.ghost{background:transparent;color:var(--dim);box-shadow:none;font-weight:600;padding:10px}
+.btn:disabled{opacity:.45;box-shadow:none;transform:none}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--card2);border:1px solid var(--line);
+padding:6px 12px;border-radius:999px;font-size:13px;font-weight:700}
+.bar{height:10px;border-radius:99px;background:#0e1727;overflow:hidden;border:1px solid var(--line)}
+.bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--acc),#8ee000);transition:width .4s}
+.ring{--p:0;width:76px;height:76px;border-radius:50%;flex:0 0 auto;
+background:conic-gradient(var(--acc) calc(var(--p)*1%),#0e1727 0);
+display:grid;place-items:center;position:relative}
+.ring::after{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--card)}
+.ring span{position:relative;z-index:1;font-weight:800;font-size:17px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-size:20px;line-height:1.2}
+.stat i{font-style:normal;font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.lvl{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
+border-radius:var(--r);padding:14px;width:100%;text-align:left;transition:transform .08s}
+.lvl:active{transform:scale(.985)}
+.lvl .ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:23px;flex:0 0 auto}
+.lvl .meta{flex:1;min-width:0}
+.lvl .meta b{font-size:16px}
+.lvl .meta .bar{margin-top:8px}
+.cardq{background:var(--card2);border:1px solid var(--line);border-radius:16px;padding:14px}
+.choice{
+display:block;width:100%;text-align:left;padding:15px 16px;border-radius:14px;
+background:var(--card);border:1.5px solid var(--line);margin-top:10px;font-weight:600;font-size:15px;
+transition:transform .06s
+}
+.choice:active{transform:scale(.99)}
+.choice.ok{border-color:var(--acc);background:#12250c}
+.choice.no{border-color:var(--bad);background:#2a1113}
+.choice .k{display:inline-block;min-width:22px;color:var(--dim);font-weight:800}
+.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.back{width:38px;height:38px;border-radius:12px;background:var(--card);border:1px solid var(--line);
+display:grid;place-items:center;font-size:18px}
+.bigword{font-size:34px;font-weight:800;letter-spacing:-1px;margin:6px 0}
+.phon{color:var(--acc2);font-weight:700;font-size:15px}
+.ex{color:var(--dim);font-size:14px;font-style:italic;margin-top:10px;border-left:3px solid var(--line);padding-left:10px}
+input[type=text]{width:100%;padding:15px;border-radius:14px;border:1.5px solid var(--line);
+background:#0e1727;color:var(--txt);font-size:17px;outline:none}
+input[type=text]:focus{border-color:var(--acc2)}
+.feed{position:fixed;left:0;right:0;bottom:0;padding:14px 16px calc(14px + env(safe-area-inset-bottom));
+background:linear-gradient(180deg,rgba(11,18,32,0),rgba(11,18,32,.96) 30%);z-index:9}
+.feed>div{max-width:520px;margin:0 auto}
+.toast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%) translateY(20px);opacity:0;
+background:#0f2b12;border:1px solid #2f7a1a;color:#d7ffc4;padding:12px 18px;border-radius:14px;
+font-weight:700;font-size:14px;transition:.25s;z-index:20;pointer-events:none;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.bars{display:flex;align-items:flex-end;gap:8px;height:90px}
+.bars>div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;height:100%}
+.bars i{display:block;width:100%;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--acc),#2e8b01);min-height:4px}
+.bars span{font-size:10px;color:var(--dim)}
+.avs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.avs button{font-size:26px;padding:8px;border-radius:12px;background:var(--card2);border:1.5px solid var(--line)}
+.avs button.sel{border-color:var(--acc);background:#12250c}
+hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="toast" id="toast"></div>
+<script>
+const DATA = {"A1":[{"e":"hello","f":"bonjour","p":"hè-LO","x":"Hello, how are you?","xf":"Bonjour, comment vas-tu ?"},{"e":"goodbye","f":"au revoir","p":"goud-BAÏ","x":"Goodbye, see you tomorrow.","xf":"Au revoir, à demain."},{"e":"please","f":"s'il te plaît","p":"plize","x":"A coffee, please.","xf":"Un café, s'il vous plaît."},{"e":"thank you","f":"merci","p":"THANK you","x":"Thank you very much.","xf":"Merci beaucoup."},{"e":"sorry","f":"désolé","p":"SO-ri","x":"Sorry, I am late.","xf":"Désolé, je suis en retard."},{"e":"yes","f":"oui","p":"yess","x":"Yes, I agree.","xf":"Oui, je suis d'accord."},{"e":"no","f":"non","p":"no","x":"No, thank you.","xf":"Non, merci."},{"e":"water","f":"eau","p":"WO-teur","x":"A glass of water, please.","xf":"Un verre d'eau, s'il vous plaît."},{"e":"bread","f":"pain","p":"bred","x":"I buy bread every morning.","xf":"J'achète du pain chaque matin."},{"e":"coffee","f":"café","p":"KO-fi","x":"She drinks coffee at seven.","xf":"Elle boit du café à sept heures."},{"e":"house","f":"maison","p":"haous","x":"Their house is very old.","xf":"Leur maison est très vieille."},{"e":"car","f":"voiture","p":"karr","x":"My car is blue.","xf":"Ma voiture est bleue."},{"e":"friend","f":"ami","p":"frend","x":"He is my best friend.","xf":"C'est mon meilleur ami."},{"e":"family","f":"famille","p":"FA-mi-li","x":"My family lives in France.","xf":"Ma famille vit en France."},{"e":"mother","f":"mère","p":"MO-zeur","x":"My mother cooks well.","xf":"Ma mère cuisine bien."},{"e":"father","f":"père","p":"FA-zeur","x":"His father works in a bank.","xf":"Son père travaille dans une banque."},{"e":"child","f":"enfant","p":"tchaïld","x":"The child is sleeping.","xf":"L'enfant dort."},{"e":"day","f":"jour","p":"dé","x":"What a beautiful day!","xf":"Quelle belle journée !"},{"e":"night","f":"nuit","p":"naït","x":"It is cold at night.","xf":"Il fait froid la nuit."},{"e":"today","f":"aujourd'hui","p":"tou-DÉ","x":"Today is Monday.","xf":"Aujourd'hui, c'est lundi."},{"e":"tomorrow","f":"demain","p":"tou-MO-ro","x":"I will call you tomorrow.","xf":"Je t'appelle demain."},{"e":"to eat","f":"manger","p":"it","x":"We eat at eight.","xf":"Nous mangeons à huit heures."},{"e":"to drink","f":"boire","p":"drink","x":"I drink tea in the morning.","xf":"Je bois du thé le matin."},{"e":"to go","f":"aller","p":"go","x":"They go to school by bus.","xf":"Ils vont à l'école en bus."},{"e":"to buy","f":"acheter","p":"baï","x":"I want to buy this book.","xf":"Je veux acheter ce livre."},{"e":"to work","f":"travailler","p":"weurk","x":"She works in Paris.","xf":"Elle travaille à Paris."},{"e":"big","f":"grand","p":"big","x":"It is a big garden.","xf":"C'est un grand jardin."},{"e":"small","f":"petit","p":"smol","x":"A small cup of tea.","xf":"Une petite tasse de thé."},{"e":"good","f":"bon","p":"goud","x":"This bread is very good.","xf":"Ce pain est très bon."},{"e":"expensive","f":"cher","p":"ex-PEN-siv","x":"That watch is too expensive.","xf":"Cette montre est trop chère."},{"e":"how much","f":"combien","p":"haou meutch","x":"How much is it?","xf":"Combien ça coûte ?"},{"e":"where","f":"où","p":"wèr","x":"Where is the station?","xf":"Où est la gare ?"},{"e":"what","f":"quoi","p":"wat","x":"What is your name?","xf":"Quel est ton nom ?"},{"e":"I would like","f":"je voudrais","p":"aï woud laïk","x":"I would like a table for two.","xf":"Je voudrais une table pour deux."},{"e":"excuse me","f":"excusez-moi","p":"ex-KYOUS mi","x":"Excuse me, is this seat free?","xf":"Excusez-moi, cette place est libre ?"},{"e":"see you later","f":"à plus tard","p":"si you LÉ-teur","x":"See you later, take care.","xf":"À plus tard, prends soin de toi."}],"A2":[{"e":"to arrive","f":"arriver","p":"a-RAÏV","x":"The train arrives at noon.","xf":"Le train arrive à midi."},{"e":"to leave","f":"partir","p":"liv","x":"We leave tomorrow morning.","xf":"Nous partons demain matin."},{"e":"to remember","f":"se souvenir","p":"ri-MEM-beur","x":"I remember that evening.","xf":"Je me souviens de cette soirée."},{"e":"to forget","f":"oublier","p":"feur-GUET","x":"Do not forget your keys.","xf":"N'oublie pas tes clés."},{"e":"to try","f":"essayer","p":"traï","x":"Try again, it is easy.","xf":"Essaie encore, c'est facile."},{"e":"to meet","f":"rencontrer","p":"mit","x":"Nice to meet you.","xf":"Enchanté de vous rencontrer."},{"e":"to spend","f":"dépenser","p":"spend","x":"I spend too much on coffee.","xf":"Je dépense trop en café."},{"e":"to borrow","f":"emprunter","p":"BO-ro","x":"Can I borrow your pen?","xf":"Je peux emprunter ton stylo ?"},{"e":"to lend","f":"prêter","p":"lend","x":"He lent me his car.","xf":"Il m'a prêté sa voiture."},{"e":"to book","f":"réserver","p":"bouk","x":"I booked a table for four.","xf":"J'ai réservé une table pour quatre."},{"e":"to get up","f":"se lever","p":"guet op","x":"I get up at six every day.","xf":"Je me lève à six heures chaque jour."},{"e":"to look for","f":"chercher","p":"louk for","x":"I am looking for my glasses.","xf":"Je cherche mes lunettes."},{"e":"to find out","f":"découvrir","p":"faïnd aout","x":"I found out the truth later.","xf":"J'ai découvert la vérité plus tard."},{"e":"to give up","f":"abandonner","p":"giv op","x":"Never give up too early.","xf":"N'abandonne jamais trop tôt."},{"e":"train station","f":"gare","p":"tréïne STÉ-cheun","x":"The station is five minutes away.","xf":"La gare est à cinq minutes."},{"e":"ticket","f":"billet","p":"TI-kit","x":"I need a return ticket.","xf":"J'ai besoin d'un billet aller-retour."},{"e":"luggage","f":"bagages","p":"LO-guidj","x":"My luggage is missing.","xf":"Mes bagages ont disparu."},{"e":"appointment","f":"rendez-vous","p":"a-POÏNT-ment","x":"I have an appointment at ten.","xf":"J'ai un rendez-vous à dix heures."},{"e":"meeting","f":"réunion","p":"MI-ting","x":"The meeting starts late.","xf":"La réunion commence tard."},{"e":"deadline","f":"date limite","p":"DÈD-laïn","x":"The deadline is Friday.","xf":"La date limite est vendredi."},{"e":"salary","f":"salaire","p":"SA-la-ri","x":"His salary is decent.","xf":"Son salaire est correct."},{"e":"colleague","f":"collègue","p":"KO-lig","x":"My colleague speaks Italian.","xf":"Mon collègue parle italien."},{"e":"neighbour","f":"voisin","p":"NÉ-beur","x":"Our neighbour is very kind.","xf":"Notre voisin est très gentil."},{"e":"weather","f":"météo","p":"WÉ-zeur","x":"The weather is awful today.","xf":"Le temps est affreux aujourd'hui."},{"e":"rain","f":"pluie","p":"réïne","x":"It rained all night.","xf":"Il a plu toute la nuit."},{"e":"to be lucky","f":"avoir de la chance","p":"bi LO-ki","x":"You were lucky this time.","xf":"Tu as eu de la chance cette fois."},{"e":"hardly","f":"à peine","p":"HARD-li","x":"I hardly slept last night.","xf":"J'ai à peine dormi cette nuit."},{"e":"enough","f":"assez","p":"i-NOF","x":"We do not have enough time.","xf":"Nous n'avons pas assez de temps."},{"e":"anyway","f":"de toute façon","p":"É-ni-wé","x":"Anyway, I will be there.","xf":"De toute façon, je serai là."},{"e":"actually","f":"en fait","p":"AK-tchou-a-li","x":"Actually, I disagree.","xf":"En fait, je ne suis pas d'accord."},{"e":"on time","f":"à l'heure","p":"on taïm","x":"The train was on time.","xf":"Le train était à l'heure."},{"e":"get in touch","f":"prendre contact","p":"guet in totch","x":"I will get in touch next week.","xf":"Je prendrai contact la semaine prochaine."},{"e":"to be used to","f":"avoir l'habitude","p":"bi youst tou","x":"I am used to getting up early.","xf":"J'ai l'habitude de me lever tôt."},{"e":"as soon as","f":"dès que","p":"az soun az","x":"Call me as soon as you arrive.","xf":"Appelle-moi dès que tu arrives."},{"e":"to look forward to","f":"attendre avec impatience","p":"louk FO-ward tou","x":"I look forward to your reply.","xf":"J'attends votre réponse avec impatience."},{"e":"by the way","f":"au fait","p":"baï ze wé","x":"By the way, did you call him?","xf":"Au fait, tu l'as appelé ?"},{"e":"it depends","f":"ça dépend","p":"it di-PENDZ","x":"It depends on the price.","xf":"Ça dépend du prix."}],"B1":[{"e":"to achieve","f":"atteindre, réaliser","p":"a-TCHIV","x":"She achieved her goal in a year.","xf":"Elle a atteint son objectif en un an."},{"e":"to afford","f":"pouvoir se permettre","p":"a-FORD","x":"We cannot afford a new car.","xf":"Nous ne pouvons pas nous permettre une nouvelle voiture."},{"e":"to avoid","f":"éviter","p":"a-VOÏD","x":"He avoided the question.","xf":"Il a évité la question."},{"e":"to complain","f":"se plaindre","p":"keum-PLÉÏNE","x":"Stop complaining about the weather.","xf":"Arrête de te plaindre du temps."},{"e":"to deal with","f":"gérer, traiter","p":"dil with","x":"I will deal with it tomorrow.","xf":"Je m'en occuperai demain."},{"e":"to expect","f":"s'attendre à","p":"ex-PEKT","x":"I expected a better answer.","xf":"Je m'attendais à une meilleure réponse."},{"e":"to improve","f":"améliorer","p":"im-PROUV","x":"Your English is improving fast.","xf":"Ton anglais s'améliore vite."},{"e":"to manage","f":"réussir, gérer","p":"MA-nidj","x":"She managed to finish on time.","xf":"Elle a réussi à finir à temps."},{"e":"to point out","f":"faire remarquer","p":"poïnt aout","x":"He pointed out a mistake.","xf":"Il a fait remarquer une erreur."},{"e":"to realise","f":"se rendre compte","p":"RI-a-laïz","x":"I realised I was wrong.","xf":"Je me suis rendu compte que j'avais tort."},{"e":"to rely on","f":"compter sur","p":"ri-LAÏ on","x":"You can rely on her.","xf":"Tu peux compter sur elle."},{"e":"to sort out","f":"régler, résoudre","p":"sort aout","x":"We sorted out the problem.","xf":"Nous avons réglé le problème."},{"e":"to take part","f":"participer","p":"téïk part","x":"She took part in the debate.","xf":"Elle a participé au débat."},{"e":"to turn out","f":"s'avérer","p":"teurn aout","x":"It turned out to be true.","xf":"Il s'est avéré que c'était vrai."},{"e":"to be worth","f":"valoir la peine","p":"bi weurth","x":"Is it worth the price?","xf":"Est-ce que ça vaut le prix ?"},{"e":"issue","f":"problème, enjeu","p":"I-chou","x":"This is a serious issue.","xf":"C'est un problème sérieux."},{"e":"opportunity","f":"occasion","p":"o-peu-TYOU-ni-ti","x":"Do not miss this opportunity.","xf":"Ne rate pas cette occasion."},{"e":"purpose","f":"but, objectif","p":"PEUR-peus","x":"What is the purpose of this form?","xf":"Quel est le but de ce formulaire ?"},{"e":"reason","f":"raison","p":"RI-zon","x":"Give me one good reason.","xf":"Donne-moi une bonne raison."},{"e":"advice","f":"conseil","p":"ad-VAÏS","x":"Let me give you some advice.","xf":"Laisse-moi te donner un conseil."},{"e":"agreement","f":"accord","p":"a-GRI-ment","x":"We reached an agreement.","xf":"Nous sommes parvenus à un accord."},{"e":"behaviour","f":"comportement","p":"bi-HÉ-vyeur","x":"His behaviour surprised everyone.","xf":"Son comportement a surpris tout le monde."},{"e":"evidence","f":"preuve","p":"É-vi-dens","x":"There is no evidence for that.","xf":"Il n'y a aucune preuve de cela."},{"e":"in charge of","f":"responsable de","p":"in tchardj ov","x":"She is in charge of the project.","xf":"Elle est responsable du projet."},{"e":"on purpose","f":"exprès","p":"on PEUR-peus","x":"He did it on purpose.","xf":"Il l'a fait exprès."},{"e":"as far as I know","f":"pour autant que je sache","p":"az far az aï no","x":"As far as I know, he left.","xf":"Pour autant que je sache, il est parti."},{"e":"to make up your mind","f":"se décider","p":"méïk op yor maïnd","x":"You must make up your mind.","xf":"Tu dois te décider."},{"e":"to keep in mind","f":"garder à l'esprit","p":"kip in maïnd","x":"Keep in mind the deadline.","xf":"Garde la date limite à l'esprit."},{"e":"to be aware of","f":"être conscient de","p":"bi a-WÉR ov","x":"Are you aware of the risk?","xf":"Es-tu conscient du risque ?"},{"e":"however","f":"cependant","p":"haou-É-veur","x":"However, the result is unclear.","xf":"Cependant, le résultat est flou."},{"e":"therefore","f":"par conséquent","p":"ZÉR-for","x":"It rained; therefore we stayed.","xf":"Il pleuvait ; par conséquent nous sommes restés."},{"e":"although","f":"bien que","p":"ol-ZO","x":"Although tired, she kept going.","xf":"Bien que fatiguée, elle a continué."},{"e":"unless","f":"à moins que","p":"on-LESS","x":"We will go unless it rains.","xf":"Nous irons à moins qu'il pleuve."},{"e":"to get rid of","f":"se débarrasser de","p":"guet rid ov","x":"Get rid of that old sofa.","xf":"Débarrasse-toi de ce vieux canapé."},{"e":"to come up with","f":"trouver (une idée)","p":"keum op with","x":"She came up with a clever plan.","xf":"Elle a trouvé un plan astucieux."},{"e":"to be about to","f":"être sur le point de","p":"bi a-BAOUT tou","x":"I was about to call you.","xf":"J'étais sur le point de t'appeler."},{"e":"to run out of","f":"être à court de","p":"reun aout ov","x":"We ran out of milk.","xf":"Nous n'avons plus de lait."}],"B2":[{"e":"to undermine","f":"saper, fragiliser","p":"on-deur-MAÏNE","x":"This decision undermines trust.","xf":"Cette décision fragilise la confiance."},{"e":"to tackle","f":"s'attaquer à","p":"TA-keul","x":"We must tackle the root cause.","xf":"Nous devons nous attaquer à la cause profonde."},{"e":"to leverage","f":"tirer parti de","p":"LÉ-ve-ridj","x":"They leveraged their network.","xf":"Ils ont tiré parti de leur réseau."},{"e":"to streamline","f":"rationaliser","p":"STRIM-laïn","x":"We streamlined the whole process.","xf":"Nous avons rationalisé tout le processus."},{"e":"to mitigate","f":"atténuer","p":"MI-ti-guéït","x":"Steps to mitigate the risk.","xf":"Des mesures pour atténuer le risque."},{"e":"to assess","f":"évaluer","p":"a-SESS","x":"We need to assess the damage.","xf":"Nous devons évaluer les dégâts."},{"e":"to imply","f":"sous-entendre","p":"im-PLAÏ","x":"What are you implying?","xf":"Qu'est-ce que tu sous-entends ?"},{"e":"to outline","f":"exposer, résumer","p":"AOUT-laïn","x":"He outlined the main points.","xf":"Il a résumé les points principaux."},{"e":"to emphasise","f":"souligner","p":"EM-fa-saïz","x":"I cannot emphasise this enough.","xf":"Je ne saurais trop insister là-dessus."},{"e":"to justify","f":"justifier","p":"DJUS-ti-faï","x":"Nothing justifies such a decision.","xf":"Rien ne justifie une telle décision."},{"e":"to overlook","f":"négliger","p":"o-veur-LOUK","x":"They overlooked a key detail.","xf":"Ils ont négligé un détail clé."},{"e":"to comply with","f":"se conformer à","p":"keum-PLAÏ with","x":"All products comply with the rules.","xf":"Tous les produits respectent les règles."},{"e":"to bring up","f":"soulever (un sujet)","p":"bring op","x":"She brought up a sensitive topic.","xf":"Elle a soulevé un sujet sensible."},{"e":"to carry out","f":"mener à bien","p":"KA-ri aout","x":"They carried out a full audit.","xf":"Ils ont mené un audit complet."},{"e":"to put off","f":"reporter","p":"pout of","x":"The launch was put off.","xf":"Le lancement a été reporté."},{"e":"to come across","f":"donner l'impression de","p":"keum a-KROSS","x":"He comes across as arrogant.","xf":"Il donne l'impression d'être arrogant."},{"e":"trade-off","f":"compromis","p":"TRÉÏD-of","x":"There is always a trade-off.","xf":"Il y a toujours un compromis."},{"e":"shortfall","f":"déficit, manque","p":"CHORT-fol","x":"A shortfall of two million euros.","xf":"Un déficit de deux millions d'euros."},{"e":"stakeholder","f":"partie prenante","p":"STÉÏK-hol-deur","x":"We consulted every stakeholder.","xf":"Nous avons consulté chaque partie prenante."},{"e":"turnover","f":"chiffre d'affaires","p":"TEUR-no-veur","x":"Turnover grew by twelve percent.","xf":"Le chiffre d'affaires a progressé de douze pour cent."},{"e":"insight","f":"aperçu, éclairage","p":"IN-saït","x":"That gives us real insight.","xf":"Cela nous donne un vrai éclairage."},{"e":"outcome","f":"résultat","p":"AOUT-keum","x":"The outcome was disappointing.","xf":"Le résultat a été décevant."},{"e":"constraint","f":"contrainte","p":"keun-STRÉÏNT","x":"We work under tight constraints.","xf":"Nous travaillons sous de fortes contraintes."},{"e":"to bear in mind","f":"garder à l'esprit","p":"bér in maïnd","x":"Bear in mind the timeline.","xf":"Garde le calendrier à l'esprit."},{"e":"to draw a conclusion","f":"tirer une conclusion","p":"dro a keun-KLOU-jeun","x":"It is too early to draw a conclusion.","xf":"Il est trop tôt pour tirer une conclusion."},{"e":"in the long run","f":"à long terme","p":"in ze long reun","x":"It pays off in the long run.","xf":"Ça paie à long terme."},{"e":"on the whole","f":"dans l'ensemble","p":"on ze hol","x":"On the whole, the plan works.","xf":"Dans l'ensemble, le plan fonctionne."},{"e":"by and large","f":"globalement","p":"baï and lardj","x":"By and large, people agree.","xf":"Globalement, les gens sont d'accord."},{"e":"to some extent","f":"dans une certaine mesure","p":"tou seum ex-TENT","x":"I agree to some extent.","xf":"Je suis d'accord dans une certaine mesure."},{"e":"to be bound to","f":"être tenu de","p":"bi baound tou","x":"We are bound to report it.","xf":"Nous sommes tenus de le signaler."},{"e":"to hit the nail on the head","f":"mettre le doigt dessus","p":"hit ze néïl on ze hèd","x":"You hit the nail on the head.","xf":"Tu as mis le doigt dessus."},{"e":"to cut corners","f":"faire des économies au détriment de la qualité","p":"keut KOR-neurz","x":"They cut corners to save money.","xf":"Ils ont rogné sur la qualité pour économiser."},{"e":"a double-edged sword","f":"une arme à double tranchant","p":"a DO-beul-edjd sord","x":"Social media is a double-edged sword.","xf":"Les réseaux sociaux sont une arme à double tranchant."},{"e":"to take something for granted","f":"tenir quelque chose pour acquis","p":"téïk SEUM-thing for GRAN-tid","x":"We take clean water for granted.","xf":"Nous tenons l'eau potable pour acquise."},{"e":"the bottom line","f":"l'essentiel, le résultat net","p":"ze BO-teum laïn","x":"The bottom line is simple.","xf":"L'essentiel est simple."},{"e":"to weigh up","f":"peser le pour et le contre","p":"wéï op","x":"Weigh up the pros and cons.","xf":"Pèse le pour et le contre."}],"KIDS":[{"e":"cat","f":"chat","p":"kat","x":"The cat is sleeping.","xf":"Le chat dort."},{"e":"dog","f":"chien","p":"dog","x":"My dog is funny.","xf":"Mon chien est drôle."},{"e":"bird","f":"oiseau","p":"beurd","x":"A bird can fly.","xf":"Un oiseau peut voler."},{"e":"fish","f":"poisson","p":"fich","x":"The fish is in the water.","xf":"Le poisson est dans l'eau."},{"e":"horse","f":"cheval","p":"hors","x":"The horse runs fast.","xf":"Le cheval court vite."},{"e":"rabbit","f":"lapin","p":"RA-bit","x":"The rabbit eats a carrot.","xf":"Le lapin mange une carotte."},{"e":"red","f":"rouge","p":"red","x":"The apple is red.","xf":"La pomme est rouge."},{"e":"blue","f":"bleu","p":"blou","x":"The sky is blue.","xf":"Le ciel est bleu."},{"e":"green","f":"vert","p":"grin","x":"The grass is green.","xf":"L'herbe est verte."},{"e":"yellow","f":"jaune","p":"YÉ-lo","x":"The sun is yellow.","xf":"Le soleil est jaune."},{"e":"one","f":"un","p":"weun","x":"I have one apple.","xf":"J'ai une pomme."},{"e":"two","f":"deux","p":"tou","x":"Two cats are playing.","xf":"Deux chats jouent."},{"e":"three","f":"trois","p":"thri","x":"I see three stars.","xf":"Je vois trois étoiles."},{"e":"four","f":"quatre","p":"for","x":"A table has four legs.","xf":"Une table a quatre pieds."},{"e":"five","f":"cinq","p":"faïv","x":"Five fingers on my hand.","xf":"Cinq doigts sur ma main."},{"e":"mum","f":"maman","p":"meum","x":"Mum is in the kitchen.","xf":"Maman est dans la cuisine."},{"e":"dad","f":"papa","p":"dad","x":"Dad reads a book.","xf":"Papa lit un livre."},{"e":"sister","f":"sœur","p":"SIS-teur","x":"My sister is little.","xf":"Ma sœur est petite."},{"e":"brother","f":"frère","p":"BRO-zeur","x":"My brother plays football.","xf":"Mon frère joue au football."},{"e":"baby","f":"bébé","p":"BÉ-bi","x":"The baby is crying.","xf":"Le bébé pleure."},{"e":"apple","f":"pomme","p":"A-peul","x":"I eat an apple.","xf":"Je mange une pomme."},{"e":"milk","f":"lait","p":"milk","x":"I drink milk.","xf":"Je bois du lait."},{"e":"cake","f":"gâteau","p":"kéïk","x":"The cake is sweet.","xf":"Le gâteau est sucré."},{"e":"ball","f":"ballon","p":"bol","x":"Throw the ball!","xf":"Lance le ballon !"},{"e":"book","f":"livre","p":"bouk","x":"This book is nice.","xf":"Ce livre est joli."},{"e":"school","f":"école","p":"skoul","x":"I go to school.","xf":"Je vais à l'école."},{"e":"sun","f":"soleil","p":"seun","x":"The sun is hot.","xf":"Le soleil est chaud."},{"e":"moon","f":"lune","p":"moun","x":"The moon is white.","xf":"La lune est blanche."},{"e":"happy","f":"content","p":"HA-pi","x":"I am happy today.","xf":"Je suis content aujourd'hui."},{"e":"to run","f":"courir","p":"reun","x":"Let's run in the park.","xf":"Courons dans le parc."},{"e":"to jump","f":"sauter","p":"djeump","x":"Jump like a frog.","xf":"Saute comme une grenouille."},{"e":"to sing","f":"chanter","p":"sing","x":"We sing a song.","xf":"Nous chantons une chanson."},{"e":"big","f":"grand","p":"big","x":"A big elephant.","xf":"Un grand éléphant."},{"e":"small","f":"petit","p":"smol","x":"A small mouse.","xf":"Une petite souris."}]};
+const VERSION = "20261026.0612";
+const LEVELS = {
+  A1:{name:"Débutant",sub:"A1 · survie",emoji:"🌱",color:"#58cc02"},
+  A2:{name:"Élémentaire",sub:"A2 · quotidien",emoji:"🌿",color:"#1cb0f6"},
+  B1:{name:"Intermédiaire",sub:"B1 · aisance",emoji:"🌳",color:"#ce82ff"},
+  B2:{name:"Avancé",sub:"B2 · précision",emoji:"🔥",color:"#ff9600"},
+  KIDS:{name:"Enfant",sub:"Jeux & images",emoji:"🧒",color:"#ff4b8b"}
+};
+const BOX_DAYS=[0,1,2,4,7,15,30,60];
+const GOAL_XP=50, GOAL_MIN=10;
+const AVATARS=["🦊","🐼","🦉","🐙","🦁","🐸","🐧","🦄","🐺","🐨"];
+
+/* ---------- state ---------- */
+const KEY="anglais_v1";
+function blank(){return{profile:null,xp:0,streak:0,best:0,last:null,minutes:0,good:0,bad:0,items:{},history:{},created:Date.now()}}
+let S=load();
+function load(){try{const r=JSON.parse(localStorage.getItem(KEY));return r&&r.items?r:blank()}catch(e){return blank()}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+const today=()=>new Date().toISOString().slice(0,10);
+const dayNum=d=>Math.round(new Date(d+"T12:00:00").getTime()/864e5);
+
+function touchDay(){
+  const t=today();
+  if(S.last===t)return;
+  const y=new Date(Date.now()-864e5).toISOString().slice(0,10);
+  S.streak = S.last===y ? S.streak+1 : 1;
+  S.best=Math.max(S.best||0,S.streak);
+  S.last=t; save();
+}
+function itm(l,i){
+  const k=l+":"+i;
+  if(!S.items[k])S.items[k]={b:0,d:0,r:0,w:0,n:0};
+  return S.items[k];
+}
+function dueCount(lvl){
+  const t=dayNum(today());let n=0;
+  DATA[lvl].forEach((_,i)=>{const it=itm(lvl,i);if(it.n>0&&it.d<=t)n++});
+  return n;
+}
+function levelPct(lvl){
+  const arr=DATA[lvl];let s=0;
+  arr.forEach((_,i)=>{const it=itm(lvl,i);s+=Math.min(1,it.b/3)});
+  return Math.round(100*s/arr.length);
+}
+function duePct(ok,n){
+  if(!ok)return 0;
+  return 100*S.good/(S.good+S.bad||1);
+}
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+function el(html){const d=document.createElement("div");d.innerHTML=html.trim();return d.firstElementChild}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),1900)}
+function speak(txt){
+  try{
+    if(!window.speechSynthesis)return;
+    speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(txt);
+    u.lang="en-US";u.rate=.9;
+    const v=speechSynthesis.getVoices().find(v=>/en(-|_)(US|GB)/i.test(v.lang));
+    if(v)u.voice=v;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function startMinuteClock(){
+  if(window._clock)clearInterval(window._clock);
+  window._clock=setInterval(()=>{
+    const t=today();
+    S.history[t]=S.history[t]||{xp:0,m:0};
+    S.history[t].m=(S.history[t].m||0)+1/6; // 10 s
+    S.minutes+=1/6;
+    save();
+  },10000);
+}
+
+/* ---------- screens ---------- */
+function render(){
+  const a=$("#app");
+  if(!S.profile)return onboard(a);
+  switch(S._screen||"home"){
+    case "home":return home(a);
+    case "levels":return levels(a);
+    case "lesson":return lesson(a);
+    case "stats":return stats(a);
+    case "profile":return profile(a);
+    case "browse":return browse(a);
+  }
+  home(a);
+}
+function go(sc){S._screen=sc;render();window.scrollTo(0,0)}
+
+function onboard(a){
+  a.innerHTML=`
+  <div style="margin-top:14vh;text-align:center">
+    <div style="font-size:64px">🇬🇧</div>
+    <h1 style="margin-top:10px">Apprends l'anglais</h1>
+    <p class="muted" style="margin-top:6px">Un peu chaque jour. Mots, expressions, révisions.</p>
+  </div>
+  <div class="spacer"></div><div class="spacer"></div>
+  <div class="card stack">
+    <div><h3>Ton prénom</h3><input id="nm" type="text" placeholder="Mathieu" autocomplete="given-name"></div>
+    <div><h3 style="margin-bottom:8px">Ton avatar</h3><div class="avs" id="avs">${
+      AVATARS.map((x,i)=>`<button data-a="${x}" class="${i===0?'sel':''}">${x}</button>`).join("")
+    }</div></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn" id="ok">Commencer</button>
+  `;
+  a.querySelectorAll("#avs button").forEach(b=>b.onclick=()=>{
+    a.querySelectorAll("#avs button").forEach(x=>x.classList.remove("sel"));
+    b.classList.add("sel");
+  });
+  $("#ok").onclick=()=>{
+    const nm=($("#nm").value||"Ami").trim().slice(0,18);
+    const av=(a.querySelector("#avs .sel")||{dataset:{a:"🦊"}}).dataset.a;
+    S.profile={name:nm,avatar:av,level:"A1",since:Date.now()};
+    touchDay();save();startMinuteClock();go("home");
+  };
+}
+
+function home(a){
+  touchDay();
+  const t=today();
+  const h=S.history[t]||{xp:0,m:0};
+  const xp=Math.round(h.xp||0), mins=Math.round(h.m||0);
+  const pct=Math.min(100,Math.round(100*xp/GOAL_XP));
+  const due=Object.keys(DATA).reduce((s,l)=>s+dueCount(l),0);
+  const lvl=S.profile.level||"A1";
+  const L=LEVELS[lvl];
+  a.innerHTML=`
+  <div class="between">
+    <div class="row">
+      <div style="font-size:30px">${S.profile.avatar}</div>
+      <div><b>${esc(S.profile.name)}</b><div class="tiny muted">${L.emoji} ${L.name} · ${L.sub}</div></div>
+    </div>
+    <div class="row" style="gap:6px">
+      <span class="pill">🔥 ${S.streak}</span>
+      <span class="pill">⭐ ${S.xp}</span>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="card row" style="gap:16px">
+    <div class="ring" style="--p:${pct}"><span>${xp}/${GOAL_XP}</span></div>
+    <div style="flex:1">
+      <b>Objectif du jour</b>
+      <p class="small muted" style="margin-top:2px">${xp>=GOAL_XP?"Objectif atteint 🎉":`Encore ${GOAL_XP-xp} XP`}</p>
+      <p class="tiny muted">${mins} min aujourd'hui · ${Math.round(S.minutes)} min au total</p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn" id="cont">${xp>=GOAL_XP?"Continuer quand même":"Continuer la leçon"}</button>
+  ${due?`<div style="height:10px"></div><button class="btn blue" id="rev">Réviser ${due} mot${due>1?"s":""} dû${due>1?"s":""}</button>`:""}
+  <div class="spacer"></div>
+  <div class="grid3">
+    <div class="stat"><b>${S.streak}</b><i>série</i></div>
+    <div class="stat"><b>${Math.round(S.minutes/60*10)/10}h</b><i>heures</i></div>
+    <div class="stat"><b>${Math.round(100*S.good/((S.good+S.bad)||1))}%</b><i>réussite</i></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="lvl" id="lvlbtn">
+    <div class="ico" style="background:${L.color}22;color:${L.color}">${L.emoji}</div>
+    <div class="meta"><div class="between"><b>${L.name}</b><span class="tiny muted">${levelPct(lvl)}%</span></div>
+      <div class="bar"><i style="width:${levelPct(lvl)}%"></i></div></div>
+    <div class="muted">›</div>
+  </button>
+  <div class="spacer"></div>
+  <div class="grid2">
+    <button class="btn alt" id="st">📊 Statistiques</button>
+    <button class="btn alt" id="pf">👤 Profil</button>
+  </div>
+  `;
+  $("#cont").onclick=()=>startLesson(lvl,false);
+  if(due)$("#rev").onclick=()=>startLesson(null,true);
+  $("#lvlbtn").onclick=()=>go("levels");
+  $("#st").onclick=()=>go("stats");
+  $("#pf").onclick=()=>go("profile");
+}
+
+function levels(a){
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('home')">‹</button><h2>Parcours</h2><span style="width:38px"></span></div>
+  <div class="stack" id="ls"></div>`;
+  const box=$("#ls");
+  Object.entries(LEVELS).forEach(([k,L])=>{
+    const p=levelPct(k), n=DATA[k].length, d=dueCount(k);
+    const b=el(`<button class="lvl" data-k="${k}">
+      <div class="ico" style="background:${L.color}22;color:${L.color}">${L.emoji}</div>
+      <div class="meta">
+        <div class="between"><b>${L.name}</b><span class="tiny muted">${p}%</span></div>
+        <div class="tiny muted">${L.sub} · ${n} mots${d?` · ${d} à réviser`:""}</div>
+        <div class="bar" style="margin-top:8px"><i style="width:${p}%"></i></div>
+      </div><div class="muted">›</div></button>`);
+    b.onclick=()=>{S.profile.level=k;save();startLesson(k,false)};
+    box.appendChild(b);
+  });
+}
+
+function pick(lvl,rev){
+  const t=dayNum(today());
+  let pool=[];
+  DATA[lvl].forEach((w,i)=>{
+    const it=itm(lvl,i);
+    const isDue=it.n>0&&it.d<=t;
+    if(rev&&!isDue)return;
+    let score=it.b*100 + it.n*10 + (isDue?-50:0) + Math.random()*20;
+    if(it.n===0)score=it.b*100+Math.random()*20;
+    pool.push({i,w,it,score});
+  });
+  pool.sort((x,y)=>x.score-y.score);
+  return pool.slice(0,8);
+}
+function distract(lvl,w){
+  const c=DATA[lvl].filter(x=>x.f!==w.f);
+  const out=[];
+  while(out.length<3&&c.length){
+    const p=c.splice(Math.floor(Math.random()*c.length),1)[0];
+    if(!out.find(o=>o.f===p.f))out.push(p);
+  }
+  return out;
+}
+
+/* ---------- lesson engine ---------- */
+let LSN=null;
+function startLesson(lvl,rev){
+  const src=lvl||S.profile.level;
+  let picks;
+  if(rev){
+    picks=[];
+    Object.keys(DATA).forEach(l=>{
+      const p=pick(l,true);
+      p.forEach(x=>picks.push({...x,lvl:l}));
+    });
+    picks.sort((a,b)=>a.score-b.score);
+    picks=picks.slice(0,8);
+  } else {
+    picks=pick(src,false).map(x=>({...x,lvl:src}));
+  }
+  if(!picks.length){toast("Rien à réviser ici 🎉");return}
+  LSN={src,rev,picks,idx:0,phase:"card",good:0,bad:0,start:Date.now(),typing:[]};
+  LSN.typing=picks.slice(0,2).map(p=>p.w);
+  go("lesson");
+}
+function lesson(a){
+  const L=LSN; if(!L)return go("home");
+  const total=L.picks.length+ (L.phase==="typing"||L.phase==="done"?L.typing.length:0);
+  const done=L.idx+(L.phase==="typing"?L.picks.length:0);
+  const pct=Math.min(100,Math.round(100*done/total));
+  const bar=`<div class="bar" style="margin-bottom:14px"><i style="width:${pct}%"></i></div>`;
+
+  if(L.phase==="card"){
+    const p=L.picks[L.idx];const w=p.w;
+    a.innerHTML=`${bar}
+      <div class="card">
+        <div class="between"><span class="pill">${LEVELS[p.lvl].emoji} ${p.lvl}</span><span class="tiny muted">${L.idx+1}/${L.picks.length}</span></div>
+        <div class="bigword">${esc(w.e)}</div>
+        <div class="row"><span class="phon">${esc(w.p||"")}</span><button class="pill" id="sp">🔊 Écouter</button></div>
+        <div class="spacer"></div>
+        <div><b>${esc(w.f)}</b></div>
+        <div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf)}</span></div>
+      </div>
+      <div class="feed"><div><button class="btn" id="next">Continuer</button></div></div>`;
+    $("#sp").onclick=()=>speak(w.e+" . "+w.x);
+    setTimeout(()=>speak(w.e),300);
+    $("#next").onclick=()=>{L.idx++;if(L.idx>=L.picks.length){L.phase="quiz";L.idx=0}render()};
+    return;
+  }
+  if(L.phase==="quiz"){
+    const p=L.picks[L.idx];const w=p.w;
+    if(!p.opts)p.opts=[w,...distract(p.lvl,w)].sort(()=>Math.random()-.5);
+    a.innerHTML=`${bar}
+      <div class="cardq">
+        <div class="tiny muted" style="margin-bottom:6px">${L.idx+1}/${L.picks.length} · que veut dire</div>
+        <div style="font-size:26px;font-weight:800">${esc(w.e)}</div>
+        <button class="pill" id="sp" style="margin-top:8px">🔊</button>
+      </div>
+      <div id="opts">${p.opts.map((o,i)=>`<button class="choice" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(o.f)}</button>`).join("")}</div>
+      <div class="feed"><div><button class="btn" id="next" disabled>Continuer</button></div></div>`;
+    $("#sp").onclick=()=>speak(w.e);
+    let answered=false;
+    a.querySelectorAll("#opts .choice").forEach(b=>b.onclick=()=>{
+      if(answered)return;answered=true;
+      const pickIdx=+b.dataset.i; const ok=p.opts[pickIdx].f===w.f;
+      const it=itm(p.lvl,p.i);
+      it.n=(it.n||0)+1;
+      if(ok){it.r++;it.b=Math.min(7,it.b+1);S.good++;S.xp+=10}
+      else{it.w++;it.b=Math.max(0,it.b-1);S.bad++;S.xp+=2}
+      it.d=dayNum(today())+BOX_DAYS[Math.min(it.b,BOX_DAYS.length-1)];
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();
+      b.classList.add(ok?"ok":"no");
+      if(!ok){a.querySelectorAll("#opts .choice").forEach(x=>{if(p.opts[+x.dataset.i].f===w.f)x.classList.add("ok")})}
+      $("#next").disabled=false;
+      if(ok)speak(w.e);
+    });
+    $("#next").onclick=()=>{L.idx++;if(L.idx>=L.picks.length){L.phase="typing";L.idx=0}render()};
+    return;
+  }
+  if(L.phase==="typing"){
+    const w=L.typing[L.idx];
+    a.innerHTML=`${bar}
+      <div class="cardq">
+        <div class="tiny muted">Écris en anglais</div>
+        <div style="font-size:24px;font-weight:800;margin-top:4px">${esc(w.f)}</div>
+      </div>
+      <div class="spacer"></div>
+      <input id="tp" type="text" placeholder="ta réponse…" autocapitalize="off" autocorrect="off" spellcheck="false" autofocus>
+      <div class="feed"><div><button class="btn" id="next" disabled>Valider</button></div></div>`;
+    const inp=$("#tp");
+    const norm=s=>s.toLowerCase().replace(/[^a-z ]/g,"").replace(/\s+/g," ").trim();
+    const check=()=>{$("#next").disabled=!inp.value.trim()};
+    inp.oninput=check;
+    inp.onkeydown=e=>{if(e.key==="Enter"&&!$("#next").disabled)$("#next").click()};
+    $("#next").onclick=()=>{
+      const ok=norm(inp.value)===norm(w.e);
+      if(ok){S.good++;S.xp+=15;toast("✓ Exact")}
+      else{S.bad++;S.xp+=3;toast("✗ "+w.e)}
+      S.history[today()]=S.history[today()]||{xp:0,m:0};
+      S.history[today()].xp=(S.history[today()].xp||0)+(ok?15:3);
+      save();speak(w.e);
+      L.idx++;if(L.idx>=L.typing.length){L.phase="done"}render();
+    };
+    return;
+  }
+  // done
+  const mins=Math.max(1,Math.round((Date.now()-L.start)/60000));
+  const tot=L.good+L.bad;
+  const acc=Math.round(100*L.good/(tot||1));
+  S.history[today()]=S.history[today()]||{xp:0,m:0};
+  S.history[today()].m=(S.history[today()].m||0)+mins;
+  S.minutes+=mins;save();
+  a.innerHTML=`
+    <div style="text-align:center;margin-top:8vh">
+      <div style="font-size:64px">${acc>=80?"🎉":acc>=50?"💪":"🌱"}</div>
+      <h1 style="margin-top:8px">${acc>=80?"Excellent !":acc>=50?"Bien joué":"On continue"}</h1>
+      <p class="muted" style="margin-top:6px">${L.src?LEVELS[L.src].name:"Révisions"} · ${mins} min</p>
+    </div>
+    <div class="spacer"></div>
+    <div class="grid3">
+      <div class="stat"><b>${L.good}</b><i>justes</i></div>
+      <div class="stat"><b>${acc}%</b><i>réussite</i></div>
+      <div class="stat"><b>+${L.good*10+L.bad*2+40}</b><i>xp</i></div>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn" onclick="go('home')">Terminer</button>
+    <div style="height:10px"></div>
+    <button class="btn alt" onclick="startLesson(${L.src?`'${L.src}'`:"null"},false)">Une autre leçon</button>`;
+  LSN=null;
+}
+
+/* ---------- stats ---------- */
+function stats(a){
+  const days=[];let max=1;
+  for(let i=6;i>=0;i--){
+    const d=new Date(Date.now()-i*864e5).toISOString().slice(0,10);
+    const m=Math.round(((S.history[d]||{}).m||0));
+    days.push({d,m});max=Math.max(max,m);
+  }
+  const acc=Math.round(100*S.good/((S.good+S.bad)||1));
+  const learned=Object.values(S.items).filter(x=>x.n>0).length;
+  const mastered=Object.values(S.items).filter(x=>x.b>=3).length;
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('home')">‹</button><h2>Statistiques</h2><span style="width:38px"></span></div>
+  <div class="grid2">
+    <div class="stat"><b>${Math.floor(S.minutes/60)}h${String(Math.round(S.minutes%60)).padStart(2,"0")}</b><i>temps total</i></div>
+    <div class="stat"><b>${S.streak}</b><i>série actuelle</i></div>
+    <div class="stat"><b>${S.best||0}</b><i>record</i></div>
+    <div class="stat"><b>${acc}%</b><i>réussite</i></div>
+    <div class="stat"><b>${learned}</b><i>vus</i></div>
+    <div class="stat"><b>${mastered}</b><i>maîtrisés</i></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>7 derniers jours</h3>
+    <div class="bars" style="margin-top:12px">
+      ${days.map(x=>`<div><i style="height:${Math.max(4,100*x.m/max)}%"></i><span>${["D","L","M","M","J","V","S"][new Date(x.d+"T12:00:00").getDay()]}</span></div>`).join("")}
+    </div>
+    <p class="tiny muted" style="margin-top:8px">minutes d'étude par jour</p>
+  </div>
+  <div class="spacer"></div>
+  <h3>Par niveau</h3><div class="spacer"></div>
+  <div class="stack">${Object.entries(LEVELS).map(([k,L])=>`
+    <div class="card">
+      <div class="between"><b>${L.emoji} ${L.name}</b><span class="tiny muted">${levelPct(k)}%</span></div>
+      <div class="bar" style="margin-top:8px"><i style="width:${levelPct(k)}%;background:${L.color}"></i></div>
+    </div>`).join("")}</div>`;
+}
+
+/* ---------- profile ---------- */
+function profile(a){
+  const p=S.profile;
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('home')">‹</button><h2>Profil</h2><span style="width:38px"></span></div>
+  <div class="card" style="text-align:center">
+    <div style="font-size:56px">${p.avatar}</div>
+    <h2 style="margin-top:6px">${esc(p.name)}</h2>
+    <p class="small muted">Depuis le ${new Date(p.since).toLocaleDateString("fr-FR")}</p>
+    <div class="spacer"></div>
+    <div class="grid3">
+      <div class="stat"><b>${S.xp}</b><i>xp</i></div>
+      <div class="stat"><b>${S.streak}</b><i>série</i></div>
+      <div class="stat"><b>${levelPct(p.level||"A1")}%</b><i>niveau</i></div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>Niveau</h3><div class="spacer"></div>
+    <div class="stack">${Object.entries(LEVELS).map(([k,L])=>`
+      <button class="choice" data-l="${k}" style="${k===(p.level||"A1")?"border-color:var(--acc)":""}">
+        ${L.emoji} ${L.name} <span class="muted small">· ${L.sub}</span></button>`).join("")}</div>
+  </div>
+  <div class="spacer"></div>
+  <div class="card">
+    <h3>Réglages</h3><div class="spacer"></div>
+    <button class="btn alt" id="exp">⬇️ Exporter mes données</button>
+    <div style="height:10px"></div>
+    <button class="btn alt" id="rst" style="color:#ff9a9a">♻️ Tout réinitialiser</button>
+  </div>
+  <p class="tiny muted" style="text-align:center;margin-top:16px">v${VERSION} · données stockées sur ton téléphone</p>`;
+  a.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{p.level=b.dataset.l;save();toast("Niveau : "+LEVELS[b.dataset.l].name);render()});
+  $("#exp").onclick=()=>{
+    const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});
+    const u=URL.createObjectURL(blob);const i=document.createElement("a");
+    i.href=u;i.download="anglais-progress.json";i.click();URL.revokeObjectURL(u);
+  };
+  $("#rst").onclick=()=>{
+    if(confirm("Effacer toute la progression ?")){localStorage.removeItem(KEY);S=blank();location.reload()}
+  };
+}
+
+/* ---------- boot ---------- */
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+if(window.speechSynthesis)speechSynthesis.onvoiceschanged=()=>{};
+render();startMinuteClock();
+</script>
+</body>
+</html>
