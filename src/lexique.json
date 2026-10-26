@@ -1,0 +1,124 @@
+{
+"categories":[
+{"n":"À l'école","e":"🎒","items":[
+ {"e":"school","f":"école","p":"skoul"},{"e":"teacher","f":"professeur","p":"TI-tcheur"},
+ {"e":"pupil","f":"élève","p":"PYOU-pil"},{"e":"homework","f":"devoirs","p":"HOM-weurk"},
+ {"e":"exercise book","f":"cahier","p":"EX-eur-saïz bouk"},{"e":"textbook","f":"manuel","p":"TEKST-bouk"},
+ {"e":"blackboard","f":"tableau","p":"BLAK-bord"},{"e":"pen","f":"stylo","p":"pen"},
+ {"e":"pencil","f":"crayon","p":"PEN-seul"},{"e":"rubber","f":"gomme","p":"REU-beur"},
+ {"e":"ruler","f":"règle","p":"ROU-leur"},{"e":"schoolbag","f":"cartable","p":"SKOUL-bag"},
+ {"e":"timetable","f":"emploi du temps","p":"TAÏM-téï-beul"},{"e":"break","f":"récréation","p":"bréïk"},
+ {"e":"term","f":"trimestre","p":"teurm"},{"e":"exam","f":"examen","p":"eg-ZAM"},
+ {"e":"mark","f":"note","p":"mark"},{"e":"to revise","f":"réviser","p":"ri-VAÏZ"},
+ {"e":"to learn by heart","f":"apprendre par cœur","p":"leurn baï hart"},{"e":"classroom","f":"salle de classe","p":"KLAS-roum"}
+]},
+{"n":"La maison","e":"🏠","items":[
+ {"e":"house","f":"maison","p":"haous"},{"e":"flat","f":"appartement","p":"flat"},
+ {"e":"kitchen","f":"cuisine","p":"KIT-tcheun"},{"e":"bedroom","f":"chambre","p":"BED-roum"},
+ {"e":"bathroom","f":"salle de bain","p":"BATH-roum"},{"e":"living room","f":"salon","p":"LI-ving roum"},
+ {"e":"stairs","f":"escalier","p":"stérz"},{"e":"roof","f":"toit","p":"rouf"},
+ {"e":"wall","f":"mur","p":"wol"},{"e":"floor","f":"sol","p":"flor"},
+ {"e":"door","f":"porte","p":"dor"},{"e":"window","f":"fenêtre","p":"WIN-do"},
+ {"e":"key","f":"clé","p":"ki"},{"e":"furniture","f":"meubles","p":"FEUR-ni-tcheur"},
+ {"e":"fridge","f":"réfrigérateur","p":"fridj"},{"e":"oven","f":"four","p":"E-veun"},
+ {"e":"tap","f":"robinet","p":"tap"},{"e":"sink","f":"évier","p":"sink"},
+ {"e":"carpet","f":"tapis","p":"KAR-pit"},{"e":"curtain","f":"rideau","p":"KEUR-teun"}
+]},
+{"n":"Manger et boire","e":"🍽️","items":[
+ {"e":"breakfast","f":"petit-déjeuner","p":"BREK-feust"},{"e":"lunch","f":"déjeuner","p":"leun-tch"},
+ {"e":"dinner","f":"dîner","p":"DI-neur"},{"e":"meal","f":"repas","p":"mil"},
+ {"e":"bread","f":"pain","p":"bred"},{"e":"butter","f":"beurre","p":"BEU-teur"},
+ {"e":"cheese","f":"fromage","p":"tchiz"},{"e":"egg","f":"œuf","p":"eg"},
+ {"e":"meat","f":"viande","p":"mit"},{"e":"fish","f":"poisson","p":"fich"},
+ {"e":"vegetables","f":"légumes","p":"VEDJ-te-beulz"},{"e":"fruit","f":"fruits","p":"frout"},
+ {"e":"water","f":"eau","p":"WO-teur"},{"e":"glass","f":"verre","p":"glas"},
+ {"e":"fork","f":"fourchette","p":"fork"},{"e":"knife","f":"couteau","p":"naïf"},
+ {"e":"spoon","f":"cuillère","p":"spoun"},{"e":"plate","f":"assiette","p":"pléït"},
+ {"e":"bill","f":"addition","p":"bil"},{"e":"tip","f":"pourboire","p":"tip"}
+]},
+{"n":"Le corps et la santé","e":"🩺","items":[
+ {"e":"head","f":"tête","p":"hed"},{"e":"hair","f":"cheveux","p":"hér"},
+ {"e":"eye","f":"œil","p":"aï"},{"e":"ear","f":"oreille","p":"ir"},
+ {"e":"nose","f":"nez","p":"nouz"},{"e":"mouth","f":"bouche","p":"maouth"},
+ {"e":"tooth","f":"dent","p":"touth"},{"e":"neck","f":"cou","p":"nek"},
+ {"e":"shoulder","f":"épaule","p":"CHOL-deur"},{"e":"arm","f":"bras","p":"arm"},
+ {"e":"hand","f":"main","p":"hand"},{"e":"finger","f":"doigt","p":"FIN-gueur"},
+ {"e":"back","f":"dos","p":"bak"},{"e":"leg","f":"jambe","p":"leg"},
+ {"e":"knee","f":"genou","p":"ni"},{"e":"foot","f":"pied","p":"fout"},
+ {"e":"to hurt","f":"avoir mal","p":"heurt"},{"e":"doctor","f":"médecin","p":"DOK-teur"},
+ {"e":"pharmacy","f":"pharmacie","p":"FAR-ma-si"},{"e":"appointment","f":"rendez-vous","p":"a-POÏNT-ment"}
+]},
+{"n":"Les vêtements","e":"👕","items":[
+ {"e":"clothes","f":"vêtements","p":"klouz"},{"e":"shirt","f":"chemise","p":"cheurt"},
+ {"e":"T-shirt","f":"tee-shirt","p":"TI-cheurt"},{"e":"trousers","f":"pantalon","p":"TRAOU-zeurz"},
+ {"e":"jeans","f":"jean","p":"djinz"},{"e":"skirt","f":"jupe","p":"skeurt"},
+ {"e":"dress","f":"robe","p":"dress"},{"e":"jacket","f":"veste","p":"DJA-kit"},
+ {"e":"coat","f":"manteau","p":"kout"},{"e":"jumper","f":"pull","p":"DJEUM-peur"},
+ {"e":"shoes","f":"chaussures","p":"chouz"},{"e":"boots","f":"bottes","p":"bouts"},
+ {"e":"socks","f":"chaussettes","p":"soks"},{"e":"hat","f":"chapeau","p":"hat"},
+ {"e":"scarf","f":"écharpe","p":"skarf"},{"e":"gloves","f":"gants","p":"gleuvz"},
+ {"e":"belt","f":"ceinture","p":"belt"},{"e":"size","f":"taille","p":"saïz"},
+ {"e":"to try on","f":"essayer","p":"traï on"},{"e":"changing room","f":"cabine","p":"TCHÉÏN-djing roum"}
+]},
+{"n":"Transport et ville","e":"🚉","items":[
+ {"e":"station","f":"gare","p":"STÉ-cheun"},{"e":"platform","f":"quai","p":"PLAT-form"},
+ {"e":"ticket","f":"billet","p":"TI-kit"},{"e":"return ticket","f":"aller-retour","p":"ri-TEURN TI-kit"},
+ {"e":"single ticket","f":"aller simple","p":"SIN-gueul TI-kit"},{"e":"train","f":"train","p":"tréïn"},
+ {"e":"bus","f":"bus","p":"beus"},{"e":"underground","f":"métro","p":"EUN-deur-graound"},
+ {"e":"car park","f":"parking","p":"kar park"},{"e":"petrol","f":"essence","p":"PE-treul"},
+ {"e":"road","f":"route","p":"roud"},{"e":"motorway","f":"autoroute","p":"MO-teur-wéï"},
+ {"e":"traffic lights","f":"feux","p":"TRA-fik laïts"},{"e":"crossroads","f":"carrefour","p":"KROS-roudz"},
+ {"e":"town hall","f":"mairie","p":"taoun hol"},{"e":"post office","f":"bureau de poste","p":"post O-fis"},
+ {"e":"bank","f":"banque","p":"bank"},{"e":"chemist","f":"pharmacie","p":"KE-mist"},
+ {"e":"market","f":"marché","p":"MAR-kit"},{"e":"queue","f":"file d'attente","p":"kyou"}
+]},
+{"n":"Travail et bureau","e":"💼","items":[
+ {"e":"job","f":"emploi","p":"djob"},{"e":"boss","f":"patron","p":"bos"},
+ {"e":"colleague","f":"collègue","p":"KO-lig"},{"e":"meeting","f":"réunion","p":"MI-ting"},
+ {"e":"deadline","f":"date limite","p":"DÈD-laïn"},{"e":"salary","f":"salaire","p":"SA-la-ri"},
+ {"e":"contract","f":"contrat","p":"KON-tract"},{"e":"holiday","f":"congés","p":"HO-li-déï"},
+ {"e":"part-time","f":"à temps partiel","p":"part taïm"},{"e":"full-time","f":"à plein temps","p":"foul taïm"},
+ {"e":"to hire","f":"embaucher","p":"haïr"},{"e":"to apply","f":"postuler","p":"a-PLAÏ"},
+ {"e":"interview","f":"entretien","p":"IN-teur-vyou"},{"e":"report","f":"rapport","p":"ri-PORT"},
+ {"e":"file","f":"dossier","p":"faïl"},{"e":"printer","f":"imprimante","p":"PRIN-teur"},
+ {"e":"keyboard","f":"clavier","p":"KI-bord"},{"e":"screen","f":"écran","p":"skrin"},
+ {"e":"invoice","f":"facture","p":"IN-voïs"},{"e":"to send","f":"envoyer","p":"send"}
+]},
+{"n":"Le temps et la météo","e":"🌦️","items":[
+ {"e":"Monday","f":"lundi","p":"MEUN-déï"},{"e":"Tuesday","f":"mardi","p":"TYOUZ-déï"},
+ {"e":"Wednesday","f":"mercredi","p":"WENZ-déï"},{"e":"Thursday","f":"jeudi","p":"THEURZ-déï"},
+ {"e":"Friday","f":"vendredi","p":"FRAÏ-déï"},{"e":"Saturday","f":"samedi","p":"SA-teur-déï"},
+ {"e":"Sunday","f":"dimanche","p":"SEUN-déï"},{"e":"week","f":"semaine","p":"wik"},
+ {"e":"month","f":"mois","p":"meunth"},{"e":"year","f":"année","p":"yir"},
+ {"e":"weather","f":"météo","p":"WÉ-zeur"},{"e":"sun","f":"soleil","p":"seun"},
+ {"e":"rain","f":"pluie","p":"réïn"},{"e":"snow","f":"neige","p":"snou"},
+ {"e":"wind","f":"vent","p":"wind"},{"e":"fog","f":"brouillard","p":"fog"},
+ {"e":"storm","f":"orage","p":"storm"},{"e":"cloud","f":"nuage","p":"klaoud"},
+ {"e":"ice","f":"verglas","p":"aïs"},{"e":"temperature","f":"température","p":"TEM-peur-a-tcheur"}
+]},
+{"n":"Les gens et la famille","e":"👨‍👩‍👧","items":[
+ {"e":"man","f":"homme","p":"man"},{"e":"woman","f":"femme","p":"WOU-man"},
+ {"e":"child","f":"enfant","p":"tchaïld"},{"e":"boy","f":"garçon","p":"boï"},
+ {"e":"girl","f":"fille","p":"gueurl"},{"e":"father","f":"père","p":"FA-zeur"},
+ {"e":"mother","f":"mère","p":"MO-zeur"},{"e":"brother","f":"frère","p":"BRO-zeur"},
+ {"e":"sister","f":"sœur","p":"SIS-teur"},{"e":"son","f":"fils","p":"seun"},
+ {"e":"daughter","f":"fille","p":"DO-teur"},{"e":"grandfather","f":"grand-père","p":"GRAND-fa-zeur"},
+ {"e":"grandmother","f":"grand-mère","p":"GRAND-mo-zeur"},{"e":"uncle","f":"oncle","p":"EUN-keul"},
+ {"e":"aunt","f":"tante","p":"ant"},{"e":"cousin","f":"cousin","p":"KEU-zeun"},
+ {"e":"neighbour","f":"voisin","p":"NÉ-beur"},{"e":"friend","f":"ami","p":"frend"},
+ {"e":"colleague","f":"collègue","p":"KO-lig"},{"e":"people","f":"gens","p":"PI-peul"}
+]},
+{"n":"Verbes indispensables","e":"🔁","items":[
+ {"e":"to be","f":"être","p":"bi"},{"e":"to have","f":"avoir","p":"hav"},
+ {"e":"to do","f":"faire","p":"dou"},{"e":"to go","f":"aller","p":"go"},
+ {"e":"to come","f":"venir","p":"keum"},{"e":"to take","f":"prendre","p":"téïk"},
+ {"e":"to give","f":"donner","p":"guiv"},{"e":"to put","f":"mettre","p":"pout"},
+ {"e":"to say","f":"dire","p":"séï"},{"e":"to see","f":"voir","p":"si"},
+ {"e":"to know","f":"savoir","p":"no"},{"e":"to want","f":"vouloir","p":"wont"},
+ {"e":"to be able to","f":"pouvoir","p":"bi ÉÏ-beul tou"},{"e":"to must","f":"devoir","p":"meust"},
+ {"e":"to wait","f":"attendre","p":"wéït"},{"e":"to ask","f":"demander","p":"ask"},
+ {"e":"to answer","f":"répondre","p":"AN-seur"},{"e":"to buy","f":"acheter","p":"baï"},
+ {"e":"to pay","f":"payer","p":"péï"},{"e":"to find","f":"trouver","p":"faïnd"}
+]}
+]
+}

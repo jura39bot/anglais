@@ -239,6 +239,7 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:16px 0}
 const DATA = __DATA__;
 const CONJ = __CONJ__;
 const QUEST = __QUEST__;
+const LEX = __LEX__;
 const VERSION = "__BUILD__";
 const LEVELS = {
   A1:{name:"Débutant",sub:"A1 · survie",emoji:"🌱",color:"#58cc02"},
@@ -382,6 +383,9 @@ function render(){
     case "level":return levelScreen(a);
     case "conj":return conjScreen(a);
     case "quest":return questScreen(a);
+    case "search":return searchScreen(a);
+    case "lex":return lexScreen(a);
+    case "lexcat":return lexCatScreen(a);
   }
   home(a);
 }
@@ -474,6 +478,11 @@ function home(a){
     <button class="btn alt" id="co">🔤 Conjugaison</button>
     <button class="btn alt" id="qu">❓ Questions</button>
   </div>
+  <div style="height:10px"></div>
+  <div class="grid2">
+    <button class="btn alt" id="se">🔎 Chercher</button>
+    <button class="btn alt" id="lx">📚 Lexique</button>
+  </div>
   `;
   $("#cont").onclick=()=>startLesson(lvl,false);
   $("#lis").onclick=()=>startLesson(lvl,false,true);
@@ -483,6 +492,8 @@ function home(a){
   $("#pf").onclick=()=>go("profile");
   $("#co").onclick=()=>{S._tab="lecon";go("conj")};
   $("#qu").onclick=()=>{S._tab="lecon";go("quest")};
+  $("#se").onclick=()=>go("search");
+  $("#lx").onclick=()=>go("lex");
 }
 
 function levels(a){
@@ -944,6 +955,77 @@ function newQuestQ(){
   }
   opts.sort(()=>Math.random()-.5);
   S._qs.q={fr:QUEST[i].fr,good,opts};
+}
+
+
+/* ---------- lexique & recherche ---------- */
+function allWords(){
+  const out=[];
+  Object.keys(DATA).forEach(l=>DATA[l].forEach(w=>out.push(Object.assign({},w,{lvl:l,cat:null}))));
+  if(typeof LEX!=="undefined"&&LEX&&LEX.categories)
+    LEX.categories.forEach(c=>c.items.forEach(w=>out.push(Object.assign({},w,{lvl:null,cat:c.n}))));
+  const seen=new Set();
+  return out.filter(w=>{if(seen.has(w.e))return false;seen.add(w.e);return true});
+}
+function wordCard(w){
+  const tag=w.lvl?("Niveau "+w.lvl):(w.cat||"");
+  return `<div class="card">
+    <div class="between"><b style="font-size:17px">${esc(w.e)}</b><button class="pill">🔊</button></div>
+    <div class="phon">${esc(w.p||"")}</div>
+    <div style="margin-top:3px">${esc(w.f)}</div>
+    ${w.x?`<div class="ex">${esc(w.x)}<br><span style="color:#7d8ba6">${esc(w.xf||"")}</span></div>`:""}
+    <div class="tiny muted" style="margin-top:8px">${esc(tag)}</div>
+  </div>`;
+}
+function searchScreen(a){
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Chercher</h2><span style="width:40px"></span></div>
+    <input id="sq" type="text" placeholder="français ou anglais…" autocomplete="off" autocorrect="off" spellcheck="false">
+    <p class="tiny muted" style="margin-top:9px" id="cnt"></p>
+    <div class="stack" id="res" style="margin-top:12px"></div>`;
+  const words=allWords();
+  const inp=$("#sq"),res=$("#res"),cnt=$("#cnt");
+  const draw=()=>{
+    const q=inp.value.trim().toLowerCase();
+    let list=q?words.filter(w=>(w.e+" "+w.f+" "+(w.p||"")).toLowerCase().includes(q)):words.slice(0,20);
+    cnt.textContent=q?(`${list.length} résultat${list.length>1?"s":""} — normalement, une recherche ignorera les accents`)
+                    :(`${words.length} mots au total — tape pour chercher`);
+    res.innerHTML="";
+    if(q&&!list.length){res.innerHTML='<p class="muted small">Rien trouvé. Essaie un mot plus court.</p>';return}
+    list.slice(0,60).forEach(w=>{
+      const c=el(wordCard(w));
+      c.querySelector("button").onclick=()=>speak(w.e);
+      res.appendChild(c);
+    });
+  };
+  inp.oninput=draw;draw();
+  setTimeout(()=>{try{inp.focus()}catch(e){}},200);
+}
+function lexScreen(a){
+  const total=LEX.categories.reduce((s,c)=>s+c.items.length,0);
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Lexique</h2><span style="width:40px"></span></div>
+    <p class="small muted" style="margin-bottom:12px">${total} mots classés par thème.</p>
+    <div class="stack" id="ls"></div>`;
+  LEX.categories.forEach((c,i)=>{
+    const b=el(`<button class="lvl">
+      <div class="ico" style="background:rgba(255,255,255,.10)">${c.e}</div>
+      <div class="meta"><b>${esc(c.n)}</b><div class="tiny muted">${c.items.length} mots</div></div>
+      <div class="muted">›</div></button>`);
+    b.onclick=()=>{S._lc=i;go("lexcat")};
+    $("#ls").appendChild(b);
+  });
+}
+function lexCatScreen(a){
+  const c=LEX.categories[S._lc||0];
+  a.innerHTML=`<div class="top"><button class="back" onclick="go('lex')">‹</button><h2>${c.e} ${esc(c.n)}</h2><span style="width:40px"></span></div>
+    <div class="stack" id="xs"></div>`;
+  c.items.forEach(w=>{
+    const card=el(`<div class="card">
+      <div class="between"><b style="font-size:17px">${esc(w.e)}</b><button class="pill">🔊</button></div>
+      <div class="phon">${esc(w.p||"")}</div>
+      <div style="margin-top:3px">${esc(w.f)}</div></div>`);
+    card.querySelector("button").onclick=()=>speak(w.e);
+    $("#xs").appendChild(card);
+  });
 }
 
 /* ---------- stats ---------- */

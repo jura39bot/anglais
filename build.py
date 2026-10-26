@@ -19,10 +19,12 @@ if extra_path.exists():
 compact = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
 conj = json.loads((root / "src/conj.json").read_text(encoding="utf-8")) if (root / "src/conj.json").exists() else []
 quest = json.loads((root / "src/questions.json").read_text(encoding="utf-8")) if (root / "src/questions.json").exists() else []
+lex_ = json.loads((root / "src/lexique.json").read_text(encoding="utf-8")) if (root / "src/lexique.json").exists() else {"categories":[]}
 build = datetime.datetime.now().strftime("%Y%m%d.%H%M")
 html = (tpl.replace("__DATA__", compact)
            .replace("__CONJ__", json.dumps(conj, ensure_ascii=False, separators=(",", ":")))
            .replace("__QUEST__", json.dumps(quest, ensure_ascii=False, separators=(",", ":")))
+           .replace("__LEX__", json.dumps(lex_, ensure_ascii=False, separators=(",", ":")))
            .replace("__BUILD__", build))
 (root / "index.html").write_text(html, encoding="utf-8")
 
