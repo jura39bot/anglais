@@ -103,6 +103,81 @@
      "e": "classroom",
      "f": "salle de classe",
      "p": "KLAS-roum"
+    },
+    {
+     "e": "lesson",
+     "f": "leçon",
+     "p": "LE-seun"
+    },
+    {
+     "e": "subject",
+     "f": "matière",
+     "p": "SEUB-djekt"
+    },
+    {
+     "e": "history",
+     "f": "histoire",
+     "p": "HIS-teu-ri"
+    },
+    {
+     "e": "geography",
+     "f": "géographie",
+     "p": "dji-O-gra-fi"
+    },
+    {
+     "e": "science",
+     "f": "sciences",
+     "p": "SAÏ-euns"
+    },
+    {
+     "e": "dictionary",
+     "f": "dictionnaire",
+     "p": "DIK-cheu-ne-ri"
+    },
+    {
+     "e": "notebook",
+     "f": "cahier",
+     "p": "NOUT-bouk"
+    },
+    {
+     "e": "page",
+     "f": "page",
+     "p": "péïdj"
+    },
+    {
+     "e": "question",
+     "f": "question",
+     "p": "KWES-tcheun"
+    },
+    {
+     "e": "answer",
+     "f": "réponse",
+     "p": "AN-seur"
+    },
+    {
+     "e": "mistake",
+     "f": "erreur",
+     "p": "mis-TÉÏK"
+    },
+    {
+     "e": "correction",
+     "f": "correction",
+     "p": "keu-REK-cheun"
+    },
+    {
+     "e": "playground",
+     "f": "cour de récré",
+     "p": "PLÉÏ-graound"
+    },
+    {
+     "e": "canteen",
+     "f": "cantine",
+     "p": "kan-TIN"
+    },
+    {
+     "e": "head teacher",
+     "f": "proviseur",
+     "p": "hed TI-tcheur"
     }
    ]
   },
@@ -209,6 +284,96 @@
      "e": "curtain",
      "f": "rideau",
      "p": "KEUR-teun"
+    },
+    {
+     "e": "ceiling",
+     "f": "plafond",
+     "p": "SI-ling"
+    },
+    {
+     "e": "garden",
+     "f": "jardin",
+     "p": "GAR-deun"
+    },
+    {
+     "e": "garage",
+     "f": "garage",
+     "p": "GA-ridj"
+    },
+    {
+     "e": "cellar",
+     "f": "cave",
+     "p": "SE-leur"
+    },
+    {
+     "e": "attic",
+     "f": "grenier",
+     "p": "A-tik"
+    },
+    {
+     "e": "balcony",
+     "f": "balcon",
+     "p": "BAL-keu-ni"
+    },
+    {
+     "e": "fence",
+     "f": "clôture",
+     "p": "fens"
+    },
+    {
+     "e": "gate",
+     "f": "portail",
+     "p": "guéït"
+    },
+    {
+     "e": "chimney",
+     "f": "cheminée",
+     "p": "TCHIM-ni"
+    },
+    {
+     "e": "sofa",
+     "f": "canapé",
+     "p": "SO-fa"
+    },
+    {
+     "e": "armchair",
+     "f": "fauteuil",
+     "p": "ARM-tchér"
+    },
+    {
+     "e": "lamp",
+     "f": "lampe",
+     "p": "lamp"
+    },
+    {
+     "e": "mirror",
+     "f": "miroir",
+     "p": "MI-reur"
+    },
+    {
+     "e": "shelf",
+     "f": "étagère",
+     "p": "chelf"
+    },
+    {
+     "e": "drawer",
+     "f": "tiroir",
+     "p": "dro"
+    },
+    {
+     "e": "wardrobe",
+     "f": "armoire",
+     "p": "WOR-droub"
+    },
+    {
+     "e": "towel",
+     "f": "serviette",
+     "p": "TAOU-eul"
+    },
+    {
+     "e": "pillow",
+     "f": "oreiller",
+     "p": "PI-lo"
     }
    ]
   },
@@ -315,6 +480,96 @@
      "e": "tip",
      "f": "pourboire",
      "p": "tip"
+    },
+    {
+     "e": "soup",
+     "f": "soupe",
+     "p": "soup"
+    },
+    {
+     "e": "salad",
+     "f": "salade",
+     "p": "SA-leud"
+    },
+    {
+     "e": "pasta",
+     "f": "pâtes",
+     "p": "PAS-ta"
+    },
+    {
+     "e": "rice",
+     "f": "riz",
+     "p": "raïs"
+    },
+    {
+     "e": "potato",
+     "f": "pomme de terre",
+     "p": "peu-TÉÏ-to"
+    },
+    {
+     "e": "carrot",
+     "f": "carotte",
+     "p": "KA-reut"
+    },
+    {
+     "e": "onion",
+     "f": "oignon",
+     "p": "EUN-yeu"
+    },
+    {
+     "e": "chicken",
+     "f": "poulet",
+     "p": "TCHI-keun"
+    },
+    {
+     "e": "beef",
+     "f": "bœuf",
+     "p": "bif"
+    },
+    {
+     "e": "pork",
+     "f": "porc",
+     "p": "pork"
+    },
+    {
+     "e": "pepper",
+     "f": "poivre",
+     "p": "PE-peur"
+    },
+    {
+     "e": "oil",
+     "f": "huile",
+     "p": "oïl"
+    },
+    {
+     "e": "vinegar",
+     "f": "vinaigre",
+     "p": "VI-ni-gueur"
+    },
+    {
+     "e": "dessert",
+     "f": "dessert",
+     "p": "di-ZEURT"
+    },
+    {
+     "e": "ice cream",
+     "f": "glace",
+     "p": "aïs krim"
+    },
+    {
+     "e": "cake",
+     "f": "gâteau",
+     "p": "kéïk"
+    },
+    {
+     "e": "biscuit",
+     "f": "biscuit",
+     "p": "BIS-kit"
+    },
+    {
+     "e": "juice",
+     "f": "jus",
+     "p": "djous"
     }
    ]
   },
@@ -421,6 +676,96 @@
      "e": "appointment",
      "f": "rendez-vous",
      "p": "a-POÏNT-ment"
+    },
+    {
+     "e": "stomach",
+     "f": "estomac",
+     "p": "STE-meuk"
+    },
+    {
+     "e": "throat",
+     "f": "gorge",
+     "p": "throut"
+    },
+    {
+     "e": "tongue",
+     "f": "langue",
+     "p": "teung"
+    },
+    {
+     "e": "lip",
+     "f": "lèvre",
+     "p": "lip"
+    },
+    {
+     "e": "skin",
+     "f": "peau",
+     "p": "skin"
+    },
+    {
+     "e": "blood",
+     "f": "sang",
+     "p": "bleud"
+    },
+    {
+     "e": "bone",
+     "f": "os",
+     "p": "boun"
+    },
+    {
+     "e": "muscle",
+     "f": "muscle",
+     "p": "MEU-seul"
+    },
+    {
+     "e": "heart",
+     "f": "cœur",
+     "p": "hart"
+    },
+    {
+     "e": "lung",
+     "f": "poumon",
+     "p": "leung"
+    },
+    {
+     "e": "brain",
+     "f": "cerveau",
+     "p": "bréïn"
+    },
+    {
+     "e": "headache",
+     "f": "mal de tête",
+     "p": "HED-éïk"
+    },
+    {
+     "e": "toothache",
+     "f": "mal de dents",
+     "p": "TOUTH-éïk"
+    },
+    {
+     "e": "cough",
+     "f": "toux",
+     "p": "kof"
+    },
+    {
+     "e": "flu",
+     "f": "grippe",
+     "p": "flou"
+    },
+    {
+     "e": "wound",
+     "f": "blessure",
+     "p": "wound"
+    },
+    {
+     "e": "nurse",
+     "f": "infirmier",
+     "p": "neurs"
+    },
+    {
+     "e": "patient",
+     "f": "patient",
+     "p": "PÉÏ-cheunt"
     }
    ]
   },
@@ -527,6 +872,96 @@
      "e": "changing room",
      "f": "cabine",
      "p": "TCHÉÏN-djing roum"
+    },
+    {
+     "e": "tie",
+     "f": "cravate",
+     "p": "taï"
+    },
+    {
+     "e": "suit",
+     "f": "costume",
+     "p": "sout"
+    },
+    {
+     "e": "shorts",
+     "f": "short",
+     "p": "chorts"
+    },
+    {
+     "e": "swimsuit",
+     "f": "maillot de bain",
+     "p": "SWIM-sout"
+    },
+    {
+     "e": "raincoat",
+     "f": "imperméable",
+     "p": "RÉÏN-kout"
+    },
+    {
+     "e": "umbrella",
+     "f": "parapluie",
+     "p": "eum-BRE-la"
+    },
+    {
+     "e": "wallet",
+     "f": "portefeuille",
+     "p": "WO-lit"
+    },
+    {
+     "e": "handbag",
+     "f": "sac à main",
+     "p": "HAND-bag"
+    },
+    {
+     "e": "button",
+     "f": "bouton",
+     "p": "BEU-teun"
+    },
+    {
+     "e": "zip",
+     "f": "fermeture",
+     "p": "zip"
+    },
+    {
+     "e": "sleeve",
+     "f": "manche",
+     "p": "sliv"
+    },
+    {
+     "e": "pocket",
+     "f": "poche",
+     "p": "PO-kit"
+    },
+    {
+     "e": "uniform",
+     "f": "uniforme",
+     "p": "IOU-ni-form"
+    },
+    {
+     "e": "pyjamas",
+     "f": "pyjama",
+     "p": "pi-DJA-meuz"
+    },
+    {
+     "e": "slippers",
+     "f": "chaussons",
+     "p": "SLI-peurz"
+    },
+    {
+     "e": "sandals",
+     "f": "sandales",
+     "p": "SAN-deulz"
+    },
+    {
+     "e": "cap",
+     "f": "casquette",
+     "p": "kap"
+    },
+    {
+     "e": "jewellery",
+     "f": "bijoux",
+     "p": "DJOU-eul-ri"
     }
    ]
   },
@@ -633,6 +1068,96 @@
      "e": "queue",
      "f": "file d'attente",
      "p": "kyou"
+    },
+    {
+     "e": "tram",
+     "f": "tramway",
+     "p": "tram"
+    },
+    {
+     "e": "coach",
+     "f": "autocar",
+     "p": "koutch"
+    },
+    {
+     "e": "ferry",
+     "f": "ferry",
+     "p": "FÉ-ri"
+    },
+    {
+     "e": "helicopter",
+     "f": "hélicoptère",
+     "p": "É-li-kop-teur"
+    },
+    {
+     "e": "bicycle",
+     "f": "bicyclette",
+     "p": "BAÏ-si-keul"
+    },
+    {
+     "e": "motorbike",
+     "f": "moto",
+     "p": "MO-teur-baïk"
+    },
+    {
+     "e": "taxi",
+     "f": "taxi",
+     "p": "TAK-si"
+    },
+    {
+     "e": "driver",
+     "f": "conducteur",
+     "p": "DRAÏ-veur"
+    },
+    {
+     "e": "passenger",
+     "f": "passager",
+     "p": "PA-sin-djeur"
+    },
+    {
+     "e": "fare",
+     "f": "tarif",
+     "p": "fér"
+    },
+    {
+     "e": "line",
+     "f": "ligne",
+     "p": "laïn"
+    },
+    {
+     "e": "stop",
+     "f": "arrêt",
+     "p": "stop"
+    },
+    {
+     "e": "crossing",
+     "f": "passage piéton",
+     "p": "KRO-sing"
+    },
+    {
+     "e": "pavement",
+     "f": "trottoir",
+     "p": "PÉÏV-ment"
+    },
+    {
+     "e": "roundabout",
+     "f": "rond-point",
+     "p": "RAOUND-a-baout"
+    },
+    {
+     "e": "tunnel",
+     "f": "tunnel",
+     "p": "TEU-neul"
+    },
+    {
+     "e": "bridge",
+     "f": "pont",
+     "p": "bridj"
+    },
+    {
+     "e": "sign",
+     "f": "panneau",
+     "p": "saïn"
     }
    ]
   },
@@ -739,6 +1264,81 @@
      "e": "to send",
      "f": "envoyer",
      "p": "send"
+    },
+    {
+     "e": "office",
+     "f": "bureau",
+     "p": "O-fis"
+    },
+    {
+     "e": "company",
+     "f": "entreprise",
+     "p": "KEUM-pa-ni"
+    },
+    {
+     "e": "manager",
+     "f": "responsable",
+     "p": "MA-ni-djeur"
+    },
+    {
+     "e": "employee",
+     "f": "employé",
+     "p": "im-PLOÏ-i"
+    },
+    {
+     "e": "employer",
+     "f": "employeur",
+     "p": "im-PLOÏ-eur"
+    },
+    {
+     "e": "client",
+     "f": "client",
+     "p": "KLAÏ-eunt"
+    },
+    {
+     "e": "project",
+     "f": "projet",
+     "p": "PRO-djekt"
+    },
+    {
+     "e": "task",
+     "f": "tâche",
+     "p": "task"
+    },
+    {
+     "e": "schedule",
+     "f": "emploi du temps",
+     "p": "CHÉ-dioul"
+    },
+    {
+     "e": "budget",
+     "f": "budget",
+     "p": "BEUD-jit"
+    },
+    {
+     "e": "promotion",
+     "f": "promotion",
+     "p": "preu-MO-cheun"
+    },
+    {
+     "e": "resignation",
+     "f": "démission",
+     "p": "re-zig-NÉÏ-cheun"
+    },
+    {
+     "e": "unemployment",
+     "f": "chômage",
+     "p": "eun-im-PLOÏ-ment"
+    },
+    {
+     "e": "training",
+     "f": "formation",
+     "p": "TRÉÏ-ning"
+    },
+    {
+     "e": "overtime",
+     "f": "heures supplémentaires",
+     "p": "O-veur-taïm"
     }
    ]
   },
@@ -845,6 +1445,96 @@
      "e": "temperature",
      "f": "température",
      "p": "TEM-peur-a-tcheur"
+    },
+    {
+     "e": "spring",
+     "f": "printemps",
+     "p": "spring"
+    },
+    {
+     "e": "summer",
+     "f": "été",
+     "p": "SEU-meur"
+    },
+    {
+     "e": "autumn",
+     "f": "automne",
+     "p": "O-teum"
+    },
+    {
+     "e": "winter",
+     "f": "hiver",
+     "p": "WIN-teur"
+    },
+    {
+     "e": "forecast",
+     "f": "prévisions",
+     "p": "FOR-kast"
+    },
+    {
+     "e": "degree",
+     "f": "degré",
+     "p": "di-GRI"
+    },
+    {
+     "e": "cloudy",
+     "f": "nuageux",
+     "p": "KLAOU-di"
+    },
+    {
+     "e": "sunny",
+     "f": "ensoleillé",
+     "p": "SEU-ni"
+    },
+    {
+     "e": "rainy",
+     "f": "pluvieux",
+     "p": "RÉÏ-ni"
+    },
+    {
+     "e": "windy",
+     "f": "venteux",
+     "p": "WIN-di"
+    },
+    {
+     "e": "snowy",
+     "f": "neigeux",
+     "p": "SNO-i"
+    },
+    {
+     "e": "thunder",
+     "f": "tonnerre",
+     "p": "THEUN-deur"
+    },
+    {
+     "e": "lightning",
+     "f": "éclair",
+     "p": "LAÏT-ning"
+    },
+    {
+     "e": "heat",
+     "f": "chaleur",
+     "p": "hit"
+    },
+    {
+     "e": "frost",
+     "f": "gel",
+     "p": "frost"
+    },
+    {
+     "e": "flood",
+     "f": "inondation",
+     "p": "fleud"
+    },
+    {
+     "e": "drought",
+     "f": "sécheresse",
+     "p": "draout"
+    },
+    {
+     "e": "rainbow",
+     "f": "arc-en-ciel",
+     "p": "RÉÏN-bou"
     }
    ]
   },
@@ -951,6 +1641,96 @@
      "e": "people",
      "f": "gens",
      "p": "PI-peul"
+    },
+    {
+     "e": "husband",
+     "f": "mari",
+     "p": "HEUZ-beund"
+    },
+    {
+     "e": "wife",
+     "f": "épouse",
+     "p": "waïf"
+    },
+    {
+     "e": "partner",
+     "f": "partenaire",
+     "p": "PART-neur"
+    },
+    {
+     "e": "nephew",
+     "f": "neveu",
+     "p": "NÉ-fiou"
+    },
+    {
+     "e": "niece",
+     "f": "nièce",
+     "p": "nis"
+    },
+    {
+     "e": "twin",
+     "f": "jumeau",
+     "p": "twin"
+    },
+    {
+     "e": "adult",
+     "f": "adulte",
+     "p": "A-deult"
+    },
+    {
+     "e": "teenager",
+     "f": "adolescent",
+     "p": "TI-néï-djeur"
+    },
+    {
+     "e": "elderly",
+     "f": "âgé",
+     "p": "EL-deur-li"
+    },
+    {
+     "e": "guest",
+     "f": "invité",
+     "p": "guest"
+    },
+    {
+     "e": "stranger",
+     "f": "inconnu",
+     "p": "STRÉÏN-djeur"
+    },
+    {
+     "e": "couple",
+     "f": "couple",
+     "p": "KEU-peul"
+    },
+    {
+     "e": "single",
+     "f": "célibataire",
+     "p": "SIN-gueul"
+    },
+    {
+     "e": "married",
+     "f": "marié",
+     "p": "MA-rid"
+    },
+    {
+     "e": "divorced",
+     "f": "divorcé",
+     "p": "di-VORST"
+    },
+    {
+     "e": "widow",
+     "f": "veuve",
+     "p": "WI-do"
+    },
+    {
+     "e": "citizen",
+     "f": "citoyen",
+     "p": "SI-ti-zeun"
+    },
+    {
+     "e": "crowd",
+     "f": "foule",
+     "p": "kraoud"
     }
    ]
   },
@@ -1057,6 +1837,96 @@
      "e": "to find",
      "f": "trouver",
      "p": "faïnd"
+    },
+    {
+     "e": "to keep",
+     "f": "garder",
+     "p": "kip"
+    },
+    {
+     "e": "to bring",
+     "f": "apporter",
+     "p": "bring"
+    },
+    {
+     "e": "to carry",
+     "f": "porter",
+     "p": "KA-ri"
+    },
+    {
+     "e": "to send",
+     "f": "envoyer",
+     "p": "send"
+    },
+    {
+     "e": "to receive",
+     "f": "recevoir",
+     "p": "ri-SIV"
+    },
+    {
+     "e": "to build",
+     "f": "construire",
+     "p": "bild"
+    },
+    {
+     "e": "to choose",
+     "f": "choisir",
+     "p": "tchouz"
+    },
+    {
+     "e": "to explain",
+     "f": "expliquer",
+     "p": "ex-PLÉÏN"
+    },
+    {
+     "e": "to change",
+     "f": "changer",
+     "p": "tchéïndj"
+    },
+    {
+     "e": "to move",
+     "f": "bouger",
+     "p": "mouv"
+    },
+    {
+     "e": "to live",
+     "f": "vivre",
+     "p": "liv"
+    },
+    {
+     "e": "to laugh",
+     "f": "rire",
+     "p": "laf"
+    },
+    {
+     "e": "to cry",
+     "f": "pleurer",
+     "p": "kraï"
+    },
+    {
+     "e": "to drive",
+     "f": "conduire",
+     "p": "draïv"
+    },
+    {
+     "e": "to fly",
+     "f": "voler",
+     "p": "flaï"
+    },
+    {
+     "e": "to travel",
+     "f": "voyager",
+     "p": "TRA-veul"
+    },
+    {
+     "e": "to rest",
+     "f": "se reposer",
+     "p": "rest"
+    },
+    {
+     "e": "to hurry",
+     "f": "se dépêcher",
+     "p": "HEU-ri"
     }
    ]
   },
@@ -1148,6 +2018,81 @@
      "e": "to watch",
      "f": "regarder",
      "p": "watch"
+    },
+    {
+     "e": "tennis",
+     "f": "tennis",
+     "p": "TÉ-nis"
+    },
+    {
+     "e": "rugby",
+     "f": "rugby",
+     "p": "REUG-bi"
+    },
+    {
+     "e": "basketball",
+     "f": "basket",
+     "p": "BAS-kit-bol"
+    },
+    {
+     "e": "swimming",
+     "f": "natation",
+     "p": "SWI-ming"
+    },
+    {
+     "e": "cycling",
+     "f": "cyclisme",
+     "p": "SAÏ-kling"
+    },
+    {
+     "e": "climbing",
+     "f": "escalade",
+     "p": "KLAÏ-ming"
+    },
+    {
+     "e": "fishing",
+     "f": "pêche",
+     "p": "FI-ching"
+    },
+    {
+     "e": "camping",
+     "f": "camping",
+     "p": "KAM-ping"
+    },
+    {
+     "e": "chess",
+     "f": "échecs",
+     "p": "tches"
+    },
+    {
+     "e": "cards",
+     "f": "cartes",
+     "p": "kardz"
+    },
+    {
+     "e": "video game",
+     "f": "jeu vidéo",
+     "p": "VI-di-o guéïm"
+    },
+    {
+     "e": "theatre",
+     "f": "théâtre",
+     "p": "THI-e-teur"
+    },
+    {
+     "e": "stadium",
+     "f": "stade",
+     "p": "STÉÏ-di-eum"
+    },
+    {
+     "e": "gym",
+     "f": "salle de sport",
+     "p": "djim"
+    },
+    {
+     "e": "coach",
+     "f": "entraîneur",
+     "p": "koutch"
     }
    ]
   },
@@ -1244,6 +2189,81 @@
      "e": "pedestrian",
      "f": "piéton",
      "p": "pi-DES-tri-eun"
+    },
+    {
+     "e": "mayor",
+     "f": "maire",
+     "p": "MÉÏ-eur"
+    },
+    {
+     "e": "council",
+     "f": "conseil municipal",
+     "p": "KAOUND-seul"
+    },
+    {
+     "e": "resident",
+     "f": "habitant",
+     "p": "RÉ-zi-dent"
+    },
+    {
+     "e": "tourist",
+     "f": "touriste",
+     "p": "TOU-rist"
+    },
+    {
+     "e": "map",
+     "f": "carte",
+     "p": "map"
+    },
+    {
+     "e": "guide",
+     "f": "guide",
+     "p": "gaïd"
+    },
+    {
+     "e": "monument",
+     "f": "monument",
+     "p": "MO-niou-ment"
+    },
+    {
+     "e": "fountain",
+     "f": "fontaine",
+     "p": "FAOUND-teun"
+    },
+    {
+     "e": "statue",
+     "f": "statue",
+     "p": "STA-tchou"
+    },
+    {
+     "e": "park",
+     "f": "parc",
+     "p": "park"
+    },
+    {
+     "e": "bench",
+     "f": "banc",
+     "p": "bentch"
+    },
+    {
+     "e": "recycling",
+     "f": "recyclage",
+     "p": "ri-SAÏ-kling"
+    },
+    {
+     "e": "shopping centre",
+     "f": "centre commercial",
+     "p": "CHO-ping SEN-teur"
+    },
+    {
+     "e": "traffic",
+     "f": "circulation",
+     "p": "TRA-fik"
+    },
+    {
+     "e": "suburb",
+     "f": "banlieue",
+     "p": "SEU-beurb"
     }
    ]
   },
@@ -1340,6 +2360,81 @@
      "e": "bug",
      "f": "bogue",
      "p": "beug"
+    },
+    {
+     "e": "laptop",
+     "f": "ordinateur portable",
+     "p": "LAP-top"
+    },
+    {
+     "e": "tablet",
+     "f": "tablette",
+     "p": "TA-blet"
+    },
+    {
+     "e": "mouse",
+     "f": "souris",
+     "p": "maous"
+    },
+    {
+     "e": "cable",
+     "f": "câble",
+     "p": "KÉÏ-beul"
+    },
+    {
+     "e": "plug",
+     "f": "prise",
+     "p": "pleug"
+    },
+    {
+     "e": "socket",
+     "f": "prise murale",
+     "p": "SO-kit"
+    },
+    {
+     "e": "app",
+     "f": "application",
+     "p": "ap"
+    },
+    {
+     "e": "website",
+     "f": "site web",
+     "p": "WEB-saït"
+    },
+    {
+     "e": "link",
+     "f": "lien",
+     "p": "link"
+    },
+    {
+     "e": "notification",
+     "f": "notification",
+     "p": "no-ti-fi-KÉÏ-cheun"
+    },
+    {
+     "e": "cloud",
+     "f": "cloud",
+     "p": "klaoud"
+    },
+    {
+     "e": "storage",
+     "f": "stockage",
+     "p": "STO-ridj"
+    },
+    {
+     "e": "username",
+     "f": "identifiant",
+     "p": "IOU-zeur-néïm"
+    },
+    {
+     "e": "spam",
+     "f": "spam",
+     "p": "spam"
+    },
+    {
+     "e": "scam",
+     "f": "arnaque",
+     "p": "skam"
     }
    ]
   },
@@ -1436,6 +2531,76 @@
      "e": "witness",
      "f": "témoin",
      "p": "WIT-ness"
+    },
+    {
+     "e": "rescue",
+     "f": "sauvetage",
+     "p": "RES-kiou"
+    },
+    {
+     "e": "stretcher",
+     "f": "brancard",
+     "p": "STRET-cheur"
+    },
+    {
+     "e": "fracture",
+     "f": "fracture",
+     "p": "FRAK-tcheur"
+    },
+    {
+     "e": "burn",
+     "f": "brûlure",
+     "p": "beurn"
+    },
+    {
+     "e": "poison",
+     "f": "poison",
+     "p": "POÏ-zeun"
+    },
+    {
+     "e": "missing",
+     "f": "disparu",
+     "p": "MI-sing"
+    },
+    {
+     "e": "search",
+     "f": "recherche",
+     "p": "seurtch"
+    },
+    {
+     "e": "alarm",
+     "f": "alarme",
+     "p": "a-LARM"
+    },
+    {
+     "e": "siren",
+     "f": "sirène",
+     "p": "SAÏ-reun"
+    },
+    {
+     "e": "evacuation",
+     "f": "évacuation",
+     "p": "i-va-kiou-ÉÏ-cheun"
+    },
+    {
+     "e": "shelter",
+     "f": "abri",
+     "p": "CHEL-teur"
+    },
+    {
+     "e": "first aid",
+     "f": "premiers secours",
+     "p": "feurst éïd"
+    },
+    {
+     "e": "report",
+     "f": "signalement",
+     "p": "ri-PORT"
+    },
+    {
+     "e": "damage",
+     "f": "dégâts",
+     "p": "DA-midj"
     }
    ]
   },
@@ -1532,6 +2697,81 @@
      "e": "boiler",
      "f": "chaudière",
      "p": "BOÏ-leur"
+    },
+    {
+     "e": "bolt",
+     "f": "boulon",
+     "p": "bolt"
+    },
+    {
+     "e": "nut",
+     "f": "écrou",
+     "p": "neut"
+    },
+    {
+     "e": "washer",
+     "f": "rondelle",
+     "p": "WO-cheur"
+    },
+    {
+     "e": "saw",
+     "f": "scie",
+     "p": "so"
+    },
+    {
+     "e": "axe",
+     "f": "hache",
+     "p": "ax"
+    },
+    {
+     "e": "spade",
+     "f": "bêche",
+     "p": "spéïd"
+    },
+    {
+     "e": "rake",
+     "f": "râteau",
+     "p": "réïk"
+    },
+    {
+     "e": "hose",
+     "f": "tuyau d'arrosage",
+     "p": "houz"
+    },
+    {
+     "e": "valve",
+     "f": "vanne",
+     "p": "valv"
+    },
+    {
+     "e": "wire",
+     "f": "fil électrique",
+     "p": "waï-eur"
+    },
+    {
+     "e": "bulb",
+     "f": "ampoule",
+     "p": "beulb"
+    },
+    {
+     "e": "glue",
+     "f": "colle",
+     "p": "glou"
+    },
+    {
+     "e": "tape",
+     "f": "ruban adhésif",
+     "p": "téïp"
+    },
+    {
+     "e": "toolbox",
+     "f": "boîte à outils",
+     "p": "TOUL-boks"
+    },
+    {
+     "e": "scissors",
+     "f": "ciseaux",
+     "p": "SI-zeurz"
     }
    ]
   },
@@ -1628,6 +2868,86 @@
      "e": "kilogram",
      "f": "kilogramme",
      "p": "KI-lo-gram"
+    },
+    {
+     "e": "yesterday",
+     "f": "hier",
+     "p": "YES-teur-déï"
+    },
+    {
+     "e": "fortnight",
+     "f": "quinzaine",
+     "p": "FORT-naït"
+    },
+    {
+     "e": "century",
+     "f": "siècle",
+     "p": "SEN-tcheu-ri"
+    },
+    {
+     "e": "decade",
+     "f": "décennie",
+     "p": "DÉ-kéïd"
+    },
+    {
+     "e": "third",
+     "f": "tiers",
+     "p": "theurd"
+    },
+    {
+     "e": "double",
+     "f": "double",
+     "p": "DEU-beul"
+    },
+    {
+     "e": "average",
+     "f": "moyenne",
+     "p": "A-ve-ridj"
+    },
+    {
+     "e": "total",
+     "f": "total",
+     "p": "TO-teul"
+    },
+    {
+     "e": "amount",
+     "f": "montant",
+     "p": "a-MAOUND"
+    },
+    {
+     "e": "number",
+     "f": "nombre",
+     "p": "NEUM-beur"
+    },
+    {
+     "e": "few",
+     "f": "peu",
+     "p": "fiou"
+    },
+    {
+     "e": "several",
+     "f": "plusieurs",
+     "p": "SEV-reul"
+    },
+    {
+     "e": "most",
+     "f": "la plupart",
+     "p": "moust"
+    },
+    {
+     "e": "least",
+     "f": "le moins",
+     "p": "list"
+    },
+    {
+     "e": "enough",
+     "f": "assez",
+     "p": "i-NOF"
+    },
+    {
+     "e": "too much",
+     "f": "trop",
+     "p": "tou meutch"
     }
    ]
   }
