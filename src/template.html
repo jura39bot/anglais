@@ -589,7 +589,7 @@ function lesson(a){
         <div class="row"><span class="phon">${esc(w.p||"")}</span><button class="pill" id="sp">🔊 Écouter</button></div>
         <div class="spacer"></div>
         <div><b>${esc(w.f)}</b></div>
-        <div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf)}</span></div>
+        ${w.x?`<div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf||"")}</span></div>`:""}
       </div>
       <div class="feed"><div><button class="btn" id="next">Continuer</button></div></div>`;
     $("#sp").onclick=()=>speak(w.e+" . "+w.x);
@@ -726,7 +726,7 @@ function browse(a){
       <div class="between"><b style="font-size:18px">${esc(w.e)}</b><button class="pill" data-s="${i}">🔊</button></div>
       <div class="phon">${esc(w.p||"")}</div>
       <div style="margin-top:4px">${esc(w.f)}</div>
-      <div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf)}</span></div>
+      ${w.x?`<div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf||"")}</span></div>`:""}
     </div>`);
     c.querySelector("[data-s]").onclick=()=>speak(w.e+" . "+w.x);
     box.appendChild(c);

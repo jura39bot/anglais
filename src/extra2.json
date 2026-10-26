@@ -1,0 +1,1107 @@
+{
+ "A1": [
+  {
+   "e": "morning",
+   "f": "matin",
+   "p": "MOR-ning"
+  },
+  {
+   "e": "evening",
+   "f": "soir",
+   "p": "IV-ning"
+  },
+  {
+   "e": "week",
+   "f": "semaine",
+   "p": "wik"
+  },
+  {
+   "e": "month",
+   "f": "mois",
+   "p": "meunth"
+  },
+  {
+   "e": "year",
+   "f": "année",
+   "p": "yir"
+  },
+  {
+   "e": "hour",
+   "f": "heure",
+   "p": "aou-eur"
+  },
+  {
+   "e": "minute",
+   "f": "minute",
+   "p": "MI-nit"
+  },
+  {
+   "e": "time",
+   "f": "temps",
+   "p": "taïm"
+  },
+  {
+   "e": "money",
+   "f": "argent",
+   "p": "MEU-ni"
+  },
+  {
+   "e": "shop",
+   "f": "magasin",
+   "p": "chop"
+  },
+  {
+   "e": "street",
+   "f": "rue",
+   "p": "strit"
+  },
+  {
+   "e": "city",
+   "f": "ville",
+   "p": "SI-ti"
+  },
+  {
+   "e": "country",
+   "f": "pays",
+   "p": "KEUN-tri"
+  },
+  {
+   "e": "school",
+   "f": "école",
+   "p": "skoul"
+  },
+  {
+   "e": "teacher",
+   "f": "professeur",
+   "p": "TI-tcheur"
+  },
+  {
+   "e": "student",
+   "f": "étudiant",
+   "p": "STIOU-dent"
+  },
+  {
+   "e": "book",
+   "f": "livre",
+   "p": "bouk"
+  },
+  {
+   "e": "pen",
+   "f": "stylo",
+   "p": "pen"
+  },
+  {
+   "e": "table",
+   "f": "table",
+   "p": "TÉÏ-beul"
+  },
+  {
+   "e": "chair",
+   "f": "chaise",
+   "p": "tchér"
+  },
+  {
+   "e": "bed",
+   "f": "lit",
+   "p": "bed"
+  },
+  {
+   "e": "room",
+   "f": "pièce",
+   "p": "roum"
+  },
+  {
+   "e": "kitchen",
+   "f": "cuisine",
+   "p": "KIT-tcheun"
+  },
+  {
+   "e": "food",
+   "f": "nourriture",
+   "p": "foud"
+  },
+  {
+   "e": "milk",
+   "f": "lait",
+   "p": "milk"
+  },
+  {
+   "e": "egg",
+   "f": "œuf",
+   "p": "eg"
+  },
+  {
+   "e": "cheese",
+   "f": "fromage",
+   "p": "tchiz"
+  },
+  {
+   "e": "meat",
+   "f": "viande",
+   "p": "mit"
+  },
+  {
+   "e": "fruit",
+   "f": "fruit",
+   "p": "frout"
+  },
+  {
+   "e": "apple",
+   "f": "pomme",
+   "p": "A-peul"
+  },
+  {
+   "e": "orange",
+   "f": "orange",
+   "p": "O-rindj"
+  },
+  {
+   "e": "tea",
+   "f": "thé",
+   "p": "ti"
+  },
+  {
+   "e": "sugar",
+   "f": "sucre",
+   "p": "CHOU-gueur"
+  },
+  {
+   "e": "salt",
+   "f": "sel",
+   "p": "solt"
+  },
+  {
+   "e": "hot",
+   "f": "chaud",
+   "p": "hot"
+  },
+  {
+   "e": "cold",
+   "f": "froid",
+   "p": "kold"
+  },
+  {
+   "e": "new",
+   "f": "nouveau",
+   "p": "niou"
+  },
+  {
+   "e": "old",
+   "f": "vieux",
+   "p": "old"
+  },
+  {
+   "e": "sad",
+   "f": "triste",
+   "p": "sad"
+  },
+  {
+   "e": "tired",
+   "f": "fatigué",
+   "p": "TAÏ-eurd"
+  },
+  {
+   "e": "easy",
+   "f": "facile",
+   "p": "I-zi"
+  },
+  {
+   "e": "difficult",
+   "f": "difficile",
+   "p": "DI-fi-keult"
+  },
+  {
+   "e": "here",
+   "f": "ici",
+   "p": "hir"
+  },
+  {
+   "e": "there",
+   "f": "là",
+   "p": "zér"
+  },
+  {
+   "e": "left",
+   "f": "gauche",
+   "p": "left"
+  },
+  {
+   "e": "right",
+   "f": "droite",
+   "p": "raït"
+  },
+  {
+   "e": "up",
+   "f": "haut",
+   "p": "op"
+  },
+  {
+   "e": "down",
+   "f": "bas",
+   "p": "daoun"
+  },
+  {
+   "e": "start",
+   "f": "commencer",
+   "p": "start"
+  },
+  {
+   "e": "stop",
+   "f": "arrêter",
+   "p": "stop"
+  }
+ ],
+ "A2": [
+  {
+   "e": "airport",
+   "f": "aéroport",
+   "p": "ÉR-port"
+  },
+  {
+   "e": "flight",
+   "f": "vol",
+   "p": "flaït"
+  },
+  {
+   "e": "luggage",
+   "f": "bagages",
+   "p": "LO-guidj"
+  },
+  {
+   "e": "passport",
+   "f": "passeport",
+   "p": "PAS-port"
+  },
+  {
+   "e": "ticket",
+   "f": "billet",
+   "p": "TI-kit"
+  },
+  {
+   "e": "station",
+   "f": "gare",
+   "p": "STÉ-cheun"
+  },
+  {
+   "e": "platform",
+   "f": "quai",
+   "p": "PLAT-form"
+  },
+  {
+   "e": "delay",
+   "f": "retard",
+   "p": "di-LÉÏ"
+  },
+  {
+   "e": "journey",
+   "f": "trajet",
+   "p": "DJEUR-ni"
+  },
+  {
+   "e": "hotel",
+   "f": "hôtel",
+   "p": "ho-TEL"
+  },
+  {
+   "e": "reservation",
+   "f": "réservation",
+   "p": "re-zeur-VÉÏ-cheun"
+  },
+  {
+   "e": "bill",
+   "f": "addition",
+   "p": "bil"
+  },
+  {
+   "e": "tip",
+   "f": "pourboire",
+   "p": "tip"
+  },
+  {
+   "e": "menu",
+   "f": "carte",
+   "p": "MÉ-niou"
+  },
+  {
+   "e": "order",
+   "f": "commande",
+   "p": "OR-deur"
+  },
+  {
+   "e": "waiter",
+   "f": "serveur",
+   "p": "WÉÏ-teur"
+  },
+  {
+   "e": "customer",
+   "f": "client",
+   "p": "KEUS-teu-meur"
+  },
+  {
+   "e": "size",
+   "f": "taille",
+   "p": "saïz"
+  },
+  {
+   "e": "discount",
+   "f": "remise",
+   "p": "DIS-kaount"
+  },
+  {
+   "e": "receipt",
+   "f": "reçu",
+   "p": "ri-SIT"
+  },
+  {
+   "e": "cash",
+   "f": "espèces",
+   "p": "kach"
+  },
+  {
+   "e": "change",
+   "f": "monnaie",
+   "p": "tchéïndj"
+  },
+  {
+   "e": "bank",
+   "f": "banque",
+   "p": "bank"
+  },
+  {
+   "e": "account",
+   "f": "compte",
+   "p": "a-KAOUND"
+  },
+  {
+   "e": "salary",
+   "f": "salaire",
+   "p": "SA-la-ri"
+  },
+  {
+   "e": "job",
+   "f": "emploi",
+   "p": "djob"
+  },
+  {
+   "e": "boss",
+   "f": "patron",
+   "p": "bos"
+  },
+  {
+   "e": "meeting",
+   "f": "réunion",
+   "p": "MI-ting"
+  },
+  {
+   "e": "deadline",
+   "f": "date limite",
+   "p": "DÈD-laïn"
+  },
+  {
+   "e": "holiday",
+   "f": "vacances",
+   "p": "HO-li-déï"
+  },
+  {
+   "e": "weekend",
+   "f": "week-end",
+   "p": "wik-end"
+  },
+  {
+   "e": "appointment",
+   "f": "rendez-vous",
+   "p": "a-POÏNT-ment"
+  },
+  {
+   "e": "doctor",
+   "f": "médecin",
+   "p": "DOK-teur"
+  },
+  {
+   "e": "pharmacy",
+   "f": "pharmacie",
+   "p": "FAR-ma-si"
+  },
+  {
+   "e": "medicine",
+   "f": "médicament",
+   "p": "MÉ-di-sin"
+  },
+  {
+   "e": "pain",
+   "f": "douleur",
+   "p": "péïn"
+  },
+  {
+   "e": "fever",
+   "f": "fièvre",
+   "p": "FI-veur"
+  },
+  {
+   "e": "stressed",
+   "f": "stressé",
+   "p": "strest"
+  },
+  {
+   "e": "worried",
+   "f": "inquiet",
+   "p": "WEU-rid"
+  },
+  {
+   "e": "glad",
+   "f": "content",
+   "p": "glad"
+  },
+  {
+   "e": "angry",
+   "f": "en colère",
+   "p": "AN-gri"
+  },
+  {
+   "e": "polite",
+   "f": "poli",
+   "p": "po-LAÏT"
+  },
+  {
+   "e": "rude",
+   "f": "impoli",
+   "p": "roud"
+  },
+  {
+   "e": "quiet",
+   "f": "calme",
+   "p": "KWAÏ-et"
+  },
+  {
+   "e": "noisy",
+   "f": "bruyant",
+   "p": "NOÏ-zi"
+  },
+  {
+   "e": "crowded",
+   "f": "bondé",
+   "p": "KRAOU-did"
+  },
+  {
+   "e": "empty",
+   "f": "vide",
+   "p": "EMP-ti"
+  },
+  {
+   "e": "full",
+   "f": "plein",
+   "p": "foul"
+  },
+  {
+   "e": "safe",
+   "f": "sûr",
+   "p": "séïf"
+  },
+  {
+   "e": "dangerous",
+   "f": "dangereux",
+   "p": "DÉÏN-djeu-reus"
+  }
+ ],
+ "B1": [
+  {
+   "e": "society",
+   "f": "société",
+   "p": "so-SAÏ-e-ti"
+  },
+  {
+   "e": "government",
+   "f": "gouvernement",
+   "p": "GEU-veurn-ment"
+  },
+  {
+   "e": "law",
+   "f": "loi",
+   "p": "lo"
+  },
+  {
+   "e": "right",
+   "f": "droit",
+   "p": "raït"
+  },
+  {
+   "e": "duty",
+   "f": "devoir",
+   "p": "DIOU-ti"
+  },
+  {
+   "e": "freedom",
+   "f": "liberté",
+   "p": "FRI-deum"
+  },
+  {
+   "e": "safety",
+   "f": "sécurité",
+   "p": "SÉÏF-ti"
+  },
+  {
+   "e": "health",
+   "f": "santé",
+   "p": "helth"
+  },
+  {
+   "e": "education",
+   "f": "éducation",
+   "p": "e-djou-KÉÏ-cheun"
+  },
+  {
+   "e": "training",
+   "f": "formation",
+   "p": "TRÉÏ-ning"
+  },
+  {
+   "e": "skill",
+   "f": "compétence",
+   "p": "skil"
+  },
+  {
+   "e": "experience",
+   "f": "expérience",
+   "p": "ex-PI-ri-euns"
+  },
+  {
+   "e": "career",
+   "f": "carrière",
+   "p": "ka-RIR"
+  },
+  {
+   "e": "income",
+   "f": "revenu",
+   "p": "IN-keum"
+  },
+  {
+   "e": "tax",
+   "f": "impôt",
+   "p": "tax"
+  },
+  {
+   "e": "cost",
+   "f": "coût",
+   "p": "kost"
+  },
+  {
+   "e": "benefit",
+   "f": "avantage",
+   "p": "BÉ-ni-fit"
+  },
+  {
+   "e": "advantage",
+   "f": "avantage",
+   "p": "ad-VAN-tidj"
+  },
+  {
+   "e": "disadvantage",
+   "f": "inconvénient",
+   "p": "dis-ad-VAN-tidj"
+  },
+  {
+   "e": "solution",
+   "f": "solution",
+   "p": "so-LOU-cheun"
+  },
+  {
+   "e": "problem",
+   "f": "problème",
+   "p": "PRO-bleum"
+  },
+  {
+   "e": "cause",
+   "f": "cause",
+   "p": "koz"
+  },
+  {
+   "e": "consequence",
+   "f": "conséquence",
+   "p": "KON-si-kwens"
+  },
+  {
+   "e": "purpose",
+   "f": "but",
+   "p": "PEUR-peus"
+  },
+  {
+   "e": "opinion",
+   "f": "opinion",
+   "p": "o-PI-nieun"
+  },
+  {
+   "e": "argument",
+   "f": "argument",
+   "p": "AR-gyou-ment"
+  },
+  {
+   "e": "evidence",
+   "f": "preuve",
+   "p": "É-vi-dens"
+  },
+  {
+   "e": "doubt",
+   "f": "doute",
+   "p": "daout"
+  },
+  {
+   "e": "hope",
+   "f": "espoir",
+   "p": "houp"
+  },
+  {
+   "e": "fear",
+   "f": "peur",
+   "p": "fir"
+  },
+  {
+   "e": "effort",
+   "f": "effort",
+   "p": "E-fort"
+  },
+  {
+   "e": "progress",
+   "f": "progrès",
+   "p": "PRO-gres"
+  },
+  {
+   "e": "success",
+   "f": "réussite",
+   "p": "seuk-SES"
+  },
+  {
+   "e": "failure",
+   "f": "échec",
+   "p": "FÉÏ-lieur"
+  },
+  {
+   "e": "choice",
+   "f": "choix",
+   "p": "tchoïs"
+  },
+  {
+   "e": "decision",
+   "f": "décision",
+   "p": "di-SI-jeun"
+  },
+  {
+   "e": "change",
+   "f": "changement",
+   "p": "tchéïndj"
+  },
+  {
+   "e": "opportunity",
+   "f": "occasion",
+   "p": "o-peu-TYOU-ni-ti"
+  },
+  {
+   "e": "responsibility",
+   "f": "responsabilité",
+   "p": "ri-spon-si-BI-li-ti"
+  },
+  {
+   "e": "relationship",
+   "f": "relation",
+   "p": "ri-LÉÏ-cheun-chip"
+  },
+  {
+   "e": "environment",
+   "f": "environnement",
+   "p": "in-VAÏ-reun-ment"
+  },
+  {
+   "e": "energy",
+   "f": "énergie",
+   "p": "E-neur-dji"
+  },
+  {
+   "e": "pollution",
+   "f": "pollution",
+   "p": "po-LOU-cheun"
+  },
+  {
+   "e": "climate",
+   "f": "climat",
+   "p": "KLAÏ-mit"
+  },
+  {
+   "e": "waste",
+   "f": "déchets",
+   "p": "wéïst"
+  },
+  {
+   "e": "resource",
+   "f": "ressource",
+   "p": "ri-SORS"
+  },
+  {
+   "e": "community",
+   "f": "communauté",
+   "p": "keu-MIOU-ni-ti"
+  },
+  {
+   "e": "culture",
+   "f": "culture",
+   "p": "KEUL-tcheur"
+  },
+  {
+   "e": "tradition",
+   "f": "tradition",
+   "p": "tra-DI-cheun"
+  },
+  {
+   "e": "generation",
+   "f": "génération",
+   "p": "dje-ne-RÉÏ-cheun"
+  }
+ ],
+ "B2": [
+  {
+   "e": "assume",
+   "f": "supposer",
+   "p": "a-SIOUM"
+  },
+  {
+   "e": "commit",
+   "f": "s'engager",
+   "p": "keu-MIT"
+  },
+  {
+   "e": "conclude",
+   "f": "conclure",
+   "p": "keun-KLOUD"
+  },
+  {
+   "e": "consider",
+   "f": "considérer",
+   "p": "keun-SI-deur"
+  },
+  {
+   "e": "contribute",
+   "f": "contribuer",
+   "p": "keun-TRI-biout"
+  },
+  {
+   "e": "define",
+   "f": "définir",
+   "p": "di-FAÏN"
+  },
+  {
+   "e": "demonstrate",
+   "f": "démontrer",
+   "p": "DÉ-meun-stréït"
+  },
+  {
+   "e": "determine",
+   "f": "déterminer",
+   "p": "di-TEUR-min"
+  },
+  {
+   "e": "develop",
+   "f": "développer",
+   "p": "di-VE-leup"
+  },
+  {
+   "e": "ensure",
+   "f": "garantir",
+   "p": "in-CHOUR"
+  },
+  {
+   "e": "establish",
+   "f": "établir",
+   "p": "is-TA-blich"
+  },
+  {
+   "e": "estimate",
+   "f": "estimer",
+   "p": "ES-ti-méït"
+  },
+  {
+   "e": "evaluate",
+   "f": "évaluer",
+   "p": "i-VA-liou-éït"
+  },
+  {
+   "e": "expand",
+   "f": "développer",
+   "p": "ex-PAND"
+  },
+  {
+   "e": "identify",
+   "f": "identifier",
+   "p": "aï-DEN-ti-faï"
+  },
+  {
+   "e": "illustrate",
+   "f": "illustrer",
+   "p": "I-leus-tréït"
+  },
+  {
+   "e": "indicate",
+   "f": "indiquer",
+   "p": "IN-di-kéït"
+  },
+  {
+   "e": "maintain",
+   "f": "maintenir",
+   "p": "méïn-TÉÏN"
+  },
+  {
+   "e": "obtain",
+   "f": "obtenir",
+   "p": "ob-TÉÏN"
+  },
+  {
+   "e": "participate",
+   "f": "participer",
+   "p": "par-TI-si-péït"
+  },
+  {
+   "e": "propose",
+   "f": "proposer",
+   "p": "preu-POUZ"
+  },
+  {
+   "e": "provide",
+   "f": "fournir",
+   "p": "preu-VAÏD"
+  },
+  {
+   "e": "reduce",
+   "f": "réduire",
+   "p": "ri-DIOUS"
+  },
+  {
+   "e": "require",
+   "f": "exiger",
+   "p": "ri-KWAÏ-eur"
+  },
+  {
+   "e": "respond",
+   "f": "répondre",
+   "p": "ri-SPOND"
+  },
+  {
+   "e": "reveal",
+   "f": "révéler",
+   "p": "ri-VIL"
+  },
+  {
+   "e": "seek",
+   "f": "chercher",
+   "p": "sik"
+  },
+  {
+   "e": "support",
+   "f": "soutenir",
+   "p": "seu-PORT"
+  },
+  {
+   "e": "tend",
+   "f": "avoir tendance",
+   "p": "tend"
+  },
+  {
+   "e": "address",
+   "f": "traiter",
+   "p": "a-DRES"
+  },
+  {
+   "e": "clarify",
+   "f": "clarifier",
+   "p": "KLA-ri-faï"
+  },
+  {
+   "e": "undertake",
+   "f": "entreprendre",
+   "p": "EUN-deur-téïk"
+  },
+  {
+   "e": "pursue",
+   "f": "poursuivre",
+   "p": "peur-SIOU"
+  },
+  {
+   "e": "comprise",
+   "f": "comprendre",
+   "p": "keum-PRAÏZ"
+  },
+  {
+   "e": "derive",
+   "f": "dériver",
+   "p": "di-RAÏV"
+  },
+  {
+   "e": "facilitate",
+   "f": "faciliter",
+   "p": "fa-SI-li-téït"
+  },
+  {
+   "e": "incorporate",
+   "f": "intégrer",
+   "p": "in-KOR-po-réït"
+  },
+  {
+   "e": "integrate",
+   "f": "intégrer",
+   "p": "IN-ti-gréït"
+  },
+  {
+   "e": "monitor",
+   "f": "surveiller",
+   "p": "MO-ni-teur"
+  },
+  {
+   "e": "predict",
+   "f": "prédire",
+   "p": "pri-DIKT"
+  },
+  {
+   "e": "specify",
+   "f": "préciser",
+   "p": "SPE-si-faï"
+  },
+  {
+   "e": "verify",
+   "f": "vérifier",
+   "p": "VÉ-ri-faï"
+  },
+  {
+   "e": "justify",
+   "f": "justifier",
+   "p": "DJUS-ti-faï"
+  },
+  {
+   "e": "enhance",
+   "f": "renforcer",
+   "p": "in-HANS"
+  },
+  {
+   "e": "retain",
+   "f": "conserver",
+   "p": "ri-TÉÏN"
+  },
+  {
+   "e": "seek out",
+   "f": "rechercher",
+   "p": "sik aout"
+  },
+  {
+   "e": "carry on",
+   "f": "continuer",
+   "p": "KA-ri on"
+  },
+  {
+   "e": "figure out",
+   "f": "comprendre",
+   "p": "FI-gueur aout"
+  },
+  {
+   "e": "point out",
+   "f": "signaler",
+   "p": "poïnt aout"
+  }
+ ],
+ "KIDS": [
+  {
+   "e": "elephant",
+   "f": "éléphant",
+   "p": "E-li-feunt"
+  },
+  {
+   "e": "monkey",
+   "f": "singe",
+   "p": "MEUN-ki"
+  },
+  {
+   "e": "tiger",
+   "f": "tigre",
+   "p": "TAÏ-gueur"
+  },
+  {
+   "e": "giraffe",
+   "f": "girafe",
+   "p": "dji-RAF"
+  },
+  {
+   "e": "snake",
+   "f": "serpent",
+   "p": "snéïk"
+  },
+  {
+   "e": "spider",
+   "f": "araignée",
+   "p": "SPAÏ-deur"
+  },
+  {
+   "e": "bee",
+   "f": "abeille",
+   "p": "bi"
+  },
+  {
+   "e": "panda",
+   "f": "panda",
+   "p": "PAN-da"
+  },
+  {
+   "e": "penguin",
+   "f": "pingouin",
+   "p": "PEN-gwin"
+  },
+  {
+   "e": "rainbow",
+   "f": "arc-en-ciel",
+   "p": "RÉÏN-bou"
+  },
+  {
+   "e": "garden",
+   "f": "jardin",
+   "p": "GAR-deun"
+  },
+  {
+   "e": "farm",
+   "f": "ferme",
+   "p": "farm"
+  },
+  {
+   "e": "tractor",
+   "f": "tracteur",
+   "p": "TRAK-teur"
+  },
+  {
+   "e": "pillow",
+   "f": "oreiller",
+   "p": "PI-lo"
+  },
+  {
+   "e": "blanket",
+   "f": "couverture",
+   "p": "BLAN-kit"
+  },
+  {
+   "e": "spoon",
+   "f": "cuillère",
+   "p": "spoun"
+  },
+  {
+   "e": "fork",
+   "f": "fourchette",
+   "p": "fork"
+  },
+  {
+   "e": "cup",
+   "f": "tasse",
+   "p": "keup"
+  },
+  {
+   "e": "plate",
+   "f": "assiette",
+   "p": "pléït"
+  },
+  {
+   "e": "window",
+   "f": "fenêtre",
+   "p": "WIN-do"
+  }
+ ]
+}

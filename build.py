@@ -5,8 +5,7 @@ import json, pathlib, hashlib, datetime
 root = pathlib.Path(__file__).parent
 tpl = (root / "src/template.html").read_text(encoding="utf-8")
 data = json.loads((root / "src/data.json").read_text(encoding="utf-8"))
-extra_path = root / "src/extra.json"
-if extra_path.exists():
+for extra_path in sorted((root / "src").glob("extra*.json")):
     extra = json.loads(extra_path.read_text(encoding="utf-8"))
     for lvl, items in extra.items():
         seen = {i["e"] for i in data.get(lvl, [])}

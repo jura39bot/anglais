@@ -1,103 +1,661 @@
 [
-{"v":"to be","fr":"être","p":"bi","t":{
- "present":["I am","you are","he is","we are","you are","they are"],
- "past":["I was","you were","he was","we were","you were","they were"],
- "future":["I will be","you will be","he will be","we will be","you will be","they will be"],
- "imperative":["be!","let's be","don't be!"]},
- "ex":[{"s":"She **is** at home.","f":"Elle est à la maison.","t":"present"},
-       {"s":"They **were** late.","f":"Ils étaient en retard.","t":"past"},
-       {"s":"I **will be** there.","f":"Je serai là.","t":"future"},
-       {"s":"**Be** careful!","f":"Sois prudent !","t":"imperative"}]},
-
-{"v":"to have","fr":"avoir","p":"hav","t":{
- "present":["I have","you have","he has","we have","you have","they have"],
- "past":["I had","you had","he had","we had","you had","they had"],
- "future":["I will have","you will have","he will have","we will have","you will have","they will have"],
- "imperative":["have!","let's have","don't have!"]},
- "ex":[{"s":"I **have** two brothers.","f":"J'ai deux frères.","t":"present"},
-       {"s":"She **had** a good idea.","f":"Elle a eu une bonne idée.","t":"past"},
-       {"s":"We **will have** time.","f":"Nous aurons le temps.","t":"future"}]},
-
-{"v":"to go","fr":"aller","p":"go","t":{
- "present":["I go","you go","he goes","we go","you go","they go"],
- "past":["I went","you went","he went","we went","you went","they went"],
- "future":["I will go","you will go","he will go","we will go","you will go","they will go"],
- "imperative":["go!","let's go","don't go!"]},
- "ex":[{"s":"He **goes** to school by bus.","f":"Il va à l'école en bus.","t":"present"},
-       {"s":"We **went** to Milan.","f":"Nous sommes allés à Milan.","t":"past"},
-       {"s":"I **will go** tomorrow.","f":"J'irai demain.","t":"future"},
-       {"s":"**Go** now!","f":"Va maintenant !","t":"imperative"}]},
-
-{"v":"to do","fr":"faire","p":"dou","t":{
- "present":["I do","you do","he does","we do","you do","they do"],
- "past":["I did","you did","he did","we did","you did","they did"],
- "future":["I will do","you will do","he will do","we will do","you will do","they will do"],
- "imperative":["do!","let's do","don't do!"]},
- "ex":[{"s":"What **do** you do?","f":"Que fais-tu ?","t":"present"},
-       {"s":"She **did** her homework.","f":"Elle a fait ses devoirs.","t":"past"},
-       {"s":"I **will do** it later.","f":"Je le ferai plus tard.","t":"future"}]},
-
-{"v":"to make","fr":"fabriquer, faire","p":"méïk","t":{
- "present":["I make","you make","he makes","we make","you make","they make"],
- "past":["I made","you made","he made","we made","you made","they made"],
- "future":["I will make","you will make","he will make","we will make","you will make","they will make"],
- "imperative":["make!","let's make","don't make!"]},
- "ex":[{"s":"She **makes** good coffee.","f":"Elle fait du bon café.","t":"present"},
-       {"s":"He **made** a mistake.","f":"Il a fait une erreur.","t":"past"}]},
-
-{"v":"to take","fr":"prendre","p":"téïk","t":{
- "present":["I take","you take","he takes","we take","you take","they take"],
- "past":["I took","you took","he took","we took","you took","they took"],
- "future":["I will take","you will take","he will take","we will take","you will take","they will take"],
- "imperative":["take!","let's take","don't take!"]},
- "ex":[{"s":"I **take** the train.","f":"Je prends le train.","t":"present"},
-       {"s":"They **took** the car.","f":"Ils ont pris la voiture.","t":"past"}]},
-
-{"v":"to come","fr":"venir","p":"keum","t":{
- "present":["I come","you come","he comes","we come","you come","they come"],
- "past":["I came","you came","he came","we came","you came","they came"],
- "future":["I will come","you will come","he will come","we will come","you will come","they will come"],
- "imperative":["come!","let's come","don't come!"]},
- "ex":[{"s":"**Come** with me!","f":"Viens avec moi !","t":"imperative"},
-       {"s":"She **came** late.","f":"Elle est venue tard.","t":"past"}]},
-
-{"v":"to see","fr":"voir","p":"si","t":{
- "present":["I see","you see","he sees","we see","you see","they see"],
- "past":["I saw","you saw","he saw","we saw","you saw","they saw"],
- "future":["I will see","you will see","he will see","we will see","you will see","they will see"],
- "imperative":["see!","let's see","don't see!"]},
- "ex":[{"s":"I **see** the mountain.","f":"Je vois la montagne.","t":"present"},
-       {"s":"We **saw** the cathedral.","f":"Nous avons vu la cathédrale.","t":"past"}]},
-
-{"v":"to want","fr":"vouloir","p":"wont","t":{
- "present":["I want","you want","he wants","we want","you want","they want"],
- "past":["I wanted","you wanted","he wanted","we wanted","you wanted","they wanted"],
- "future":["I will want","you will want","he will want","we will want","you will want","they will want"],
- "imperative":["want!","let's want","don't want!"]},
- "ex":[{"s":"He **wants** a coffee.","f":"Il veut un café.","t":"present"},
-       {"s":"I **wanted** to help.","f":"Je voulais aider.","t":"past"}]},
-
-{"v":"to eat","fr":"manger","p":"it","t":{
- "present":["I eat","you eat","he eats","we eat","you eat","they eat"],
- "past":["I ate","you ate","he ate","we ate","you ate","they ate"],
- "future":["I will eat","you will eat","he will eat","we will eat","you will eat","they will eat"],
- "imperative":["eat!","let's eat","don't eat!"]},
- "ex":[{"s":"We **eat** at eight.","f":"Nous mangeons à huit heures.","t":"present"},
-       {"s":"They **ate** everything.","f":"Ils ont tout mangé.","t":"past"}]},
-
-{"v":"to speak","fr":"parler","p":"spik","t":{
- "present":["I speak","you speak","he speaks","we speak","you speak","they speak"],
- "past":["I spoke","you spoke","he spoke","we spoke","you spoke","they spoke"],
- "future":["I will speak","you will speak","he will speak","we will speak","you will speak","they will speak"],
- "imperative":["speak!","let's speak","don't speak!"]},
- "ex":[{"s":"Do you **speak** English?","f":"Parlez-vous anglais ?","t":"present"},
-       {"s":"She **spoke** to me.","f":"Elle m'a parlé.","t":"past"}]},
-
-{"v":"can","fr":"pouvoir","p":"kan","t":{
- "present":["I can","you can","he can","we can","you can","they can"],
- "past":["I could","you could","he could","we could","you could","they could"],
- "future":["I will be able to","you will be able to","he will be able to","we will be able to","you will be able to","they will be able to"],
- "imperative":["—","—","—"]},
- "ex":[{"s":"I **can** swim.","f":"Je sais nager.","t":"present"},
-       {"s":"She **could** not come.","f":"Elle n'a pas pu venir.","t":"past"}]}
+ {
+  "v": "to be",
+  "fr": "être",
+  "p": "bi",
+  "t": {
+   "present": [
+    "I am",
+    "you are",
+    "he is",
+    "we are",
+    "you are",
+    "they are"
+   ],
+   "past": [
+    "I was",
+    "you were",
+    "he was",
+    "we were",
+    "you were",
+    "they were"
+   ],
+   "future": [
+    "I will be",
+    "you will be",
+    "he will be",
+    "we will be",
+    "you will be",
+    "they will be"
+   ],
+   "imperative": [
+    "be!",
+    "let's be",
+    "don't be!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "She **is** at home.",
+    "f": "Elle est à la maison.",
+    "t": "present"
+   },
+   {
+    "s": "They **were** late.",
+    "f": "Ils étaient en retard.",
+    "t": "past"
+   },
+   {
+    "s": "I **will be** there.",
+    "f": "Je serai là.",
+    "t": "future"
+   },
+   {
+    "s": "**Be** careful!",
+    "f": "Sois prudent !",
+    "t": "imperative"
+   }
+  ]
+ },
+ {
+  "v": "to have",
+  "fr": "avoir",
+  "p": "hav",
+  "t": {
+   "present": [
+    "I have",
+    "you have",
+    "he has",
+    "we have",
+    "you have",
+    "they have"
+   ],
+   "past": [
+    "I had",
+    "you had",
+    "he had",
+    "we had",
+    "you had",
+    "they had"
+   ],
+   "future": [
+    "I will have",
+    "you will have",
+    "he will have",
+    "we will have",
+    "you will have",
+    "they will have"
+   ],
+   "imperative": [
+    "have!",
+    "let's have",
+    "don't have!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "I **have** two brothers.",
+    "f": "J'ai deux frères.",
+    "t": "present"
+   },
+   {
+    "s": "She **had** a good idea.",
+    "f": "Elle a eu une bonne idée.",
+    "t": "past"
+   },
+   {
+    "s": "We **will have** time.",
+    "f": "Nous aurons le temps.",
+    "t": "future"
+   }
+  ]
+ },
+ {
+  "v": "to go",
+  "fr": "aller",
+  "p": "go",
+  "t": {
+   "present": [
+    "I go",
+    "you go",
+    "he goes",
+    "we go",
+    "you go",
+    "they go"
+   ],
+   "past": [
+    "I went",
+    "you went",
+    "he went",
+    "we went",
+    "you went",
+    "they went"
+   ],
+   "future": [
+    "I will go",
+    "you will go",
+    "he will go",
+    "we will go",
+    "you will go",
+    "they will go"
+   ],
+   "imperative": [
+    "go!",
+    "let's go",
+    "don't go!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "He **goes** to school by bus.",
+    "f": "Il va à l'école en bus.",
+    "t": "present"
+   },
+   {
+    "s": "We **went** to Milan.",
+    "f": "Nous sommes allés à Milan.",
+    "t": "past"
+   },
+   {
+    "s": "I **will go** tomorrow.",
+    "f": "J'irai demain.",
+    "t": "future"
+   },
+   {
+    "s": "**Go** now!",
+    "f": "Va maintenant !",
+    "t": "imperative"
+   }
+  ]
+ },
+ {
+  "v": "to do",
+  "fr": "faire",
+  "p": "dou",
+  "t": {
+   "present": [
+    "I do",
+    "you do",
+    "he does",
+    "we do",
+    "you do",
+    "they do"
+   ],
+   "past": [
+    "I did",
+    "you did",
+    "he did",
+    "we did",
+    "you did",
+    "they did"
+   ],
+   "future": [
+    "I will do",
+    "you will do",
+    "he will do",
+    "we will do",
+    "you will do",
+    "they will do"
+   ],
+   "imperative": [
+    "do!",
+    "let's do",
+    "don't do!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "What **do** you do?",
+    "f": "Que fais-tu ?",
+    "t": "present"
+   },
+   {
+    "s": "She **did** her homework.",
+    "f": "Elle a fait ses devoirs.",
+    "t": "past"
+   },
+   {
+    "s": "I **will do** it later.",
+    "f": "Je le ferai plus tard.",
+    "t": "future"
+   }
+  ]
+ },
+ {
+  "v": "to make",
+  "fr": "fabriquer, faire",
+  "p": "méïk",
+  "t": {
+   "present": [
+    "I make",
+    "you make",
+    "he makes",
+    "we make",
+    "you make",
+    "they make"
+   ],
+   "past": [
+    "I made",
+    "you made",
+    "he made",
+    "we made",
+    "you made",
+    "they made"
+   ],
+   "future": [
+    "I will make",
+    "you will make",
+    "he will make",
+    "we will make",
+    "you will make",
+    "they will make"
+   ],
+   "imperative": [
+    "make!",
+    "let's make",
+    "don't make!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "She **makes** good coffee.",
+    "f": "Elle fait du bon café.",
+    "t": "present"
+   },
+   {
+    "s": "He **made** a mistake.",
+    "f": "Il a fait une erreur.",
+    "t": "past"
+   }
+  ]
+ },
+ {
+  "v": "to take",
+  "fr": "prendre",
+  "p": "téïk",
+  "t": {
+   "present": [
+    "I take",
+    "you take",
+    "he takes",
+    "we take",
+    "you take",
+    "they take"
+   ],
+   "past": [
+    "I took",
+    "you took",
+    "he took",
+    "we took",
+    "you took",
+    "they took"
+   ],
+   "future": [
+    "I will take",
+    "you will take",
+    "he will take",
+    "we will take",
+    "you will take",
+    "they will take"
+   ],
+   "imperative": [
+    "take!",
+    "let's take",
+    "don't take!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "I **take** the train.",
+    "f": "Je prends le train.",
+    "t": "present"
+   },
+   {
+    "s": "They **took** the car.",
+    "f": "Ils ont pris la voiture.",
+    "t": "past"
+   }
+  ]
+ },
+ {
+  "v": "to come",
+  "fr": "venir",
+  "p": "keum",
+  "t": {
+   "present": [
+    "I come",
+    "you come",
+    "he comes",
+    "we come",
+    "you come",
+    "they come"
+   ],
+   "past": [
+    "I came",
+    "you came",
+    "he came",
+    "we came",
+    "you came",
+    "they came"
+   ],
+   "future": [
+    "I will come",
+    "you will come",
+    "he will come",
+    "we will come",
+    "you will come",
+    "they will come"
+   ],
+   "imperative": [
+    "come!",
+    "let's come",
+    "don't come!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "**Come** with me!",
+    "f": "Viens avec moi !",
+    "t": "imperative"
+   },
+   {
+    "s": "She **came** late.",
+    "f": "Elle est venue tard.",
+    "t": "past"
+   }
+  ]
+ },
+ {
+  "v": "to see",
+  "fr": "voir",
+  "p": "si",
+  "t": {
+   "present": [
+    "I see",
+    "you see",
+    "he sees",
+    "we see",
+    "you see",
+    "they see"
+   ],
+   "past": [
+    "I saw",
+    "you saw",
+    "he saw",
+    "we saw",
+    "you saw",
+    "they saw"
+   ],
+   "future": [
+    "I will see",
+    "you will see",
+    "he will see",
+    "we will see",
+    "you will see",
+    "they will see"
+   ],
+   "imperative": [
+    "see!",
+    "let's see",
+    "don't see!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "I **see** the mountain.",
+    "f": "Je vois la montagne.",
+    "t": "present"
+   },
+   {
+    "s": "We **saw** the cathedral.",
+    "f": "Nous avons vu la cathédrale.",
+    "t": "past"
+   }
+  ]
+ },
+ {
+  "v": "to want",
+  "fr": "vouloir",
+  "p": "wont",
+  "t": {
+   "present": [
+    "I want",
+    "you want",
+    "he wants",
+    "we want",
+    "you want",
+    "they want"
+   ],
+   "past": [
+    "I wanted",
+    "you wanted",
+    "he wanted",
+    "we wanted",
+    "you wanted",
+    "they wanted"
+   ],
+   "future": [
+    "I will want",
+    "you will want",
+    "he will want",
+    "we will want",
+    "you will want",
+    "they will want"
+   ],
+   "imperative": [
+    "want!",
+    "let's want",
+    "don't want!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "He **wants** a coffee.",
+    "f": "Il veut un café.",
+    "t": "present"
+   },
+   {
+    "s": "I **wanted** to help.",
+    "f": "Je voulais aider.",
+    "t": "past"
+   }
+  ]
+ },
+ {
+  "v": "to eat",
+  "fr": "manger",
+  "p": "it",
+  "t": {
+   "present": [
+    "I eat",
+    "you eat",
+    "he eats",
+    "we eat",
+    "you eat",
+    "they eat"
+   ],
+   "past": [
+    "I ate",
+    "you ate",
+    "he ate",
+    "we ate",
+    "you ate",
+    "they ate"
+   ],
+   "future": [
+    "I will eat",
+    "you will eat",
+    "he will eat",
+    "we will eat",
+    "you will eat",
+    "they will eat"
+   ],
+   "imperative": [
+    "eat!",
+    "let's eat",
+    "don't eat!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "We **eat** at eight.",
+    "f": "Nous mangeons à huit heures.",
+    "t": "present"
+   },
+   {
+    "s": "They **ate** everything.",
+    "f": "Ils ont tout mangé.",
+    "t": "past"
+   }
+  ]
+ },
+ {
+  "v": "to speak",
+  "fr": "parler",
+  "p": "spik",
+  "t": {
+   "present": [
+    "I speak",
+    "you speak",
+    "he speaks",
+    "we speak",
+    "you speak",
+    "they speak"
+   ],
+   "past": [
+    "I spoke",
+    "you spoke",
+    "he spoke",
+    "we spoke",
+    "you spoke",
+    "they spoke"
+   ],
+   "future": [
+    "I will speak",
+    "you will speak",
+    "he will speak",
+    "we will speak",
+    "you will speak",
+    "they will speak"
+   ],
+   "imperative": [
+    "speak!",
+    "let's speak",
+    "don't speak!"
+   ]
+  },
+  "ex": [
+   {
+    "s": "Do you **speak** English?",
+    "f": "Parlez-vous anglais ?",
+    "t": "present"
+   },
+   {
+    "s": "She **spoke** to me.",
+    "f": "Elle m'a parlé.",
+    "t": "past"
+   }
+  ]
+ },
+ {
+  "v": "can",
+  "fr": "pouvoir",
+  "p": "kan",
+  "t": {
+   "present": [
+    "I can",
+    "you can",
+    "he can",
+    "we can",
+    "you can",
+    "they can"
+   ],
+   "past": [
+    "I could",
+    "you could",
+    "he could",
+    "we could",
+    "you could",
+    "they could"
+   ],
+   "future": [
+    "I will be able to",
+    "you will be able to",
+    "he will be able to",
+    "we will be able to",
+    "you will be able to",
+    "they will be able to"
+   ],
+   "imperative": [
+    "—",
+    "—",
+    "—"
+   ]
+  },
+  "ex": [
+   {
+    "s": "I **can** swim.",
+    "f": "Je sais nager.",
+    "t": "present"
+   },
+   {
+    "s": "She **could** not come.",
+    "f": "Elle n'a pas pu venir.",
+    "t": "past"
+   }
+  ]
+ },
+ {
+  "v": "must",
+  "fr": "devoir (obligation)",
+  "p": "meust",
+  "t": {
+   "present": [
+    "I must",
+    "you must",
+    "he must",
+    "we must",
+    "you must",
+    "they must"
+   ],
+   "past": [
+    "I had to",
+    "you had to",
+    "he had to",
+    "we had to",
+    "you had to",
+    "they had to"
+   ],
+   "future": [
+    "I will have to",
+    "you will have to",
+    "he will have to",
+    "we will have to",
+    "you will have to",
+    "they will have to"
+   ],
+   "imperative": [
+    "—",
+    "—",
+    "—"
+   ]
+  },
+  "ex": [
+   {
+    "s": "You **must** wear a seatbelt.",
+    "f": "Tu dois mettre ta ceinture.",
+    "t": "present"
+   },
+   {
+    "s": "I **had to** leave early.",
+    "f": "J'ai dû partir tôt.",
+    "t": "past"
+   },
+   {
+    "s": "She **will have to** decide.",
+    "f": "Elle devra décider.",
+    "t": "future"
+   }
+  ]
+ }
 ]
