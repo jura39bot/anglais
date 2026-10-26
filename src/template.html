@@ -103,6 +103,18 @@ font-weight:700;font-size:14px;transition:.25s;z-index:20;pointer-events:none;ma
 .avs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
 .avs button{font-size:26px;padding:8px;border-radius:12px;background:var(--card2);border:1.5px solid var(--line)}
 .avs button.sel{border-color:var(--acc);background:#12250c}
+.v-present{color:#58cc02;font-weight:800}
+.v-past{color:#1cb0f6;font-weight:800}
+.v-fut{color:#ff9600;font-weight:800}
+.v-imp{color:#ce82ff;font-weight:800}
+.tab{flex:1;padding:11px;border-radius:12px;background:var(--card);border:1px solid var(--line);font-weight:700;font-size:14px;text-align:center}
+.tab.on{background:var(--acc);color:#06210a;border-color:var(--acc)}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tense{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;margin-top:10px}
+.forms{font-size:14px;color:#c8d5e8;margin-top:2px;line-height:1.5}
+.qline{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:12px;margin-top:8px}
+.qline b{font-size:15px}
+.qline .fr{color:var(--dim);font-size:13px;margin-top:2px}
 hr{border:0;border-top:1px solid var(--line);margin:16px 0}
 </style>
 </head>
@@ -111,6 +123,8 @@ hr{border:0;border-top:1px solid var(--line);margin:16px 0}
 <div class="toast" id="toast"></div>
 <script>
 const DATA = __DATA__;
+const CONJ = __CONJ__;
+const QUEST = __QUEST__;
 const VERSION = "__BUILD__";
 const LEVELS = {
   A1:{name:"Débutant",sub:"A1 · survie",emoji:"🌱",color:"#58cc02"},
@@ -251,6 +265,9 @@ function render(){
     case "stats":return stats(a);
     case "profile":return profile(a);
     case "browse":return browse(a);
+    case "level":return levelScreen(a);
+    case "conj":return conjScreen(a);
+    case "quest":return questScreen(a);
   }
   home(a);
 }
@@ -334,8 +351,13 @@ function home(a){
   </button>
   <div class="spacer"></div>
   <div class="grid2">
-    <button class="btn alt" id="st">📊 Statistiques</button>
     <button class="btn alt" id="pf">👤 Profil</button>
+    <button class="btn alt" id="st">📊 Statistiques</button>
+  </div>
+  <div class="spacer"></div>
+  <div class="grid2">
+    <button class="btn alt" id="co">🔤 Conjugaison</button>
+    <button class="btn alt" id="qu">❓ Questions</button>
   </div>
   `;
   $("#cont").onclick=()=>startLesson(lvl,false);
@@ -344,6 +366,8 @@ function home(a){
   $("#lvlbtn").onclick=()=>go("levels");
   $("#st").onclick=()=>go("stats");
   $("#pf").onclick=()=>go("profile");
+  $("#co").onclick=()=>{S._tab="lecon";go("conj")};
+  $("#qu").onclick=()=>{S._tab="lecon";go("quest")};
 }
 
 function levels(a){
@@ -360,7 +384,7 @@ function levels(a){
         <div class="tiny muted">${L.sub} · ${n} mots${d?` · ${d} à réviser`:""}</div>
         <div class="bar" style="margin-top:8px"><i style="width:${p}%"></i></div>
       </div><div class="muted">›</div></button>`);
-    b.onclick=()=>{S.profile.level=k;save();startLesson(k,false)};
+    b.onclick=()=>{S._lvl=k;S.profile.level=k;save();go("level")};
     box.appendChild(b);
   });
 }
@@ -523,6 +547,165 @@ function lesson(a){
     <div style="height:10px"></div>
     <button class="btn alt" onclick="startLesson(${L.src?`'${L.src}'`:"null"},false)">Une autre leçon</button>`;
   LSN=null;
+}
+
+/* ---------- vocab lessons & modules ---------- */
+const PERS=["I","you","he/she","we","you (pl)","they"];
+const TNAMES={present:"Présent",past:"Passé",future:"Futur",imperative:"Impératif"};
+const TCLS={present:"v-present",past:"v-past",future:"v-fut",imperative:"v-imp"};
+function hl(s,t){return esc(s).replace(/\*\*(.+?)\*\*/g,'<span class="'+(TCLS[t]||"")+'">$1</span>')}
+
+function levelScreen(a){
+  const k=S._lvl||S.profile.level||"A1";
+  const L=LEVELS[k];
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('levels')">‹</button><h2>${L.emoji} ${L.name}</h2><span style="width:38px"></span></div>
+  <div class="card">
+    <div class="between"><b>${DATA[k].length} mots et expressions</b><span class="tiny muted">${levelPct(k)}% maîtrisé</span></div>
+    <div class="bar" style="margin-top:8px"><i style="width:${levelPct(k)}%;background:${L.color}"></i></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn alt" id="bl">📖 Voir les leçons</button>
+  <div style="height:10px"></div>
+  <button class="btn" id="qq">❓ Questions & révision</button>
+  <div style="height:10px"></div>
+  <button class="btn alt" id="li">🎧 Écoute</button>`;
+  $("#bl").onclick=()=>{S._lvl=k;go("browse")};
+  $("#qq").onclick=()=>startLesson(k,false);
+  $("#li").onclick=()=>startLesson(k,false,true);
+}
+
+function browse(a){
+  const k=S._lvl||S.profile.level||"A1";const L=LEVELS[k];
+  a.innerHTML=`
+  <div class="top"><button class="back" onclick="go('level')">‹</button><h2>${L.emoji} Leçons</h2><span style="width:38px"></span></div>
+  <p class="small muted" style="margin-bottom:12px">Lecture seule — tout le vocabulaire du niveau.</p>
+  <div class="stack" id="lst"></div>`;
+  const box=$("#lst");
+  DATA[k].forEach((w,i)=>{
+    const c=el(`<div class="card">
+      <div class="between"><b style="font-size:18px">${esc(w.e)}</b><button class="pill" data-s="${i}">🔊</button></div>
+      <div class="phon">${esc(w.p||"")}</div>
+      <div style="margin-top:4px">${esc(w.f)}</div>
+      <div class="ex">${esc(w.x)}<br><span style="color:#6f82a0">${esc(w.xf)}</span></div>
+    </div>`);
+    c.querySelector("[data-s]").onclick=()=>speak(w.e+" . "+w.x);
+    box.appendChild(c);
+  });
+}
+
+function conjScreen(a){
+  S._tab=S._tab||"lecon";
+  const tabs=`<div class="tabs">
+    <button class="tab ${S._tab==="lecon"?"on":""}" data-t="lecon">📖 Leçons</button>
+    <button class="tab ${S._tab==="questions"?"on":""}" data-t="questions">❓ Questions</button></div>`;
+  if(S._tab==="lecon"){
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:38px"></span></div>
+    ${tabs}<div class="stack" id="cs"></div>`;
+    const box=$("#cs");
+    CONJ.forEach(v=>{
+      let html=`<div class="card"><div class="between"><b style="font-size:17px">${esc(v.v)}</b><span class="phon">${esc(v.p||"")}</span></div><div class="small muted">${esc(v.fr)}</div>`;
+      ["present","past","future","imperative"].forEach(t=>{
+        if(!v.t[t])return;
+        html+=`<div class="tense ${TCLS[t]}">${TNAMES[t]}</div><div class="forms">${v.t[t].map(x=>esc(x)).join(" · ")}</div>`;
+      });
+      if(v.ex&&v.ex.length){
+        html+=`<div class="spacer"></div>`;
+        v.ex.forEach(e=>{html+=`<div class="ex">${hl(e.s,e.t)}<br><span style="color:#6f82a0">${esc(e.f)}</span></div>`});
+      }
+      html+=`</div>`;
+      box.appendChild(el(html));
+    });
+  } else {
+    if(!S._cq||S._cq.done)newConjQ();
+    const q=S._cq;const v=CONJ[q.vi];
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Conjugaison</h2><span style="width:38px"></span></div>
+    ${tabs}
+    <div class="cardq">
+      <div class="tiny muted">${TNAMES[q.t]}</div>
+      <div style="font-size:24px;font-weight:800;margin-top:6px">${PERS[q.p]} ___ <span class="muted" style="font-size:15px">(${esc(v.v)})</span></div>
+      <div class="small muted" style="margin-top:4px">${esc(v.fr)}</div>
+    </div>
+    <div id="o">${q.opts.map((x,i)=>`<button class="choice" data-i="${i}"><span class="k">${"ABCD"[i]}</span><span class="${TCLS[q.t]}">${esc(x)}</span></button>`).join("")}</div>
+    <div class="feed"><div><button class="btn" id="nx" disabled>Suivant</button></div></div>`;
+    let done=false;
+    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
+      if(done)return;done=true;
+      const ok=q.opts[+b.dataset.i]===q.good;
+      b.classList.add(ok?"ok":"no");
+      if(!ok)a.querySelectorAll("#o .choice").forEach(x=>{if(q.opts[+x.dataset.i]===q.good)x.classList.add("ok")});
+      S.good+=ok?1:0;S.bad+=ok?0:1;S.xp+=ok?10:2;
+      S.history[today()]=S.history[today()]||{xp:0,m:0};S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();$("#nx").disabled=false;
+    });
+    $("#nx").onclick=()=>{S._cq=null;render()};
+  }
+  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;if(S._tab==="questions")S._cq=null;render()});
+}
+
+function newConjQ(){
+  const vi=Math.floor(Math.random()*CONJ.length);
+  const v=CONJ[vi];
+  const tenses=Object.keys(v.t).filter(t=>v.t[t][0]&&v.t[t][0]!=="—");
+  const t=tenses[Math.floor(Math.random()*tenses.length)];
+  const max=v.t[t].length;const p=Math.floor(Math.random()*Math.min(6,max));
+  const good=v.t[t][p];
+  const pool=[];
+  CONJ.forEach(o=>Object.keys(o.t).forEach(tt=>o.t[tt].forEach(f=>{if(f&&f!=="—"&&f!==good)pool.push(f)})));
+  const opts=[good];
+  while(opts.length<4&&pool.length){const x=pool.splice(Math.floor(Math.random()*pool.length),1)[0];if(opts.indexOf(x)<0)opts.push(x)}
+  opts.sort(()=>Math.random()-.5);
+  S._cq={vi,t,p,good,opts};
+}
+
+function questScreen(a){
+  S._tab=S._tab||"lecon";
+  const tabs=`<div class="tabs">
+    <button class="tab ${S._tab==="lecon"?"on":""}" data-t="lecon">📖 Leçons</button>
+    <button class="tab ${S._tab==="questions"?"on":""}" data-t="questions">❓ Questions</button></div>`;
+  if(S._tab==="lecon"){
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:38px"></span></div>
+    ${tabs}<div class="stack" id="qs"></div>`;
+    const box=$("#qs");
+    QUEST.forEach((x,i)=>{
+      const c=el(`<div class="card">
+        <div class="between"><b>${esc(x.q)}</b><button class="pill" data-s="${i}">🔊</button></div>
+        <div class="fr" style="margin-top:2px">${esc(x.fr)}</div>
+        <div class="ex" style="margin-top:8px">${esc(x.a)}</div></div>`);
+      c.querySelector("[data-s]").onclick=()=>speak(x.q);
+      box.appendChild(c);
+    });
+  } else {
+    if(!S._qq||S._qq.done)newQuestQ();
+    const q=S._qq;
+    a.innerHTML=`<div class="top"><button class="back" onclick="go('home')">‹</button><h2>Questions</h2><span style="width:38px"></span></div>
+    ${tabs}
+    <div class="cardq"><div class="tiny muted">Comment dit-on</div>
+      <div style="font-size:20px;font-weight:800;margin-top:6px">${esc(q.fr)}</div></div>
+    <div id="o">${q.opts.map((x,i)=>`<button class="choice" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(x)}</button>`).join("")}</div>
+    <div class="feed"><div><button class="btn" id="nx" disabled>Suivant</button></div></div>`;
+    let done=false;
+    a.querySelectorAll("#o .choice").forEach(b=>b.onclick=()=>{
+      if(done)return;done=true;
+      const ok=q.opts[+b.dataset.i]===q.good;
+      b.classList.add(ok?"ok":"no");
+      if(!ok)a.querySelectorAll("#o .choice").forEach(x=>{if(q.opts[+x.dataset.i]===q.good)x.classList.add("ok")});
+      S.good+=ok?1:0;S.bad+=ok?0:1;S.xp+=ok?10:2;
+      S.history[today()]=S.history[today()]||{xp:0,m:0};S.history[today()].xp=(S.history[today()].xp||0)+(ok?10:2);
+      save();$("#nx").disabled=false;if(ok)speak(q.good);
+    });
+    $("#nx").onclick=()=>{S._qq=null;render()};
+  }
+  a.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{S._tab=b.dataset.t;if(S._tab==="questions")S._qq=null;render()});
+}
+
+function newQuestQ(){
+  const i=Math.floor(Math.random()*QUEST.length);
+  const good=QUEST[i].q;
+  const opts=[good];
+  while(opts.length<4){const x=QUEST[Math.floor(Math.random()*QUEST.length)].q;if(opts.indexOf(x)<0)opts.push(x)}
+  opts.sort(()=>Math.random()-.5);
+  S._qq={fr:QUEST[i].fr,good,opts};
 }
 
 /* ---------- stats ---------- */

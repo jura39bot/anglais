@@ -17,12 +17,17 @@ if extra_path.exists():
 (root / "src/all.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
 
 compact = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+conj = json.loads((root / "src/conj.json").read_text(encoding="utf-8")) if (root / "src/conj.json").exists() else []
+quest = json.loads((root / "src/questions.json").read_text(encoding="utf-8")) if (root / "src/questions.json").exists() else []
 build = datetime.datetime.now().strftime("%Y%m%d.%H%M")
-html = tpl.replace("__DATA__", compact).replace("__BUILD__", build)
+html = (tpl.replace("__DATA__", compact)
+           .replace("__CONJ__", json.dumps(conj, ensure_ascii=False, separators=(",", ":")))
+           .replace("__QUEST__", json.dumps(quest, ensure_ascii=False, separators=(",", ":")))
+           .replace("__BUILD__", build))
 (root / "index.html").write_text(html, encoding="utf-8")
 
 total = sum(len(v) for v in data.values())
-print(f"index.html {len(html)} bytes — {total} items — build {build}")
+print(f"index.html {len(html)} bytes — {total} items, {len(conj)} verbes, {len(quest)} questions — build {build}")
 for k, v in data.items():
     print(f"  {k}: {len(v)}")
 print("sha", hashlib.sha256(html.encode()).hexdigest()[:12])
