@@ -1,5 +1,5 @@
 // Network-first for the page (so updates land immediately), cache-first for assets.
-const CACHE = "anglais-v4";
+const CACHE = "anglais-v5";
 const ASSETS = [
   "./",
   "./index.html",

@@ -1292,16 +1292,23 @@ function profile(a){
   <div class="spacer"></div>
   <div class="card">
     <h3>Réglages</h3><div class="spacer"></div>
+    <button class="btn blue" id="clr">🧹 Vider le cache et recharger</button>
+    <div style="height:10px"></div>
     <button class="btn alt" id="exp">⬇️ Exporter mes données</button>
     <div style="height:10px"></div>
     <button class="btn alt" id="rst" style="color:#ff9a9a">♻️ Tout réinitialiser</button>
   </div>
-  <p class="tiny muted" style="text-align:center;margin-top:16px">v${VERSION} · données stockées sur ton téléphone</p>`;
+  <p class="tiny muted" style="text-align:center;margin-top:16px">v${VERSION} · build 2026-10-28 · données stockées sur ton téléphone</p>`;
   a.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>{p.level=b.dataset.l;save();toast("Niveau : "+LEVELS[b.dataset.l].name);render()});
   $("#sy").onclick=()=>{const v=$("#tk").value.trim();if(v&&v.indexOf("•")!==0)localStorage.setItem(TOKKEY,v);ghSync()};
   $("#imp").onclick=()=>$("#fi").click();
   $("#fi").onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{try{const o=JSON.parse(rd.result);S=mergeState(S,o);save();toast("Importé ✓");render()}catch(err){toast("Fichier invalide")}};rd.readAsText(f)};
   $("#ren").onclick=()=>{const v=prompt("Ton prénom",p.name);if(v&&v.trim()){p.name=v.trim().slice(0,18);save();render()}};
+  $("#clr").onclick=async()=>{
+    try{const rs=await navigator.serviceWorker.getRegistrations();for(const r of rs)await r.unregister()}catch(e){}
+    try{const ks=await caches.keys();await Promise.all(ks.map(k=>caches.delete(k)))}catch(e){}
+    location.reload();
+  };
   $("#exp").onclick=()=>{
     const blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});
     const u=URL.createObjectURL(blob);const i=document.createElement("a");
