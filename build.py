@@ -29,6 +29,15 @@ html = (tpl.replace("__DATA__", compact)
            .replace("__CONV__", json.dumps(conv, ensure_ascii=False, separators=(",", ":")))
            .replace("__GRAM__", json.dumps(gram, ensure_ascii=False, separators=(",", ":")))
            .replace("__BUILD__", build))
+# STRUCTURE CHECK — refuse de publier une page blanche
+for tag in ("style","script","body"):
+    o = html.count("<"+tag+">") if tag!="body" else html.count("<body>")
+    c = html.count("</"+tag+">")
+    if tag in ("style","script") and o != c:
+        raise SystemExit(f"STRUCTURE CHECK FAILED: <{tag}> {o} / </{tag}> {c}")
+if html.count("<body>") != 1:
+    raise SystemExit("STRUCTURE CHECK FAILED: body missing")
+
 (root / "index.html").write_text(html, encoding="utf-8")
 
 total = sum(len(v) for v in data.values())
