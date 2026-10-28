@@ -52,13 +52,17 @@ def main():
     L.append("💬 *3 expressions*")
     for x in exps:
         L.append(f"• *{x['e']}* — {x['f']}")
-        L.append(f"   _ {x['p']} _")
-        L.append(f"   {x['x']}")
-        L.append(f"   → {x['xf']}")
+        if x.get("p"):
+            L.append(f"   _ {x['p']} _")
+        if x.get("x"):
+            L.append(f"   {x['x']}")
+            if x.get("xf"):
+                L.append(f"   → {x['xf']}")
     L.append("")
     L.append("📚 *5 mots*")
     for x in wds:
-        L.append(f"• *{x['e']}* — {x['f']}  _ {x['p']} _")
+        ph = f"  _ {x['p']} _" if x.get("p") else ""
+        L.append(f"• *{x['e']}* — {x['f']}{ph}")
     L.append("")
     L.append("🔁 *Révisions* — trouve la traduction")
     for n, x in enumerate(revs, 1):

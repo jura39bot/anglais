@@ -230,7 +230,11 @@ hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:16px 0}
 .fb.no{background:rgba(255,70,70,.13);border:1px solid rgba(255,90,90,.42);color:#ffc9c9}
 .fb.no b{color:#ff6b6b}
 .fb.ok b{color:#9dff6b}
-</style>
+
+.karaoke{font-size:30px;font-weight:800;letter-spacing:-.01em;color:#5ecbff;text-shadow:0 0 18px rgba(94,203,255,.35)}
+.kbar{height:5px;border-radius:99px;background:rgba(255,255,255,.10);overflow:hidden;margin-top:10px}
+.kbar>i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#5ecbff,#8fe3ff);box-shadow:0 0 12px rgba(94,203,255,.6)}
+
 </head>
 <body>
 <div id="app"></div>
@@ -296,6 +300,14 @@ const $=s=>document.querySelector(s);
 function el(html){const d=document.createElement("div");d.innerHTML=html.trim();return d.firstElementChild}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),1900)}
+function karaokeRun(txt,rate){
+  const b=document.getElementById("kf");
+  if(!b)return;
+  const ms=Math.max(650,((txt||"").length*95+380)/(rate||1));
+  b.style.transition="none"; b.style.width="0%"; void b.offsetWidth;
+  b.style.transition="width "+Math.round(ms)+"ms linear";
+  b.style.width="100%";
+}
 function speak(txt,rate){
   try{
     if(!window.speechSynthesis)return;
@@ -604,17 +616,18 @@ function lesson(a){
       <div class="cardq">
         <div class="tiny muted" style="margin-bottom:6px">${L.idx+1}/${L.picks.length} · ${L.listen?"écoute et choisis":"que veut dire"}</div>
         ${L.listen
-          ? `<div style="font-size:30px;font-weight:800;letter-spacing:6px">• • •</div>
+          ? `<div class="karaoke">${esc(w.e)}</div>
+             <div class="kbar"><i id="kf"></i></div>
              <div class="row" style="margin-top:10px;gap:8px"><button class="pill" id="sp">🔊 Réécouter</button><button class="pill" id="sps">🐢 Lent</button></div>`
           : `<div style="font-size:26px;font-weight:800">${esc(w.e)}</div>
              <button class="pill" id="sp" style="margin-top:8px">🔊</button>`}
       </div>
       <div id="opts">${p.opts.map((o,i)=>`<button class="choice" data-i="${i}"><span class="k">${"ABCD"[i]}</span>${esc(o.f)}</button>`).join("")}</div>
       <div class="feed"><div><button class="btn" id="next" disabled>Continuer</button></div></div>`;
-    $("#sp").onclick=()=>speak(w.e);
+    $("#sp").onclick=()=>{ if(L.listen)karaokeRun(w.e,.9); speak(w.e); };
     if(L.listen){
-      setTimeout(()=>speak(w.e),250);
-      const sb=$("#sps"); if(sb)sb.onclick=()=>speak(w.e,.55);
+      setTimeout(()=>{ karaokeRun(w.e,.9); speak(w.e); },250);
+      const sb=$("#sps"); if(sb)sb.onclick=()=>{ karaokeRun(w.e,.55); speak(w.e,.55); };
     }
     let answered=false;
     a.querySelectorAll("#opts .choice").forEach(b=>b.onclick=()=>{
